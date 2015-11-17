@@ -17,6 +17,7 @@ namespace MyThesis.Controllers
         public IHttpActionResult CreateShip([FromBody] CreateShipViewModel createShipViewModel)
         {
             _context.Ships.Add(createShipViewModel.Ship);
+            createShipViewModel.ShipLocation.ShipId = createShipViewModel.Ship.Id;
             _context.Locations.Add(createShipViewModel.ShipLocation);
             _context.SaveChanges();
 
