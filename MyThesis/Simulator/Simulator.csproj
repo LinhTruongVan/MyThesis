@@ -78,6 +78,10 @@
     <Content Include="app\index.html" />
     <Content Include="app\src\app.const.js" />
     <Content Include="app\src\app.js" />
+    <Content Include="app\src\createWarningLocationDialog\create-warning-location-dialog.html" />
+    <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogCtrl.js" />
+    <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogDataSvc.js" />
+    <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogSvc.js" />
     <Content Include="app\src\createShipDialog\create-ship-dialog.html" />
     <Content Include="app\src\createShipDialog\createShipDialogCtrl.js" />
     <Content Include="app\src\createShipDialog\createShipDialogSvc.js" />

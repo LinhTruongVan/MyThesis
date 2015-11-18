@@ -1,11 +1,11 @@
 (function() {
     angular
         .module('app')
-        .factory('homeDataSvc', homeDataSvc);
+        .factory('shipDataSvc', shipDataSvc);
 
-    homeDataSvc.$inject = ['host', '$http'];
+    shipDataSvc.$inject = ['host', '$http'];
     
-    function homeDataSvc(host, $http) {
+    function shipDataSvc(host, $http) {
         return {
             createShip: createShip,
             removeShip: removeShip,

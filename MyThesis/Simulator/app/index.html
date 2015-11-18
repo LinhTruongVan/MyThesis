@@ -9,6 +9,7 @@
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="bower_components/toastr/toastr.min.css" rel="stylesheet" />
     <link href="bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet" />
     <link href="assets/lumio/css/styles.css" rel="stylesheet" />
     <link href="assets/css/home.css" rel="stylesheet" />
 
@@ -45,8 +46,8 @@
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <ul class="nav menu">
             <li class="clickable-element"><a ng-click="vm.openCreateShipDialog()"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-            <li class="clickable-element"><a><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Widgets</a></li>
-            <li class="clickable-element"><a><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
+            <li class="clickable-element"><a ng-click="vm.openCreateWarningLocationDialog()"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Widgets</a></li>
+            <li class="clickable-element"><a ng-click="vm.openSimulatorSettingDialog()"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
             <li class="clickable-element"><a><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a></li>
             <li class="clickable-element"><a><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
             <li class="clickable-element"><a><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts &amp; Panels</a></li>
@@ -65,11 +66,11 @@
 
     </div> <!--/.main-->
 
-    <!--<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="overlay" id="overlay">
             <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
         </div>
-    </div>-->
+    </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -80,6 +81,7 @@
     <script src="bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
     <script src="bower_components/spin.js/spin.min.js"></script>
     <script src="bower_components/angular-spinner/angular-spinner.min.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
 
     <script src="src/app.js"></script>
     <script src="src/app.const.js"></script>
@@ -91,9 +93,17 @@
     <script src="src/home/homeSvc.js"></script>
     <script src="src/home/homeDataSvc.js"></script>
 
+    <script src="src/ship/shipDataSvc.js"></script>
 
     <script src="src/createShipDialog/createShipDialogSvc.js"></script>
     <script src="src/createShipDialog/createShipDialogCtrl.js"></script>
+
+    <script src="src/createWarningLocationDialog/createWarningLocationDialogCtrl.js"></script>
+    <script src="src/createWarningLocationDialog/createWarningLocationDialogDataSvc.js"></script>
+    <script src="src/createWarningLocationDialog/createWarningLocationDialogSvc.js"></script>
+
+    <script src="src/simulatorSettingDialog/simulatorSettingDialogCtrl.js"></script>
+    <script src="src/simulatorSettingDialog/simulatorSettingDialogSvc.js"></script>
 
 </body>
 

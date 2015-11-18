@@ -1,37 +1,36 @@
-(function () {
+﻿(function () {
     'use strict';
     
     angular
         .module('app')
         .controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['spinnerUtilSvc', '$uibModal', 'homeSvc', 'homeDataSvc'];
+    homeCtrl.$inject = ['spinnerUtilSvc', '$uibModal', 'homeSvc', 'shipDataSvc'];
 
-    function homeCtrl(spinnerUtilSvc, $uibModal, homeSvc, homeDataSvc) {
+    function homeCtrl(spinnerUtilSvc, $uibModal, homeSvc, shipDataSvc) {
         var vm = this;
-        //vm.overlay = angular.element(document.querySelector('#overlay'));
+        vm.overlay = angular.element(document.querySelector('#overlay'));
 
         vm.ships = [];
-        vm.timeout = 10;
-        vm.timeoutForSendLocation = 20;
 
         vm.openCreateShipDialog = openCreateShipDialog;
         vm.openCreateWarningLocationDialog = openCreateWarningLocationDialog;
+        vm.openSimulatorSettingDialog = openSimulatorSettingDialog;
 
         init();
 
         function init(){
-            //spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
-            //indexDataSvc.getShips().then(function(response){
-            //    spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-            //    toastr.success('Get ships was successful!');
+            spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
+            shipDataSvc.getAllShips().then(function (response) {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.success('Tải danh sách tàu thành công!');
 
-            //    indexSvc.setShips(response.data);
-            //    vm.ships = indexSvc.getShips();
-            //}, function(error){
-            //    spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-            //    toastr.error('Get ships was not successful!');
-            //});
+                homeSvc.setShips(response.data);
+                vm.ships = homeSvc.getShips();
+            }, function(error){
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.error('Tải danh sách tàu không thành công!');
+            });
         }
 
         function openCreateShipDialog(){
@@ -46,11 +45,18 @@
 
         function openCreateWarningLocationDialog(){
             $uibModal.open({
-              templateUrl: "/src/components/createWarningLocationDialog/create-warning-location-dialog.html",
+                templateUrl: "/src/createWarningLocationDialog/create-warning-location-dialog.html",
               controller: "createWarningLocationDialogCtrl",
               resolve: {
                 overlay: vm.overlay
               }
+            });
+        }
+
+        function openSimulatorSettingDialog() {
+            $uibModal.open({
+                templateUrl: "/src/simulatorSettingDialog/simulator-setting-dialog.html",
+                controller: "simulatorSettingDialogCtrl"
             });
         }
 

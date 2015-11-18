@@ -6,10 +6,10 @@
         .controller('createShipDialogCtrl', createShipDialogCtrl);
 
     createShipDialogCtrl.$inject = ['$scope', 'settingConst', 'spinnerUtilSvc', 'latlongUtilSvc', 'overlay', 'createShipDialogSvc',
-        'homeDataSvc'];
+        'shipDataSvc', 'homeSvc'];
 
     function createShipDialogCtrl($scope, settingConst, spinnerUtilSvc, latlongUtilSvc, overlay, createShipDialogSvc,
-        homeDataSvc) {
+        shipDataSvc, homeSvc) {
 
         $scope.newShip = {
             ShipStatus: settingConst.shipStatus.nornal.value
@@ -30,23 +30,19 @@
             setupShipBeforeCreating($scope.newShip);
             var shipViewModel = buildCreateShipViewModel($scope.newShip);
 
-            //spinnerUtilSvc.showSpinner('spinnerSearch', overlay);
-            homeDataSvc.createShip(shipViewModel).then(function (response) {
-                //spinnerUtilSvc.hideSpinner('spinnerSearch', overlay);
-                toastr.success('Create ship was successful!');
+            spinnerUtilSvc.showSpinner('spinnerSearch', overlay);
+            shipDataSvc.createShip(shipViewModel).then(function (response) {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', overlay);
+                toastr.success('Thêm tàu thành công!');
 
-                //$scope.newShip._id = response.data.id;
-                //$scope.newShip.locations = [{
-                //    'latitude': $scope.newShip.latitude,
-                //    'longitude': $scope.newShip.longitude,
-                //    'direction': $scope.newShip.direction
-                //}];
+                var createdShip = response.data.Ship;
+                createdShip.ShipLocations = [response.data.ShipLocation];
 
-                //indexSvc.addShip($scope.newShip);
+                homeSvc.addShip(createdShip);
                 closeDialog();
-            }, function (error) {
-                //spinnerUtilSvc.hideSpinner('spinnerSearch', overlay);
-                toastr.error('Create ship was not successful!');
+            }, function () {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', overlay);
+                toastr.error('Thêm tàu không thành công!');
             });
 
         }

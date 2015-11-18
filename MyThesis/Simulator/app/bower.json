@@ -13,6 +13,7 @@
     "font-awesome": "~4.4.0",
     "toastr": "~2.1.2",
     "angular-modal-service": "~0.6.9",
-    "Ionicons": "ionicons#~2.0.1"
+    "Ionicons": "ionicons#~2.0.1",
+    "seiyria-bootstrap-slider": "~5.2.6"
   }
 }
