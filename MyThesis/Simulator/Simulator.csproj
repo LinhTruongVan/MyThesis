@@ -78,6 +78,9 @@
     <Content Include="app\index.html" />
     <Content Include="app\src\app.const.js" />
     <Content Include="app\src\app.js" />
+    <Content Include="app\src\simulatorSettingDialog\simulator-setting-dialog.html" />
+    <Content Include="app\src\simulatorSettingDialog\simulatorSettingDialogCtrl.js" />
+    <Content Include="app\src\simulatorSettingDialog\simulatorSettingDialogSvc.js" />
     <Content Include="app\src\createWarningLocationDialog\create-warning-location-dialog.html" />
     <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogCtrl.js" />
     <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogDataSvc.js" />
@@ -90,6 +93,7 @@
     <Content Include="app\src\home\homeSvc.js" />
     <Content Include="app\src\services\latlongUtilSvc.js" />
     <Content Include="app\src\services\spinnerUtilSvc.js" />
+    <Content Include="app\src\ship\shipDataSvc.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
