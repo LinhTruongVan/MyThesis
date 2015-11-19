@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Ship Simulator</title>
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="bower_components/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <link href="bower_components/angularjs-slider/dist/rzslider.min.css" rel="stylesheet"/>
+    <link href="assets/lumio/css/styles.css" rel="stylesheet" />
+    <link href="assets/css/home.css" rel="stylesheet" />
+
+    <script src="assets/lumio/js/lumino.glyphs.js"></script>
+
+</head>
+
+<body ng-controller="homeCtrl as vm">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>Ship</span>Simulator</a>
+                <!--<ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>-->
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <ul class="nav menu">
+            <li class="clickable-element"><a ng-click="vm.openCreateShipDialog()"><span class="menu-icon ion-android-boat"></span>Thêm tàu</a></li>
+            <li class="clickable-element"><a ng-click="vm.openCreateWarningLocationDialog()"><span class="menu-icon ion-android-pin"></span>Thêm cảnh báo</a></li>
+            <li class="clickable-element"><a ng-click="vm.openSimulatorSettingDialog()"><span class="menu-icon ion-android-settings"></span>Cài đặt</a></li>
+            <!--<li class="clickable-element"><a><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a></li>
+            <li class="clickable-element"><a><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
+            <li class="clickable-element"><a><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts &amp; Panels</a></li>
+            <li class="clickable-element"><a><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
+            <li class="clickable-element" role="presentation" class="divider"></li>
+            <li class="clickable-element"><a href=""><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>-->
+        </ul>
+    </div><!--/.sidebar-->
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Danh sách tàu</h2>
+                <div ng-repeat="ship in vm.ships">
+                    <ship ship-info="ship" ship-index="$index" setting-timeout="vm.settingTimeout" overlay="vm.overlay"></ship>
+                </div>
+            </div>
+        </div><!--/.row-->
+
+    </div> <!--/.main-->
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="overlay" id="overlay">
+            <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
+        </div>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/toastr/toastr.min.js"></script>
+    <script src="bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+    <script src="bower_components/spin.js/spin.min.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.min.js"></script>
+    <script src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+
+    <script src="src/app.js"></script>
+    <script src="src/app.const.js"></script>
+
+    <script src="src/services/spinnerUtilSvc.js"></script>
+    <script src="src/services/latlongUtilSvc.js"></script>
+
+    <script src="src/home/homeCtrl.js"></script>
+    <script src="src/home/homeSvc.js"></script>
+    <script src="src/home/homeDataSvc.js"></script>
+
+    <script src="src/ship/shipDataSvc.js"></script>
+
+    <script src="src/createShipDialog/createShipDialogSvc.js"></script>
+    <script src="src/createShipDialog/createShipDialogCtrl.js"></script>
+
+    <script src="src/createWarningLocationDialog/createWarningLocationDialogCtrl.js"></script>
+    <script src="src/createWarningLocationDialog/createWarningLocationDialogDataSvc.js"></script>
+    <script src="src/createWarningLocationDialog/createWarningLocationDialogSvc.js"></script>
+
+    <script src="src/simulatorSettingDialog/simulatorSettingDialogCtrl.js"></script>
+    <script src="src/simulatorSettingDialog/simulatorSettingDialogSvc.js"></script>
+
+    <script src="src/ship/shipCtrl.js"></script>
+    <script src="src/ship/ship.js"></script>
+    <script src="src/ship/shipDataSvc.js"></script>
+
+</body>
+
+</html>

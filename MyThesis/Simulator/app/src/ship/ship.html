@@ -1,0 +1,23 @@
+﻿<div class="alert alert-info">
+    <button type="button" class="close">&times;</button>
+    <table class="table table-bordered ship-info-table ">
+        <tbody>
+        <tr>
+            <td>Mã tàu: {{vm.shipInfo.Id}}</td>
+            <td><button class="btn btn-success">Gửi tọa độ</button></td>
+        </tr>
+        <tr>
+            <td>Hướng di chuyển: {{vm.currentMovingAngle}}</td>
+            <td>
+                Tự động gửi tọa độ: <input type="checkbox" ng-model="vm.autoSendLocationStatus" ng-change="vm.logger()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Vĩ độ -- Kinh độ: {{vm.currentLocation.Latitude}} -- {{vm.currentLocation.Longitude}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+   
+</script>

@@ -1,0 +1,6 @@
+E:\MyThesis\MyThesis\Simulator\bin\Simulator.dll.config
+E:\MyThesis\MyThesis\Simulator\bin\Simulator.dll
+E:\MyThesis\MyThesis\Simulator\bin\Simulator.pdb
+E:\MyThesis\MyThesis\Simulator\obj\Debug\Simulator.csprojResolveAssemblyReference.cache
+E:\MyThesis\MyThesis\Simulator\obj\Debug\Simulator.dll
+E:\MyThesis\MyThesis\Simulator\obj\Debug\Simulator.pdb

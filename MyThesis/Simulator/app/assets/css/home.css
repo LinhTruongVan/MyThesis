@@ -1,0 +1,31 @@
+﻿.overlay{
+	position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1100;
+    top: 0;
+    left: 0;
+}
+
+.clickable-element {
+    cursor: pointer;
+}
+
+.menu-icon {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.ship-info-table {
+    margin-bottom: 0;
+}
+
+.table-no-border>thead>tr>th, 
+.table-no-border>tbody>tr>th, 
+.table-no-border>tfoot>tr>th, 
+.table-no-border>thead>tr>td, 
+.table-no-border>tbody>tr>td, 
+.table-no-border>tfoot>tr>td {
+  border-top: none; 
+}
