@@ -58,7 +58,6 @@ E:\MyThesis\MyThesis\MyThesis\bin\Microsoft.Owin.Security.Google.xml
 E:\MyThesis\MyThesis\MyThesis\bin\Microsoft.Owin.Security.Twitter.xml
 E:\MyThesis\MyThesis\MyThesis\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\MyThesis\MyThesis\MyThesis\bin\System.Web.Http.Owin.xml
-E:\MyThesis\MyThesis\MyThesis\obj\Debug\MyThesis.csprojResolveAssemblyReference.cache
 E:\MyThesis\MyThesis\MyThesis\obj\Debug\MyThesis.dll
 E:\MyThesis\MyThesis\MyThesis\obj\Debug\MyThesis.pdb
 E:\MyThesis\MyThesis\MyThesis\obj\Debug\MyThesis.Migrations.Initcontext.resources
@@ -66,3 +65,6 @@ E:\MyThesis\MyThesis\MyThesis\obj\Debug\MyThesis.csproj.GenerateResource.Cache
 E:\MyThesis\MyThesis\MyThesis\bin\System.Web.Cors.dll
 E:\MyThesis\MyThesis\MyThesis\bin\System.Web.Http.Cors.dll
 E:\MyThesis\MyThesis\MyThesis\bin\System.Web.Http.Cors.xml
+E:\MyThesis\MyThesis\MyThesis\bin\Microsoft.Owin.Cors.dll
+E:\MyThesis\MyThesis\MyThesis\bin\Microsoft.Owin.Cors.xml
+E:\MyThesis\MyThesis\MyThesis\obj\Debug\MyThesis.csprojResolveAssemblyReference.cache

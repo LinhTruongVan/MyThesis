@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using MyThesis.DAL;
 using MyThesis.Models.Location;
 
 namespace MyThesis.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/{shipId}/locations")]
+    [RoutePrefix("api/ships/{shipId}/locations")]
     public class ShipLocationController : ApiController
     {
         private readonly ThesisContext _context = new ThesisContext();
@@ -19,7 +17,7 @@ namespace MyThesis.Controllers
         {
             try
             {
-                if (shipId != shipLocation.Id) return BadRequest();
+                if (shipId != shipLocation.ShipId) return BadRequest();
 
                 var ship = _context.Ships.FirstOrDefault(p => p.Id == shipId);
                 if (ship == null) return NotFound();

@@ -6,7 +6,6 @@ using MyThesis.Models.Ship;
 
 namespace MyThesis.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/ships")]
     public class ShipController: ApiController
     {
@@ -65,6 +64,7 @@ namespace MyThesis.Controllers
             var ship = _context.Ships.FirstOrDefault(item => item.Id == id);
             if (ship == null) return NotFound();
             _context.Ships.Remove(ship);
+            _context.SaveChanges();
 
             return Ok(ship);
         }

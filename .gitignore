@@ -1,3 +1,5 @@
 MyThesis/Simulator/node_modules/*
 MyThesis/Simulator/app/bower_components/*
+MyThesis/Monitor/node_modules/*
+MyThesis/Monitor/app/bower_components/*
 MyThesis/MyThesis/bin/*

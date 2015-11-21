@@ -8,10 +8,10 @@
     simulatorSettingDialogCtrl.$inject = ['$scope', 'simulatorSettingDialogSvc'];
 
     function simulatorSettingDialogCtrl($scope, simulatorSettingDialogSvc) {
-        var settingTimeout = simulatorSettingDialogSvc.getSettingTimeout();
+        $scope.settingTimeout = simulatorSettingDialogSvc.getSettingTimeout();
 
         $scope.updateLocationTimeoutSlider = {
-            value: settingTimeout.updateLocation,
+            value: $scope.settingTimeout.updateLocation,
             options: {
                 floor: 0,
                 ceil: 100
@@ -19,7 +19,7 @@
         };
 
         $scope.sendLocationTimeoutSlider = {
-            value: settingTimeout.sendLocation,
+            value: $scope.settingTimeout.sendLocation,
             options: {
                 floor: 0,
                 ceil: 100

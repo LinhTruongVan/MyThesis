@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 using Microsoft.Owin.Security.OAuth;
 
 namespace MyThesis
@@ -12,10 +13,10 @@ namespace MyThesis
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-            config.EnableCors();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

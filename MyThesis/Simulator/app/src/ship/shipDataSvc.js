@@ -9,7 +9,8 @@
         return {
             createShip: createShip,
             removeShip: removeShip,
-            getAllShips: getAllShips
+            getAllShips: getAllShips,
+            sendLocation: sendLocation
         };
 
         function createShip(newShip){
@@ -44,6 +45,19 @@
                 headers: {
                     'Accept': 'application/json'
                 }
+            };
+            return $http(req);
+        }
+
+        function sendLocation(shipLocation) {
+            var req = {
+                method: 'POST',
+                url: host + '/ships/' + shipLocation.ShipId +'/locations',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                data: shipLocation
             };
             return $http(req);
         }

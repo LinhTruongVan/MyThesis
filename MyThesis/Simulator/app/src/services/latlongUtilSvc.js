@@ -34,8 +34,8 @@
             if (isNaN(lat2) || isNaN(lon2)) return null;
 
             return {
-                latitude: toDeg(lat2).toFixed(6),
-                longitude: toDeg(lon2).toFixed(6),
+                latitude: parseFloat(toDeg(lat2).toFixed(6)),
+                longitude: parseFloat(toDeg(lon2).toFixed(6)),
                 direction: originalBrng
             }
 

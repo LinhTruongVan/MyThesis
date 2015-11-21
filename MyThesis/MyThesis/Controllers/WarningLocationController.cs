@@ -7,7 +7,6 @@ using MyThesis.Models.Location;
 
 namespace MyThesis.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/warning-locations")]
     public class WarningLocationController: ApiController
     {
