@@ -7,14 +7,14 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>d7780447-8d67-476b-b448-18f84ffd03ab</ProjectGuid>
+    <ProjectGuid>{7296BD87-1B4C-44F4-9DEA-D8D74D542798}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Monitor</RootNamespace>
     <AssemblyName>Monitor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -57,13 +57,53 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\assets\css\common.css" />
+    <Content Include="app\indexSvc.js" />
+    <Content Include="app\src\home\home.html" />
+    <Content Include="app\src\home\homeCtrl.js" />
+    <Content Include="app\src\home\homeDataSvc.js" />
+    <Content Include="app\src\home\homeSvc.js" />
+    <Content Include="app\src\loginPage\loginPage.html" />
+    <Content Include="app\src\services\spinnerUtilSvc.js" />
+    <Content Include="app\src\signUpPage\signUpPage.html" />
+    <Content Include="app\src\signUpPage\signUpPageCtrl.js" />
+    <Content Include="app\src\signUpPage\signUpPageDataSvc.js" />
+    <Content Include="app\src\signUpPage\signUpPageSvc.js" />
+    <Content Include="app\src\user\userDataSvc.js" />
+    <Content Include="package.json" />
+    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.eot" />
+    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.woff" />
+    <Content Include="app\bower.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\assets\css\styles.css" />
+    <Content Include="app\assets\lumio\css\styles.css" />
+    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.svg" />
+    <Content Include="app\assets\lumio\js\html5shiv.min.js" />
+    <Content Include="app\assets\lumio\js\lumino.glyphs.js" />
+    <Content Include="app\assets\lumio\js\respond.min.js" />
+    <Content Include="app\indexCtrl.js" />
+    <Content Include="app\index.html" />
+    <Content Include="app\src\app.const.js" />
+    <Content Include="app\src\app.js" />
+    <Content Include="app\src\user\userSvc.js" />
+    <Content Include="app\src\loginPage\loginPageCtrl.js" />
+    <Content Include="app\src\loginPage\loginPageDataSvc.js" />
+    <Content Include="app\src\loginPage\loginPageSvc.js" />
+    <Content Include="gulpfile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -75,12 +115,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>46361</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:46361/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

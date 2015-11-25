@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Ship Simulator</title>
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="bower_components/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="assets/lumio/css/styles.css" rel="stylesheet" />
+    <link href="assets/css/common.css" rel="stylesheet" />
+
+    <script src="assets/lumio/js/lumino.glyphs.js"></script>
+
+</head>
+
+<body ng-controller="indexCtrl as vm">
+
+    <div ng-view>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/toastr/toastr.min.js"></script>
+    <script src="bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+    <script src="bower_components/spin.js/spin.min.js"></script>
+    <script src="bower_components/angular-spinner/angular-spinner.min.js"></script>
+
+    <script src="src/app.js"></script>
+    <script src="src/app.const.js"></script>
+
+    <script src="src/services/spinnerUtilSvc.js"></script>
+
+    <script src="indexCtrl.js"></script>
+    <script src="indexSvc.js"></script>
+
+    <script src="src/user/userSvc.js"></script>
+    <script src="src/user/userDataSvc.js"></script>
+
+    <script src="src/signUpPage/signUpPageCtrl.js"></script>
+    <script src="src/signUpPage/signUpPageDataSvc.js"></script>
+    <script src="src/signUpPage/signUpPageSvc.js"></script>
+
+    <script src="src/loginPage/loginPageCtrl.js"></script>
+    <script src="src/loginPage/loginPageDataSvc.js"></script>
+    <script src="src/loginPage/loginPageSvc.js"></script>
+
+    <script src="src/home/homeCtrl.js"></script>
+    <script src="src/home/homeDataSvc.js"></script>
+    <script src="src/home/homeSvc.js"></script>
+
+</body>
+
+</html>

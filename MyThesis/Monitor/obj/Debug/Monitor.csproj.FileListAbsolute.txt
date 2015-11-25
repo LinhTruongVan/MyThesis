@@ -1,0 +1,6 @@
+E:\MyThesis\MyThesis\Monitor\bin\Monitor.dll.config
+E:\MyThesis\MyThesis\Monitor\bin\Monitor.dll
+E:\MyThesis\MyThesis\Monitor\bin\Monitor.pdb
+E:\MyThesis\MyThesis\Monitor\obj\Debug\Monitor.csprojResolveAssemblyReference.cache
+E:\MyThesis\MyThesis\Monitor\obj\Debug\Monitor.dll
+E:\MyThesis\MyThesis\Monitor\obj\Debug\Monitor.pdb

@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using MyThesis.Models.Location;
 using MyThesis.Models.Ship;
+using MyThesis.Models.User;
 
 namespace MyThesis.DAL
 {
@@ -15,5 +16,6 @@ namespace MyThesis.DAL
         public DbSet<Location> Locations { get; set; }
         public DbSet<WarningLocation> WarningLocations { get; set; }
         public DbSet<ShipLocation> ShipLocations { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

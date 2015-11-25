@@ -1,0 +1,59 @@
+﻿(function () {
+    'use strict';
+    
+    angular
+        .module('app')
+        .controller('loginPageCtrl', loginPageCtrl);
+
+    loginPageCtrl.$inject = ['spinnerUtilSvc', 'userSvc', 'userDataSvc', '$location'];
+
+    function loginPageCtrl(spinnerUtilSvc, userSvc, userDataSvc, $location) {
+        var vm = this;
+
+        vm.user = {};
+
+        vm.overlay = angular.element(document.querySelector('#overlay'));
+
+        vm.login = login;
+
+        init();
+
+        function init() {
+        }
+
+        function login() {
+            if (validateUser() === false) return;
+
+            spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
+            userDataSvc.login(vm.user).then(function(response) {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.success('Đăng nhập thành công');
+                userSvc.setCurrentUser(response.data);
+                $location.path('/home');
+            }, function(error) {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                if (error.status === 404 || error.status === 400) {
+                    toastr.error('Tài khoản/ Mật khẩu không đúng');
+                } else {
+                    toastr.error('Đăng nhập không thành công');
+                }
+            });
+        }
+
+        function validateUser() {
+            if (!vm.user.UserName || vm.user.UserName.length <= 0) {
+                toastr.error('Chưa nhập tài khoản');
+                return false;
+            }
+
+            if (!vm.user.Password || vm.user.Password.length <= 0) {
+                toastr.error('Chưa nhập mật khẩu');
+                return false;
+            }
+
+            return true;
+        }
+
+    }
+    
+})();
