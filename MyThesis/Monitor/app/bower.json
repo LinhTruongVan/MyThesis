@@ -13,7 +13,7 @@
     "font-awesome": "~4.4.0",
     "toastr": "~2.1.2",
     "angular-modal-service": "~0.6.9",
-	"Ionicons": "ionicons#~2.0.1",
-    "mapbox.js": "~2.2.1"
+    "Ionicons": "ionicons#~2.0.1",
+    "mapbox.js": "~2.2.3"
   }
 }

@@ -10,9 +10,12 @@
                     <div class="form-group">
                         <input class="form-control" placeholder="Mật khẩu" type="password" ng-model="vm.user.Password">
                     </div>
-                    <a class="btn btn-primary" ng-click="vm.login()">Đăng nhập</a>
+                    <a class="btn btn-primary" ng-click="vm.login()" ng-subm>Đăng nhập</a>
                 </fieldset>
             </form>
+            <div class="pull-right">
+                <a href="#/signup">Tạo tài khoản mới</a>
+            </div>
         </div>
     </div>
 </div>

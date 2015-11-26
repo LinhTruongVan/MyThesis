@@ -19,11 +19,13 @@
         };
 
         function getCurrentUser() {
-            return user;
+            var currentUser = JSON.parse(sessionStorage.getItem('user'));
+
+            return currentUser;
         }
 
         function setCurrentUser(currentUser) {
-            user = currentUser;
+            sessionStorage.setItem('user', JSON.stringify(currentUser));
         }
 
         function getCurrentUserRole() {
@@ -31,7 +33,8 @@
         }
 
         function validateCurrentUser() {
-            if (!user.Id) {
+            var currentUser = JSON.parse(sessionStorage.getItem('user'));
+            if (!currentUser || !currentUser.Id) {
                 $location.path('/login');
                 return false;
             };

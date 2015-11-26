@@ -5,15 +5,15 @@
             <form role="form">
                 <fieldset>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Tài khoản" type="text" autofocus="">
+                        <input class="form-control" placeholder="Tên tài khoản" type="text" autofocus="" ng-model="vm.newUser.UserName">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Mật khẩu" type="password" value="">
+                        <input class="form-control" placeholder="Số điện thoại liên lạc" type="text" autofocus="" ng-model="vm.newUser.Phone">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Nhập Lại Mật khẩu" type="password" value="">
+                        <input class="form-control" placeholder="Mật khẩu" type="password" value="" ng-model="vm.newUser.Password">
                     </div>
-                    <a class="btn btn-primary">Đăng ký</a>
+                    <a class="btn btn-primary" ng-click="vm.createUser()">Đăng ký</a>
                 </fieldset>
             </form>
         </div>
@@ -21,7 +21,7 @@
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="overlay" id="overlay">
+    <div class="overlay" id="overlay" style="display: none; ">
         <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
     </div>
 </div>
