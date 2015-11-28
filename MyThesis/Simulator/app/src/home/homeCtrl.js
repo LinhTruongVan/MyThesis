@@ -5,9 +5,11 @@
         .module('app')
         .controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['spinnerUtilSvc', '$uibModal', 'homeSvc', 'shipDataSvc', 'simulatorSettingDialogSvc'];
+    homeCtrl.$inject = ['spinnerUtilSvc', '$uibModal', 'homeSvc', 'shipDataSvc', 'simulatorSettingDialogSvc',
+    'homeDataSvc'];
 
-    function homeCtrl(spinnerUtilSvc, $uibModal, homeSvc, shipDataSvc, simulatorSettingDialogSvc) {
+    function homeCtrl(spinnerUtilSvc, $uibModal, homeSvc, shipDataSvc, simulatorSettingDialogSvc,
+        homeDataSvc) {
         var vm = this;
         vm.overlay = angular.element(document.querySelector('#overlay'));
 
@@ -20,7 +22,12 @@
 
         init();
 
-        function init(){
+        function init() {
+            setupDataForShips();
+            setupDataForUsers();
+        }
+
+        function setupDataForShips() {
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
             shipDataSvc.getAllShips().then(function (response) {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
@@ -28,9 +35,15 @@
 
                 homeSvc.setShips(response.data);
                 vm.ships = homeSvc.getShips();
-            }, function(error){
+            }, function (error) {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.error('Tải danh sách tàu không thành công!');
+            });
+        }
+
+        function setupDataForUsers() {
+            homeDataSvc.getAllUsers().then(function (response) {
+                vm.users = response.data;
             });
         }
 
@@ -39,7 +52,8 @@
               templateUrl: "src/createShipDialog/create-ship-dialog.html",
               controller: "createShipDialogCtrl",
               resolve: {
-                overlay: vm.overlay
+                  overlay: vm.overlay,
+                  users: vm.users
               }
             });
         }

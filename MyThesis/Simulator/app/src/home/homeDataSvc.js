@@ -9,7 +9,8 @@
         return {
             createShip: createShip,
             removeShip: removeShip,
-            getAllShips: getAllShips
+            getAllShips: getAllShips,
+            getAllUsers: getAllUsers
         };
 
         function createShip(newShip){
@@ -41,6 +42,17 @@
             var req = {
                 method: 'GET',
                 url: host + '/ships',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            };
+            return $http(req);
+        }
+
+        function getAllUsers() {
+            var req = {
+                method: 'GET',
+                url: host + '/users',
                 headers: {
                     'Accept': 'application/json'
                 }

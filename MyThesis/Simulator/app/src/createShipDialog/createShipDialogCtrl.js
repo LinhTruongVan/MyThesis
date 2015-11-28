@@ -6,10 +6,10 @@
         .controller('createShipDialogCtrl', createShipDialogCtrl);
 
     createShipDialogCtrl.$inject = ['$scope', 'settingConst', 'spinnerUtilSvc', 'latlongUtilSvc', 'overlay', 'createShipDialogSvc',
-        'shipDataSvc', 'homeSvc'];
+        'shipDataSvc', 'homeSvc', 'users'];
 
     function createShipDialogCtrl($scope, settingConst, spinnerUtilSvc, latlongUtilSvc, overlay, createShipDialogSvc,
-        shipDataSvc, homeSvc) {
+        shipDataSvc, homeSvc, users) {
 
         $scope.newShip = {
             ShipStatus: settingConst.shipStatus.nornal.value
