@@ -14,6 +14,7 @@
         vm.overlay = angular.element(document.querySelector('#overlay'));
 
         vm.ships = [];
+        vm.users = [];
         vm.settingTimeout = simulatorSettingDialogSvc.getSettingTimeout();
 
         vm.openCreateShipDialog = openCreateShipDialog;
@@ -53,7 +54,9 @@
               controller: "createShipDialogCtrl",
               resolve: {
                   overlay: vm.overlay,
-                  users: vm.users
+                  users: function() {
+                      return vm.users;
+                  }
               }
             });
         }

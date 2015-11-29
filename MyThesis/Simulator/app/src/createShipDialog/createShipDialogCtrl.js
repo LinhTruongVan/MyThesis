@@ -15,6 +15,8 @@
             ShipStatus: settingConst.shipStatus.nornal.value
         };
 
+        $scope.users = users;
+
         $scope.shipTypes = createShipDialogSvc.getShipTypes();
 
         $scope.closeDialog = closeDialog;
@@ -48,6 +50,7 @@
         }
 
         function buildCreateShipViewModel(ship) {
+            if (!ship.UserId || ship.UserId === '') ship.UserId = 1;
             var randomLatlong = latlongUtilSvc.getRandomLatlong();
 
             return {
