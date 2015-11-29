@@ -3,11 +3,11 @@
 
     angular
         .module('app')
-        .controller('homeCtrl', homeCtrl);
+        .controller('simulateCtrl', simulateCtrl);
 
-    homeCtrl.$inject = ['userSvc', '$location', 'homeDataSvc', 'spinnerUtilSvc', 'homeSvc'];
+    simulateCtrl.$inject = ['userSvc', '$location', 'homeDataSvc', 'spinnerUtilSvc', 'homeSvc'];
 
-    function homeCtrl(userSvc, $location, homeDataSvc, spinnerUtilSvc, homeSvc) {
+    function simulateCtrl(userSvc, $location, homeDataSvc, spinnerUtilSvc, homeSvc) {
         var vm = this;
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
@@ -68,32 +68,48 @@
                     name: 'Tất cả'
                 }
             ];
-            var shipLatestLocationMarkers = [];
+            var movingMarkers = [];
 
             ships.forEach(function (ship) {
-                var shipMarkers = [];
-                ship.ShipLocations.forEach(function (location) {
-                    shipMarkers.push(buildMarkerForShip(ship, location));
-                });
+                var movingMarker = buildMovingMarkerForShip(ship);
                 vm.leafletMapLayers.push({
                     shipId: ship.Id,
                     name: 'Mã tàu: ' + ship.Id,
-                    layer: L.layerGroup(shipMarkers)
+                    layer: L.layerGroup([movingMarker])
                 });
-                shipLatestLocationMarkers.push(buildMarkerForShip(ship, ship.latestLocation));
+
+                movingMarkers.push(movingMarker);
             });
 
-            vm.leafletMapLayers[0].layer = L.layerGroup(shipLatestLocationMarkers);
+            vm.leafletMapLayers[0].layer = L.layerGroup(movingMarkers);
         }
 
-        function buildMarkerForShip(currentShip, currentLocation) {
+        function buildMovingMarkerForShip(currentShip) {
             var htmlPopup = buildMarkerPopup();
-            var location = [currentLocation.Latitude, currentLocation.Longitude];
-            var customIcon = L.icon({
-                iconUrl: '../../assets/img/ship-marker/green.png',
-                iconSize: [18, 18]
+            var shipLocations = [];
+            var runningTimes = [];
+
+            currentShip.ShipLocations.forEach(function (location) {
+                shipLocations.push([location.Latitude, location.Longitude]);
+                runningTimes.push(4000);
             });
-            return L.rotatedMarker(location, { icon: customIcon, angle: currentLocation.Angle }).bindPopup(htmlPopup);
+
+            var movingMarker = L.Marker.movingMarker(shipLocations, runningTimes, { loop: true, autostart: true })
+                .bindPopup(htmlPopup);
+            movingMarker.openPopup();
+
+            movingMarker.once('click', function () {
+                movingMarker.start();
+                movingMarker.on('click', function () {
+                    if (movingMarker.isRunning()) {
+                        movingMarker.pause();
+                    } else {
+                        movingMarker.start();
+                    }
+                });
+            });
+
+            return movingMarker;
 
             function buildMarkerPopup() {
                 var htmlBuilder = [];
@@ -114,6 +130,7 @@
             vm.mapLayerGroup.clearLayers();
             vm.mapLayerGroup.addLayer(vm.selectedMapLayer);
         }
+
 
     }
 

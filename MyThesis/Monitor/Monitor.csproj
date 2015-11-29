@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\assets\css\common.css" />
+    <Content Include="app\assets\script\moving_marker\moving_marker.js" />
+    <Content Include="app\assets\script\rotated_marker\rotated_marker.js" />
     <Content Include="app\indexSvc.js" />
     <Content Include="app\src\home\home.html" />
     <Content Include="app\src\home\homeCtrl.js" />

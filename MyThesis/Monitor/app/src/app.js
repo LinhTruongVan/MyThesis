@@ -10,6 +10,7 @@
         .config(['$routeProvider', 'usSpinnerConfigProvider', function ($routeProvider, usSpinnerConfigProvider) {
             $routeProvider
                  .when('/home', { templateUrl: 'src/home/home.html', controller: 'homeCtrl', controllerAs: 'vm' })
+                 .when('/simulate', { templateUrl: 'src/simulate/simulate.html', controller: 'simulateCtrl', controllerAs: 'vm' })
                  .when('/login', { templateUrl: 'src/loginPage/loginPage.html', controller: 'loginPageCtrl', controllerAs: 'vm' })
                  .when('/signup', { templateUrl: 'src/signUpPage/signUpPage.html', controller: 'signUpPageCtrl', controllerAs: 'vm' })
                  .otherwise({ redirectTo: '/home' });
