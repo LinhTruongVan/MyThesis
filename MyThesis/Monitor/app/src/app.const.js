@@ -19,6 +19,20 @@
         .constant('settingConst', {
             shipTypes: shipTypes
         })
+        .constant('warningLocationConst', {
+            reef: {
+                value: 0,
+                name: 'Bãi đá ngầm/bãi rạng'
+            },
+            pirateShip: {
+                value: 1,
+                name: 'Tàu/thuyền hải tặc'
+            },
+            chinaShip: {
+                value: 2,
+                name: 'Tàu/thuyền Trung Quốc'
+            }
+        })
         .constant('userConst', {
             roles: userRoles
         });

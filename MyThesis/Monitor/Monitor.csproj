@@ -58,9 +58,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\assets\css\common.css" />
+    <Content Include="app\assets\img\ship-marker\black.png" />
+    <Content Include="app\assets\img\ship-marker\blue.png" />
+    <Content Include="app\assets\img\ship-marker\green.png" />
+    <Content Include="app\assets\img\ship-marker\moving.png" />
+    <Content Include="app\assets\img\ship-marker\pink.png" />
+    <Content Include="app\assets\img\ship-marker\red.png" />
+    <Content Include="app\assets\img\ship-marker\yellow.png" />
+    <Content Include="app\assets\img\warning-location\china-ship.png" />
+    <Content Include="app\assets\img\warning-location\pirate-ship.png" />
+    <Content Include="app\assets\img\warning-location\reef.png" />
     <Content Include="app\assets\script\moving_marker\moving_marker.js" />
     <Content Include="app\assets\script\rotated_marker\rotated_marker.js" />
     <Content Include="app\indexSvc.js" />
+    <Content Include="app\src\edit\edit.html" />
+    <Content Include="app\src\edit\editCtrl.js" />
+    <Content Include="app\src\edit\editDataSvc.js" />
+    <Content Include="app\src\internationalShip\internationalShipSvc.js" />
+    <Content Include="app\src\simulate\simulate.html" />
+    <Content Include="app\src\simulate\simulateCtrl.js" />
     <Content Include="app\src\home\home.html" />
     <Content Include="app\src\home\homeCtrl.js" />
     <Content Include="app\src\home\homeDataSvc.js" />

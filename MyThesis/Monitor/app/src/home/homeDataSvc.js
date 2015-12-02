@@ -7,7 +7,8 @@
     
     function homeDataSvc(host, $http) {
         return {
-            getAllShips: getAllShips
+            getAllShips: getAllShips,
+            getAllWarningLocations: getAllWarningLocations
         };
 
         function getAllShips(user) {
@@ -20,6 +21,17 @@
             };
             return $http(req);
         }
-    }
 
+        function getAllWarningLocations() {
+            var req = {
+                method: 'GET',
+                url: host + '/warning-locations',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            };
+            return $http(req);
+        }
+
+    }
 })();

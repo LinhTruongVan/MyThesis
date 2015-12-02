@@ -5,9 +5,11 @@
         .module('app')
         .controller('simulateCtrl', simulateCtrl);
 
-    simulateCtrl.$inject = ['userSvc', '$location', 'homeDataSvc', 'spinnerUtilSvc', 'homeSvc'];
+    simulateCtrl.$inject = ['userSvc', '$location', 'homeDataSvc', 'spinnerUtilSvc', 'homeSvc', 'internationalShipSvc',
+        'warningLocationConst'];
 
-    function simulateCtrl(userSvc, $location, homeDataSvc, spinnerUtilSvc, homeSvc) {
+    function simulateCtrl(userSvc, $location, homeDataSvc, spinnerUtilSvc, homeSvc, internationalShipSvc,
+        warningLocationConst) {
         var vm = this;
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
@@ -28,7 +30,9 @@
             vm.currentUser = userSvc.getCurrentUser();
 
             setupMap();
+            setupInternationalShips();
             setupAllShips();
+            setupWaringLocations();
         }
 
         function logout() {
@@ -41,6 +45,24 @@
             L.mapbox.accessToken = 'pk.eyJ1IjoidHZsaW5oIiwiYSI6ImNpZzJlMXRubDFiYmp0emt2OTJidmpsdHkifQ.es8RI1Tt5uJAEmE33tWkrw#6/13.699/110.369';
             vm.leafletMap = L.mapbox.map('leaflet-map', 'mapbox.streets')
             .setView([13.699, 110.369], 6);
+
+            L.control.coordinates({
+                position: "bottomright", //optional default "bootomright"
+                decimals: 6, //optional default 4
+                decimalSeperator: ".", //optional default "."
+                labelTemplateLat: "Vĩ độ: {y} - ", //optional default "Lat: {y}"
+                labelTemplateLng: "Kinh độ: {x}", //optional default "Lng: {x}"
+                enableUserInput: true, //optional default true
+                useDMS: false, //optional default false
+                useLatLngOrder: true, //ordering of labels, default false-> lng-lat
+                markerType: L.marker, //optional default L.marker
+                markerProps: {} //optional default {}
+            }).addTo(vm.leafletMap);
+        }
+
+        function setupInternationalShips() {
+            var internationalShipLayer = internationalShipSvc.getInternationalShipLayer();
+            L.layerGroup([internationalShipLayer]).addTo(vm.leafletMap);
         }
 
         function setupAllShips() {
@@ -89,25 +111,31 @@
             var shipLocations = [];
             var runningTimes = [];
 
+            var customIcon = L.icon({
+                iconUrl: '../../assets/img/ship-marker/moving.png',
+                iconSize: [25, 30]
+            });
+
             currentShip.ShipLocations.forEach(function (location) {
                 shipLocations.push([location.Latitude, location.Longitude]);
-                runningTimes.push(4000);
+                runningTimes.push(10000);
             });
 
             var movingMarker = L.Marker.movingMarker(shipLocations, runningTimes, { loop: true, autostart: true })
                 .bindPopup(htmlPopup);
+            movingMarker.setIcon(customIcon);
             movingMarker.openPopup();
 
-            movingMarker.once('click', function () {
-                movingMarker.start();
-                movingMarker.on('click', function () {
-                    if (movingMarker.isRunning()) {
-                        movingMarker.pause();
-                    } else {
-                        movingMarker.start();
-                    }
-                });
-            });
+            //movingMarker.once('click', function () {
+            //    movingMarker.start();
+            //    movingMarker.on('click', function () {
+            //        if (movingMarker.isRunning()) {
+            //            movingMarker.pause();
+            //        } else {
+            //            movingMarker.start();
+            //        }
+            //    });
+            //});
 
             return movingMarker;
 
@@ -118,8 +146,8 @@
                     '<div><strong>Mã tàu: </strong>' + currentShip.Id + '</div>',
                     '<div><strong>Thuyền trưởng: </strong>' + currentShip.Caption + '</div>',
                     '<div><strong>Loại tàu: </strong>' + currentShip.displayType + '</div>',
-                    '<div><strong>Vận tốc: </strong>' + currentShip.Speed + 'km/h</div>',
-                    '<div><strong>Trọng tải: </strong>' + currentShip.Weight + 'kg</div>'
+                    '<div><strong>Vận tốc: </strong>' + currentShip.Speed + ' km/h</div>',
+                    '<div><strong>Trọng tải: </strong>' + currentShip.Weight + ' kg</div>'
                 ]);
 
                 return htmlBuilder.join('');
@@ -132,6 +160,82 @@
         }
 
 
-    }
+        function setupWaringLocations() {
+            homeDataSvc.getAllWarningLocations().then(function (response) {
+                vm.warningLocations = response.data;
+                vm.warningLocationMapLayer = getWarningLocationLayer(vm.warningLocations);
+                L.layerGroup([vm.warningLocationMapLayer]).addTo(vm.leafletMap);
+            });
+        }
 
+        function getWarningLocationLayer(warningLocations) {
+            var warningLocationsMarker = [];
+
+            warningLocations.forEach(function (location) {
+                warningLocationsMarker.push(buildMarkerForWarningLocation(location));
+            });
+
+            return L.layerGroup(warningLocationsMarker);
+
+            function buildMarkerForWarningLocation(currentLocation) {
+                var htmlPopup = buildMarkerWarningLocationPopup();
+                var customIcon = getWarningLocationMarkerIcon(currentLocation);
+
+                return L.marker([currentLocation.Latitude, currentLocation.Longitude], { icon: customIcon }).bindPopup(htmlPopup);
+
+                function buildMarkerWarningLocationPopup() {
+                    var htmlBuilder = [];
+
+                    htmlBuilder.push([
+                        '<div><strong>Loại cảnh báo: </strong>' + getWarningLocationTypeName(currentLocation) + '</div>',
+                        '<div><strong>Vĩ độ: </strong>' + currentLocation.Latitude + '</div>',
+                        '<div><strong>Tọa độ: </strong>' + currentLocation.Longitude + '</div>',
+                        '<div><strong>Chi tiết: </strong>' + (currentLocation.Description ? currentLocation.Description : 'N/A') + '</div>'
+                    ]);
+
+                    return htmlBuilder.join('');
+                }
+            }
+
+            function getWarningLocationTypeName(warningLocation) {
+                switch (warningLocation.WarningLocationType) {
+                    case warningLocationConst.reef.value:
+                        return warningLocationConst.reef.name;
+                    case warningLocationConst.chinaShip.value:
+                        return warningLocationConst.chinaShip.name;
+                    case warningLocationConst.pirateShip.value:
+                        return warningLocationConst.pirateShip.name;
+                }
+
+                return;
+            }
+
+            function getWarningLocationMarkerIcon(currentLocation) {
+                var customIcon = {};
+
+                switch (currentLocation.WarningLocationType) {
+                    case warningLocationConst.reef.value:
+                        customIcon = L.icon({
+                            iconUrl: '../../assets/img/warning-location/reef.png',
+                            iconSize: [20, 14]
+                        });
+                        return customIcon;
+                    case warningLocationConst.chinaShip.value:
+                        customIcon = L.icon({
+                            iconUrl: '../../assets/img/warning-location/china-ship.png',
+                            iconSize: [20, 14]
+                        });
+                        return customIcon;
+                    case warningLocationConst.pirateShip.value:
+                        customIcon = L.icon({
+                            iconUrl: '../../assets/img/warning-location/pirate-ship.png',
+                            iconSize: [20, 14]
+                        });
+                        return customIcon;
+                }
+                return customIcon;
+            }
+        }
+
+    }
 })();

@@ -14,6 +14,7 @@
     "toastr": "~2.1.2",
     "angular-modal-service": "~0.6.9",
     "Ionicons": "ionicons#~2.0.1",
-    "angularjs-slider": "~2.0.0"
+    "angularjs-slider": "~2.0.0",
+    "Leaflet.Coordinates": "~0.1.5"
   }
 }

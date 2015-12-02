@@ -2,7 +2,8 @@
 using System.Web.Http;
 using ApiServer.Models.User;
 using ServerApi.DAL;
-using System.Data.Entity; 
+using System.Data.Entity;
+using ApiServer.Models.Ship;
 
 namespace ApiServer.Controllers
 {
@@ -24,6 +25,20 @@ namespace ApiServer.Controllers
             }
 
             return Ok(_context.Ships.Include(s => s.ShipLocations).ToList());
+        }
+
+        [Route("{shipId}")]
+        [HttpPut]
+        public IHttpActionResult UpdateShip(int shipId, [FromBody]Ship newShip)
+        {
+            var ship = _context.Ships.FirstOrDefault(s => s.Id == shipId);
+            if (ship == null) return NotFound();
+
+            ship.Caption = newShip.Caption;
+            ship.Sailors = newShip.Sailors;
+            _context.SaveChanges();
+
+            return Ok(ship);
         }
 
     }
