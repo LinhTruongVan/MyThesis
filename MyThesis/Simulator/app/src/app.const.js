@@ -26,8 +26,16 @@
 
     var shipStatus = {
         nornal: {
-            value: 'Normal',
+            value: 0,
             name: 'Bình thường'
+        },
+        malfunction: {
+            value: 1,
+            name: 'Bị trục trặc'
+        },
+        dangerous: {
+            value: 2,
+            name: 'Gặp nguy hiểm'
         }
     }
 

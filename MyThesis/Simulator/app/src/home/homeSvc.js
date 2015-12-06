@@ -30,8 +30,13 @@
             ships.push(newShip);
         }
 
-        function removeShip(shipIndex){
-            ships.splice(parseInt(shipIndex), 1);
+        function removeShip(shipId){
+            for (var i=0; i<ships.length; i++) {
+                if (ships[i].Id === shipId) {
+                    ships.splice(i, 1);
+                    break;
+                }
+            }
         }
 
     }

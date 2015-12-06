@@ -6,21 +6,24 @@
         .controller('shipCtrl', shipCtrl);
 
     shipCtrl.$inject = ['$scope', '$interval', 'spinnerUtilSvc', 'simulatorSettingDialogSvc', 'shipDataSvc',
-        'latlongUtilSvc', 'homeSvc'];
+        'latlongUtilSvc', 'homeSvc', 'settingConst'];
 
     function shipCtrl($scope, $interval, spinnerUtilSvc, simulatorSettingDialogSvc, shipDataSvc,
-        latlongUtilSvc, homeSvc) {
+        latlongUtilSvc, homeSvc, settingConst) {
         var vm = this;
 
         vm.shipInfo = $scope.shipInfo;
         vm.shipIndex = $scope.shipIndex;
         vm.currentMovingAngle = 90;
         vm.settingTimeout = simulatorSettingDialogSvc.getSettingTimeout();
+        vm.isMoving = true;
 
         vm.overlay = $scope.overlay;
 
         vm.sendLocation = sendLocation;
         vm.autoSendLocation = autoSendLocation;
+        vm.autoUpdateLocation = autoUpdateLocation;
+        vm.sendSosMessage = sendSosMessage;
         vm.removeShip = removeShip;
 
         init();
@@ -43,6 +46,7 @@
             if (numberOfShipLocation <= 0) return;
             vm.currentLocation = vm.shipInfo.ShipLocations[numberOfShipLocation - 1];
 
+            if (vm.currentLocation.ShipStatus !== settingConst.shipStatus.nornal.value) vm.isMoving = false;
             autoUpdateLocation();
         }
 
@@ -51,7 +55,7 @@
             shipDataSvc.removeShip(vm.shipInfo.Id).then(function () {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.success('Xóa tàu thành công!');
-                homeSvc.removeShip(vm.shipIndex);
+                homeSvc.removeShip(vm.shipInfo.Id);
             }, function () {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.error('Xóa tàu không thành công!');
@@ -60,6 +64,7 @@
 
         function autoUpdateLocation() {
             if (vm.intervalForUpdatingLocation) $interval.cancel(vm.intervalForUpdatingLocation);
+            if (!vm.isMoving) return;
 
             vm.intervalForUpdatingLocation = $interval(function () {
                 var newLocation = latlongUtilSvc.calculateNewLatlong(
@@ -94,11 +99,24 @@
             });
         }
 
+        function sendSosMessage() {
+            var currentLocation = setupCurrentLocationForSos();
+            vm.isMoving = false;
+
+            spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
+            shipDataSvc.sendLocation(currentLocation).then(function () {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.success('Gửi tín hiệu cần giúp đỡ thành công!');
+            }, function () {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.error('Gửi tín hiệu cần giúp đỡ không thành công!');
+            });
+        }
+
         function sendLocationWithoutToastr() {
             var currentLocation = setCurrentLocationForCreating();
 
             shipDataSvc.sendLocation(currentLocation).then(function () {
-            }, function () {
             });
         }
 
@@ -109,7 +127,20 @@
                 Longitude: vm.currentLocation.Longitude,
                 CreatedAt: new Date(),
                 ShipId: vm.shipInfo.Id,
-                Angle: vm.currentMovingAngle
+                Angle: vm.currentMovingAngle,
+                ShipStatus: 'Normal'
+            }
+        }
+
+        function setupCurrentLocationForSos() {
+            return {
+                $type: 'ShipLocation',
+                Latitude: vm.currentLocation.Latitude,
+                Longitude: vm.currentLocation.Longitude,
+                CreatedAt: new Date(),
+                ShipId: vm.shipInfo.Id,
+                Angle: vm.currentMovingAngle,
+                ShipStatus: 'Malfunction'
             }
         }
 

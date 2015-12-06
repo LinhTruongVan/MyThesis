@@ -4,7 +4,10 @@
         <tbody>
         <tr>
             <td>Mã tàu: {{vm.shipInfo.Id}}</td>
-            <td><button class="btn btn-success" ng-click="vm.sendLocation()">Gửi tọa độ</button></td>
+            <td>
+                <button class="btn btn-success" ng-click="vm.sendLocation()">Gửi tọa độ</button>
+                <button class="btn btn-danger" ng-click="vm.sendSosMessage()">Gửi SoS</button>
+            </td>
         </tr>
         <tr>
             <td>Hướng di chuyển: <input type="text" ng-model="vm.currentMovingAngle" /></td>
@@ -14,6 +17,7 @@
         </tr>
         <tr>
             <td>Vĩ độ -- Kinh độ: {{vm.currentLocation.Latitude}} -- {{vm.currentLocation.Longitude}}</td>
+            <td>Di chuyển: <input type="checkbox" ng-model="vm.isMoving" ng-change="vm.autoUpdateLocation()"></td>
         </tr>
         </tbody>
     </table>

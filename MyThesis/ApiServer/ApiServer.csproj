@@ -106,6 +106,14 @@
     <Compile Include="Migrations\201511290916366_init_db.Designer.cs">
       <DependentUpon>201511290916366_init_db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512060246071_add_ship_status_to_location.cs" />
+    <Compile Include="Migrations\201512060246071_add_ship_status_to_location.Designer.cs">
+      <DependentUpon>201512060246071_add_ship_status_to_location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512060249478_not_null_ship_status.cs" />
+    <Compile Include="Migrations\201512060249478_not_null_ship_status.Designer.cs">
+      <DependentUpon>201512060249478_not_null_ship_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Location\Location.cs" />
     <Compile Include="Models\Location\ShipLocation.cs" />
@@ -134,6 +142,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511290916366_init_db.resx">
       <DependentUpon>201511290916366_init_db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512060246071_add_ship_status_to_location.resx">
+      <DependentUpon>201512060246071_add_ship_status_to_location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512060249478_not_null_ship_status.resx">
+      <DependentUpon>201512060249478_not_null_ship_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

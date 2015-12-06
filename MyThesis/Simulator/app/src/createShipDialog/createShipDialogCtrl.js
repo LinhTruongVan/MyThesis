@@ -1,4 +1,4 @@
-(function () {
+ï»¿(function () {
     'use strict';
 
     angular
@@ -35,7 +35,7 @@
             spinnerUtilSvc.showSpinner('spinnerSearch', overlay);
             shipDataSvc.createShip(shipViewModel).then(function (response) {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', overlay);
-                toastr.success('Thêm tàu thành công!');
+                toastr.success('ThÃªm tÃ u thÃ nh cÃ´ng!');
 
                 var createdShip = response.data.Ship;
                 createdShip.ShipLocations = [response.data.ShipLocation];
@@ -44,7 +44,7 @@
                 closeDialog();
             }, function () {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', overlay);
-                toastr.error('Thêm tàu không thành công!');
+                toastr.error('ThÃªm tÃ u khÃ´ng thÃ nh cÃ´ng!');
             });
 
         }
@@ -61,7 +61,8 @@
                     Longitude: randomLatlong.longitude,
                     CreatedAt: new Date(),
                     Description: '',
-                    Angle: 90
+                    Angle: 90,
+                    ShipStatus: 'Normal'
                 }
             }
         }

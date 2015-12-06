@@ -127,10 +127,20 @@
         function buildMarkerForShip(currentShip, currentLocation) {
             var htmlPopup = buildMarkerPopup();
             var location = [currentLocation.Latitude, currentLocation.Longitude];
-            var customIcon = L.icon({
-                iconUrl: '../../assets/img/ship-marker/green.png',
-                iconSize: [15, 15]
-            });
+
+            var customIcon = {};
+            if (currentLocation.ShipStatus !== 0) {
+                customIcon = L.icon({
+                    iconUrl: '../../assets/img/ship-marker/red.png',
+                    iconSize: [15, 15]
+                });
+            } else {
+                customIcon = L.icon({
+                    iconUrl: '../../assets/img/ship-marker/green.png',
+                    iconSize: [15, 15]
+                });
+            }
+
             return L.rotatedMarker(location, { icon: customIcon, angle: currentLocation.Angle }).bindPopup(htmlPopup);
 
             function buildMarkerPopup() {
