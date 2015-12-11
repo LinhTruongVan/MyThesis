@@ -30,7 +30,7 @@
             vm.currentUser = userSvc.getCurrentUser();
 
             setupMap();
-            setupInternationalShips();
+            //setupInternationalShips();
             setupAllShips();
             setupWaringLocations();
         }
@@ -60,10 +60,10 @@
             }).addTo(vm.leafletMap);
         }
 
-        function setupInternationalShips() {
-            var internationalShipLayer = internationalShipSvc.getInternationalShipLayer();
-            L.layerGroup([internationalShipLayer]).addTo(vm.leafletMap);
-        }
+        //function setupInternationalShips() {
+        //    var internationalShipLayer = internationalShipSvc.getInternationalShipLayer();
+        //    L.layerGroup([internationalShipLayer]).addTo(vm.leafletMap);
+        //}
 
         function setupAllShips() {
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);

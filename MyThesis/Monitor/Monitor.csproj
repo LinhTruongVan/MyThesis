@@ -74,6 +74,7 @@
     <Content Include="app\src\edit\edit.html" />
     <Content Include="app\src\edit\editCtrl.js" />
     <Content Include="app\src\edit\editDataSvc.js" />
+    <Content Include="app\src\internationalShip\internationalShipDataSvc.js" />
     <Content Include="app\src\weather\weather.html" />
     <Content Include="app\src\weather\weatherCtrl.js" />
     <Content Include="app\src\internationalShip\internationalShipSvc.js" />

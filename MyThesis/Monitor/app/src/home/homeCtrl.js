@@ -6,10 +6,10 @@
         .controller('homeCtrl', homeCtrl);
 
     homeCtrl.$inject = ['$scope', 'userSvc', '$location', 'homeDataSvc', 'spinnerUtilSvc', 'homeSvc', 'internationalShipSvc',
-        'warningLocationConst', '$interval'];
+        'warningLocationConst', '$interval', 'internationalShipDataSvc'];
 
     function homeCtrl($scope, userSvc, $location, homeDataSvc, spinnerUtilSvc, homeSvc, internationalShipSvc,
-        warningLocationConst, $interval) {
+        warningLocationConst, $interval, internationalShipDataSvc) {
         var vm = this;
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
@@ -62,6 +62,12 @@
             vm.leafletMap = L.mapbox.map('leaflet-map', 'mapbox.streets')
             .setView([13.699, 110.369], 6);
 
+            var OpenWeatherMap_Wind = L.tileLayer('http://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+                opacity: 0.5
+            }).addTo(vm.leafletMap);
+
             L.control.coordinates({
                 position: "bottomright", //optional default "bootomright"
                 decimals: 6, //optional default 4
@@ -77,8 +83,10 @@
         }
 
         function setupInternationalShips() {
-            var internationalShipLayer = internationalShipSvc.getInternationalShipLayer();
-            L.layerGroup([internationalShipLayer]).addTo(vm.leafletMap);
+            internationalShipDataSvc.getShipLocations().success(function (shipLocations) {
+                var internationalShipLayer = internationalShipSvc.getInternationalShipLayer(shipLocations.data);
+                L.layerGroup([internationalShipLayer]).addTo(vm.leafletMap);
+            });
         }
 
         function setupAllShips() {
@@ -144,17 +152,15 @@
             return L.rotatedMarker(location, { icon: customIcon, angle: currentLocation.Angle }).bindPopup(htmlPopup);
 
             function buildMarkerPopup() {
-                var htmlBuilder = [];
+                var htmlBuilder = '';
 
-                htmlBuilder.push([
-                    '<div><strong>Mã tàu: </strong>' + currentShip.Id + '</div>',
-                    '<div><strong>Thuyền trưởng: </strong>' + currentShip.Caption + '</div>',
-                    '<div><strong>Loại tàu: </strong>' + currentShip.displayType + '</div>',
-                    '<div><strong>Vận tốc: </strong>' + currentShip.Speed + 'km/h</div>',
-                    '<div><strong>Trọng tải: </strong>' + currentShip.Weight + 'kg</div>'
-                ]);
+                htmlBuilder += '<div><strong>Mã tàu: </strong>' + currentShip.Id + '</div>';
+                htmlBuilder += '<div><strong>Thuyền trưởng: </strong>' + currentShip.Caption + '</div>';
+                htmlBuilder += '<div><strong>Loại tàu: </strong>' + currentShip.displayType + '</div>';
+                htmlBuilder += '<div><strong>Vận tốc: </strong>' + currentShip.Speed + 'km/h</div>';
+                htmlBuilder += '<div><strong>Trọng tải: </strong>' + currentShip.Weight + 'kg</div>';
 
-                return htmlBuilder.join('');
+                return htmlBuilder;
             }
         }
 

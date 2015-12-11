@@ -15,6 +15,7 @@
     "angular-modal-service": "~0.6.9",
     "Ionicons": "ionicons#~2.0.1",
     "mapbox.js": "~2.2.3",
-    "Leaflet.Coordinates": "~0.1.5"
+    "Leaflet.Coordinates": "~0.1.5",
+    "leaflet-providers": "~1.1.6"
   }
 }

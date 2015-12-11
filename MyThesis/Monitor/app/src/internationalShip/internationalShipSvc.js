@@ -13,7 +13,7 @@
             getInternationalShipLayer: getInternationalShipLayer
         };
 
-        function getInternationalShipLayer() {
+        function getInternationalShipLayer(shipLocations) {
             var internationalShipMarkers = [];
             setupInternationalShipMarkers();
 
@@ -25,28 +25,17 @@
                     iconSize: [15, 15]
                 });
 
-                getInternationalShip().forEach(function (ship) {
-                    var location = [parseFloat(ship['LAT']), parseFloat(ship['LON'])];
-                    var htmlPopup = buildInternationalShipPopup(ship);
-                    var marker = L.rotatedMarker(location, { icon: customIcon, angle: ship['COURSE'] }).bindPopup(htmlPopup);
+                shipLocations.forEach(function (location) {
+                    var location = [parseFloat(location[0]), parseFloat(location[1])];
+                    var htmlPopup = buildInternationalShipPopup(location);
+                    var marker = L.rotatedMarker(location, { icon: customIcon }).bindPopup(htmlPopup);
 
                     internationalShipMarkers.push(marker);
                 });
             }
 
-            function buildInternationalShipPopup(ship) {
-                var htmlBuilder = [];
-
-                htmlBuilder.push([
-                    '<div><strong>Mã tàu: </strong>' + ship['MMSI'] + '</div>',
-                    '<div><strong>Tên tàu: </strong>' + ship['SHIPNAME'] + '</div>',
-                    '<div><strong>Quốc gia: </strong>' + ship['FLAG'] + '</div>',
-                    '<div><strong>Điểm đến: </strong>' + ship['DESTINATION'] + '</div>',
-                    '<div><strong>Vĩ độ: </strong>' + ship['LAT'] + '</div>',
-                    '<div><strong>Kinh độ: </strong>' + ship["LON"] + '</div>'
-                ]);
-
-                return htmlBuilder.join('');
+            function buildInternationalShipPopup(location) {
+                return '<div><strong>Vĩ độ: </strong>' + parseFloat(location[0]) + '</div>' + '<div><strong>Kinh độ: </strong>' + parseFloat(location[1]) + '</div>';
             }
         }
 
