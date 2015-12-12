@@ -68,9 +68,14 @@
     <Content Include="app\assets\img\warning-location\china-ship.png" />
     <Content Include="app\assets\img\warning-location\pirate-ship.png" />
     <Content Include="app\assets\img\warning-location\reef.png" />
+    <Content Include="app\assets\script\leaflet-openweathermap\leaflet-openweathermap.css" />
+    <Content Include="app\assets\script\leaflet-openweathermap\leaflet-openweathermap.js" />
+    <Content Include="app\assets\script\leaflet-openweathermap\owmloading.gif" />
     <Content Include="app\assets\script\moving_marker\moving_marker.js" />
     <Content Include="app\assets\script\rotated_marker\rotated_marker.js" />
     <Content Include="app\indexSvc.js" />
+    <Content Include="app\src\common\commonDataSvc.js" />
+    <Content Include="app\src\common\commonSvc.js" />
     <Content Include="app\src\edit\edit.html" />
     <Content Include="app\src\edit\editCtrl.js" />
     <Content Include="app\src\edit\editDataSvc.js" />
@@ -96,6 +101,7 @@
     <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.ttf" />
     <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.woff" />
     <Content Include="app\bower.json" />
+    <Content Include="app\assets\script\leaflet-openweathermap\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
