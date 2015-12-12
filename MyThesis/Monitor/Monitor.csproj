@@ -61,6 +61,7 @@
     <Content Include="app\assets\img\ship-marker\black.png" />
     <Content Include="app\assets\img\ship-marker\blue.png" />
     <Content Include="app\assets\img\ship-marker\green.png" />
+    <Content Include="app\assets\img\ship-marker\international-ship.png" />
     <Content Include="app\assets\img\ship-marker\moving.png" />
     <Content Include="app\assets\img\ship-marker\pink.png" />
     <Content Include="app\assets\img\ship-marker\red.png" />

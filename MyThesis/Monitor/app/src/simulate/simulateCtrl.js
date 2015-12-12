@@ -40,7 +40,8 @@
                 var baseMaps = commonSvc.getBaseMaps(vm.leafletMap);
                 var groupedOverlays = {
                     'Thời tiết': commonSvc.getOverlayWeatherLayers(),
-                    'Tàu': commonSvc.getOverlayShipLocationLayersForSimulate(summaryData.Ships),
+                    'Tàu quốc tế': commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data),
+                    'Tàu': commonSvc.getOverlayShipLocationLayersForSimulate(vm.leafletMap, summaryData.Ships),
                     'Cảnh báo': commonSvc.getOverlayWarningLocationLayers(summaryData.WarningLocations)
                 };
 

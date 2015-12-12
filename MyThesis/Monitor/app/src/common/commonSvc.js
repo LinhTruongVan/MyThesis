@@ -13,7 +13,9 @@
             getBaseMaps: getBaseMaps,
             getOverlayWeatherLayers: getOverlayWeatherLayers,
             getOverlayWarningLocationLayers: getOverlayWarningLocationLayers,
-            getOverlayShipLocationLayersForSimulate: getOverlayShipLocationLayersForSimulate
+            getOverlayShipLocationLayersForSimulate: getOverlayShipLocationLayersForSimulate,
+            getOverlayInternationalShipLocationLayers: getOverlayInternationalShipLocationLayers,
+            getOverlayShipLocationLayersForMonitor: getOverlayShipLocationLayersForMonitor
         };
         return service;
 
@@ -99,7 +101,7 @@
                     var htmlBuilder = '';
 
                     htmlBuilder += '<div><strong>Vĩ độ: </strong>' + currentLocation.Latitude + '</div>';
-                    htmlBuilder += '<div><strong>Tọa độ: </strong>' + currentLocation.Longitude + '</div>';
+                    htmlBuilder += '<div><strong>Kinh độ: </strong>' + currentLocation.Longitude + '</div>';
                     htmlBuilder += '<div><strong>Chi tiết: </strong>' + (currentLocation.Description ? currentLocation.Description : 'N/A') + '</div>';
 
                     return htmlBuilder;
@@ -120,9 +122,9 @@
             }
         }
 
-        function getOverlayShipLocationLayersForSimulate(ships) {
+        function getOverlayShipLocationLayersForSimulate(leafletMap, ships) {
             var layers = {
-                'Tất cả': new L.LayerGroup()
+                'Tất cả': new L.LayerGroup().addTo(leafletMap)
             };
 
             var movingMarkers = getAllMovingMarkerForShips();
@@ -130,7 +132,7 @@
                 var indentifyName = 'Mã tàu ' + ship.Id;
                 layers[indentifyName] = new L.LayerGroup();
 
-                movingMarkers[ship.Id].addTo(layers[indentifyName]);
+                angular.copy(movingMarkers[ship.Id]).addTo(layers[indentifyName]);
                 movingMarkers[ship.Id].addTo(layers['Tất cả']);
             });
 
@@ -176,5 +178,107 @@
                 }
             }
         }
+
+        function getOverlayInternationalShipLocationLayers(leafletMap, shipLocations) {
+            var layerGroup = {
+                'Tàu quốc tế': new L.LayerGroup().addTo(leafletMap)
+            }
+
+            setupInternationShipMarkers();
+
+            return layerGroup;
+
+            function setupInternationShipMarkers() {
+                var customIcon = L.icon({
+                    iconUrl: '../../assets/img/ship-marker/international-ship.png',
+                    iconSize: [11, 12]
+                });
+
+                shipLocations.forEach(function (location) {
+                    var htmlPopup = getInternationShipPopup(location);
+                    L.marker(location, { icon: customIcon }).bindPopup(htmlPopup).addTo(layerGroup['Tàu quốc tế']);
+                });
+            }
+
+            function getInternationShipPopup(shipLocation) {
+                var htmlBuilder = '';
+
+                htmlBuilder += '<div><strong>Tàu quốc tế</strong></div>';
+               
+
+                return htmlBuilder;
+            }
+        }
+
+        function getOverlayShipLocationLayersForMonitor(leafletMap, ships) {
+            var layerGroup = {
+                'Tất cả': new L.LayerGroup().addTo(leafletMap)
+            };
+
+            setupShipLocationMarkers();
+
+            return layerGroup;
+
+            function setupShipLocationMarkers() {
+                var customIcon = L.icon({
+                    iconUrl: '../../assets/img/ship-marker/green.png',
+                    iconSize: [15, 15]
+                });
+
+                var shipMarkers = getAllShipLocationMarkers();
+
+                for (var i=0; i<ships.length; i++) {
+                    var ship = ships[i];
+                    var indentifyName = 'Mã tàu ' + ship.Id;
+
+                    layerGroup[indentifyName] = new L.LayerGroup();
+                    for (var j=0; j<shipMarkers[ship.Id].length; j++) {
+                        var rotateMarker = shipMarkers[ship.Id][j];
+                        rotateMarker.addTo(layerGroup[indentifyName]);
+                        if (j === shipMarkers[ship.Id].length - 1) angular.copy(rotateMarker).addTo(layerGroup['Tất cả']);
+                    }
+                }
+
+                function getAllShipLocationMarkers() {
+                    var markers = {};
+
+                    for (var i=0; i<ships.length; i++) {
+                        var ship = ships[i];
+                        markers[ship.Id] = [];
+
+                        for (var j = 0; j < ship.ShipLocations.length; j++) {
+                            var shipLocation = ship.ShipLocations[j];
+                            var htmlPopup = getShipLocationPopup(ship, shipLocation);
+
+                            markers[ship.Id].push(L.rotatedMarker([shipLocation.Latitude, shipLocation.Longitude], { icon: customIcon, angle: shipLocation.Angle }).bindPopup(htmlPopup));
+                        }
+
+                    }
+
+                    return markers;
+                }
+
+            }
+
+            function getShipLocationPopup(ship, location) {
+                var htmlBuilder = '';
+
+                switch (ship.ShipType) {
+                    case settingConst.shipTypes.fishingShip.value:
+                        ship.displayType = settingConst.shipTypes.fishingShip.name;
+                        break;
+                }
+
+                htmlBuilder += '<div><strong>Mã tàu: </strong>' + ship.Id + '</div>';
+                htmlBuilder += '<div><strong>Thuyền trưởng: </strong>' + ship.Caption + '</div>';
+                htmlBuilder += '<div><strong>Loại tàu: </strong>' + ship.displayType + '</div>';
+                htmlBuilder += '<div><strong>Vĩ độ: </strong>' + location.Latitude + '</div>';
+                htmlBuilder += '<div><strong>Kinh độ: </strong>' + location.Longitude + '</div>';
+
+                return htmlBuilder;
+            }
+        }
+
+
     }
 })();
