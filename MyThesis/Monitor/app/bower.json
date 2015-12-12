@@ -16,6 +16,8 @@
     "Ionicons": "ionicons#~2.0.1",
     "mapbox.js": "~2.2.3",
     "Leaflet.Coordinates": "~0.1.5",
-    "leaflet-providers": "~1.1.6"
+    "leaflet-providers": "~1.1.6",
+    "leaflet-search": "~1.8.4",
+    "leaflet-groupedlayercontrol": "~0.4.0"
   }
 }

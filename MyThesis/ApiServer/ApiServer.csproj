@@ -96,6 +96,7 @@
     <Compile Include="Controllers\ShipApisController.cs" />
     <Compile Include="Controllers\ShipController.cs" />
     <Compile Include="Controllers\ShipLocationController.cs" />
+    <Compile Include="Controllers\SummaryDataController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WarningLocationController.cs" />
     <Compile Include="DAL\ThesisContext.cs" />
@@ -123,9 +124,11 @@
     <Compile Include="Models\Ship\Ship.cs" />
     <Compile Include="Models\Ship\ShipStatus.cs" />
     <Compile Include="Models\Ship\ShipType.cs" />
+    <Compile Include="Models\SummaryData\SummaryData.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Models\User\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\InternationalShipService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

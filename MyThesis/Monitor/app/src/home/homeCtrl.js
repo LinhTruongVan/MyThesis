@@ -62,11 +62,11 @@
             vm.leafletMap = L.mapbox.map('leaflet-map', 'mapbox.streets')
             .setView([13.699, 110.369], 6);
 
-            var OpenWeatherMap_Wind = L.tileLayer('http://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
-                opacity: 0.5
-            }).addTo(vm.leafletMap);
+            //var OpenWeatherMap_Wind = L.tileLayer('http://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png', {
+            //    maxZoom: 19,
+            //    attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+            //    opacity: 0.5
+            //}).addTo(vm.leafletMap);
 
             L.control.coordinates({
                 position: "bottomright", //optional default "bootomright"
