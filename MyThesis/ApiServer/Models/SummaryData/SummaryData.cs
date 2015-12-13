@@ -10,5 +10,6 @@ namespace ApiServer.Models.SummaryData
         public List<User.User> Users { get; set; }
         public List<WarningLocation> WarningLocations { get; set; }
         public InternationShipData InternationShipData { get; set; }
+        public List<Storm.Storm> Storms { get; set; }
     }
 }

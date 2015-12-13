@@ -50,6 +50,8 @@
                 toastr.error('Chưa nhập bán kính của bão');
                 return false;
             }
+
+            return true;
         }
 
     }

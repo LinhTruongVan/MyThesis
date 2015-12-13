@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using ApiServer.Models.Location;
 using ApiServer.Models.Ship;
+using ApiServer.Models.Storm;
 using ApiServer.Models.User;
 
 namespace ServerApi.DAL
@@ -19,5 +20,6 @@ namespace ServerApi.DAL
         public DbSet<WarningLocation> WarningLocations { get; set; }
         public DbSet<ShipLocation> ShipLocations { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Storm> Storms { get; set; }
     }
 }

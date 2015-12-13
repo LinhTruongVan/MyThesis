@@ -96,6 +96,7 @@
     <Compile Include="Controllers\ShipApisController.cs" />
     <Compile Include="Controllers\ShipController.cs" />
     <Compile Include="Controllers\ShipLocationController.cs" />
+    <Compile Include="Controllers\StormController.cs" />
     <Compile Include="Controllers\SummaryDataController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WarningLocationController.cs" />
@@ -115,6 +116,10 @@
     <Compile Include="Migrations\201512060249478_not_null_ship_status.Designer.cs">
       <DependentUpon>201512060249478_not_null_ship_status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512130425305_add_storm.cs" />
+    <Compile Include="Migrations\201512130425305_add_storm.Designer.cs">
+      <DependentUpon>201512130425305_add_storm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Location\Location.cs" />
     <Compile Include="Models\Location\ShipLocation.cs" />
@@ -124,6 +129,7 @@
     <Compile Include="Models\Ship\Ship.cs" />
     <Compile Include="Models\Ship\ShipStatus.cs" />
     <Compile Include="Models\Ship\ShipType.cs" />
+    <Compile Include="Models\Storm\Storm.cs" />
     <Compile Include="Models\SummaryData\SummaryData.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Models\User\UserRole.cs" />
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512060249478_not_null_ship_status.resx">
       <DependentUpon>201512060249478_not_null_ship_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512130425305_add_storm.resx">
+      <DependentUpon>201512130425305_add_storm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

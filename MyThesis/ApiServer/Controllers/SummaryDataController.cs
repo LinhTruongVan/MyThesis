@@ -25,19 +25,19 @@ namespace ApiServer.Controllers
 
             var summaryData = new SummaryData();
 
+            summaryData.WarningLocations = _context.WarningLocations.ToList();
+            summaryData.InternationShipData = _internationalShipService.GetInternationShipData();
+            summaryData.Storms = _context.Storms.ToList();
+
             switch (user.UserRole)
             {
                 case UserRole.User:
                     summaryData.Ships = _context.Ships.Include(s => s.ShipLocations).Where(s=>s.UserId == user.Id).ToList();
-                    summaryData.WarningLocations = _context.WarningLocations.ToList();
                     summaryData.Users = new List<User>() { user };
-                    summaryData.InternationShipData = _internationalShipService.GetInternationShipData();
                     break;
                 case UserRole.Admin:
                     summaryData.Ships = _context.Ships.Include(s => s.ShipLocations).ToList();
-                    summaryData.WarningLocations = _context.WarningLocations.ToList();
                     summaryData.Users = _context.Users.ToList();
-                    summaryData.InternationShipData = _internationalShipService.GetInternationShipData();
                     break;
             }
 

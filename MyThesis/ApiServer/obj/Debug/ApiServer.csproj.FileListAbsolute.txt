@@ -23,3 +23,4 @@ E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.init_db.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.csproj.GenerateResource.Cache
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.add_ship_status_to_location.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.not_null_ship_status.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.add_storm.resources
