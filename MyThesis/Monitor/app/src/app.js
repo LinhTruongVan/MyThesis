@@ -6,7 +6,8 @@
             'ngRoute',
             'ui.bootstrap',
             'angularModalService',
-            'angularSpinner'])
+            'angularSpinner',
+            'ngSanitize'])
         .config(['$routeProvider', 'usSpinnerConfigProvider', function ($routeProvider, usSpinnerConfigProvider) {
             $routeProvider
                  .when('/home', { templateUrl: 'src/home/home.html', controller: 'homeCtrl', controllerAs: 'vm' })

@@ -15,7 +15,8 @@
             getOverlayWarningLocationLayers: getOverlayWarningLocationLayers,
             getOverlayShipLocationLayersForSimulate: getOverlayShipLocationLayersForSimulate,
             getOverlayInternationalShipLocationLayers: getOverlayInternationalShipLocationLayers,
-            getOverlayShipLocationLayersForMonitor: getOverlayShipLocationLayersForMonitor
+            getOverlayShipLocationLayersForMonitor: getOverlayShipLocationLayersForMonitor,
+            getShipIdsHasIncidentWithInternationalShip: getShipIdsHasIncidentWithInternationalShip
         };
         return service;
 
@@ -204,7 +205,8 @@
                 var htmlBuilder = '';
 
                 htmlBuilder += '<div><strong>Tàu quốc tế</strong></div>';
-               
+                htmlBuilder += '<div><strong>Vĩ độ: </strong>' + shipLocation[0] + '</div>';
+                htmlBuilder += '<div><strong>Kinh độ: </strong>' + shipLocation[1] + '</div>';
 
                 return htmlBuilder;
             }
@@ -279,6 +281,43 @@
             }
         }
 
+        function getShipIdsHasIncidentWithInternationalShip(ships, internationalShipLocation, maxDistance) {
+            var shipIdsWithIncident = [];
+
+            for (var i=0; i<ships.length; i++) {
+                var ship = ships[i];
+                var shipLastLocation = ship.ShipLocations[ship.ShipLocations.length - 1];
+
+                for (var j=0; j<internationalShipLocation.length; j++) {
+                    if (isShipHasIncident(shipLastLocation, internationalShipLocation[j])) {
+                        shipIdsWithIncident.push(ship.Id);
+                        break;
+                    }
+                }
+            }
+
+            return shipIdsWithIncident;
+
+            function isShipHasIncident(shipLocation, internationShipLocation) {
+                var R = 6378137; // Earth’s mean radius in meter
+
+                var dLat = convertToRadian(internationShipLocation[0] - shipLocation.Latitude);
+                var dLong = convertToRadian(internationShipLocation[1] - shipLocation.Longitude);
+
+                var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(convertToRadian(shipLocation.Latitude)) * Math.cos(convertToRadian(internationShipLocation[0])) *
+                  Math.sin(dLong / 2) * Math.sin(dLong / 2);
+
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                var d = R * c; // the distance in meter
+
+                return (d <= maxDistance);
+            }
+
+            function convertToRadian(x) {
+                return x * Math.PI / 180;
+            }
+        }
 
     }
 })();

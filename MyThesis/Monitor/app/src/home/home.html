@@ -32,6 +32,10 @@
         <li><a class="clickable-element" ng-href="#/weather"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Thời tiết</a></li>
         <li role="presentation" class="divider"></li>
     </ul>
+    <ul class="nav menu" style="padding: 0 15px;" ng-if="vm.warningMessage">
+        <li><h4>Cảnh báo</h4></li>
+        <li ng-bind-html="vm.warningMessage"></li>
+    </ul>
 
 </div><!--/.sidebar-->
 

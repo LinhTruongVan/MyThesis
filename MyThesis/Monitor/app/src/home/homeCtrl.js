@@ -5,14 +5,15 @@
         .module('app')
         .controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['$scope', 'userSvc', '$location', 'spinnerUtilSvc', 'commonDataSvc', 'commonSvc'];
+    homeCtrl.$inject = ['$scope', 'userSvc', '$location', 'spinnerUtilSvc', 'commonDataSvc', 'commonSvc', '$interval'];
 
-    function homeCtrl($scope, userSvc, $location, spinnerUtilSvc, commonDataSvc, commonSvc) {
+    function homeCtrl($scope, userSvc, $location, spinnerUtilSvc, commonDataSvc, commonSvc, $interval) {
         var vm = this;
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
 
         vm.leafletMap = {};
+        vm.intervalForReloadData = {};
 
         vm.logout = logout;
 
@@ -47,7 +48,7 @@
                 };
 
                 var options = {
-                    exclusiveGroups: ['Thời tiết']
+                    //exclusiveGroups: ['Thời tiết']
                 };
 
                 L.control.groupedLayers(baseMaps, groupedOverlays, options).addTo(vm.leafletMap);
@@ -65,11 +66,20 @@
                     markerProps: {} 
                 }).addTo(vm.leafletMap);
 
+                //L.circle([12.5, 116.5], 200000, {color: 'red'}).addTo(vm.leafletMap);
+
+                var minDistanceForSafe = 50;
+                vm.shipIdsHasIncidentWithInternationalShip = commonSvc.getShipIdsHasIncidentWithInternationalShip(summaryData.Ships, summaryData.InternationShipData.Data, minDistanceForSafe * 1000);
+                if (vm.shipIdsHasIncidentWithInternationalShip.length >0) {
+                    vm.warningMessage = '<div>Tàu (<strong>' + vm.shipIdsHasIncidentWithInternationalShip.join(',') + '</strong>) đang trong khu vực có bán kính dưới ' + minDistanceForSafe + 'km so với tàu quốc tế. Hãy cẩn thận để tránh va chạm</div>';
+                    toastr.warning(vm.warningMessage);
+                }
+
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.success('Tải dữ liệu thành công');
+                //toastr.success('Tải dữ liệu thành công');
             }, function () {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.error('Tải dữ liệu không thành công');
+                //toastr.error('Tải dữ liệu không thành công');
             });
         }
 
