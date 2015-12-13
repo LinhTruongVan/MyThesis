@@ -27,9 +27,9 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <ul class="nav menu">
         <li><a class="clickable-element" ng-href="#/home"><span class="ion-home ion-icon-custom"></span> Trang chủ</a></li>
-        <li class="active"><a class="clickable-element"><span class="ion-arrow-graph-down-right ion-icon-custom"></span> Hành trình tàu</a></li>
+        <li><a class="clickable-element" ng-href="#/simulate"><span class="ion-arrow-graph-down-right ion-icon-custom"></span> Hành trình tàu</a></li>
         <li><a class="clickable-element" ng-href="#/edit"><span class="ion-android-boat ion-icon-custom"></span> Chỉnh sửa thông tin tàu</a></li>
-        <li ng-if="vm.currentUser.Id === 1"><a class="clickable-element" ng-href="#/storm"><span class="ion-ios-thunderstorm-outline ion-icon-custom"></span> Chỉnh sửa thông tin bão</a></li>
+        <li class="active"><a class="clickable-element"><span class="ion-ios-thunderstorm-outline ion-icon-custom"></span> Chỉnh sửa thông tin bão</a></li>
         <li><a class="clickable-element" ng-href="#/weather"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Thời tiết</a></li>
         <li role="presentation" class="divider"></li>
     </ul>
@@ -40,14 +40,51 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h3>Mô phỏng hành trình tàu</h3>
-
-            <div id="leaflet-map" class="leaflet-map">
-                <!--<select class="form-control ship-filter--home" ng-change="vm.changeMapLayer()"
-                        ng-options="item.layer as item.name for item in vm.leafletMapLayers" ng-model="vm.selectedMapLayer"></select>-->
-            </div>
+            <h3>Chỉnh sửa thông tin bão</h3>
         </div>
     </div><!--/.row-->
+    <br />
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="alert alert-warning">
+                <label>Mã cơn bão: </label>
+                <select class="form-control" ng-options="item as item.Id for item in vm.storms" ng-model="vm.selectedStorm"></select>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row" ng-if="vm.selectedStorm.Id">
+        <div class="col-lg-8">
+            <div class="alert alert-info">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Tên bão:
+                        <input placeholder="Tên bão" type="text" ng-model="vm.selectedStorm.Name" />
+                    </li>
+                    <li class="list-group-item">
+                        Vĩ độ của tâm bão:
+                        <input placeholder="Vĩ độ của tâm bão" type="number" ng-model="vm.selectedStorm.Latitude"/>
+                    </li>
+                    <li class="list-group-item">
+                        Kinh độ của tâm bão:
+                        <input placeholder="Kinh độ của tâm bão" type="number" ng-model="vm.selectedStorm.Longitude"/>
+                    </li>
+                    <li class="list-group-item">
+                        Bán kính của bão:
+                        <input placeholder="Bán kính bão" type="number" ng-model="vm.selectedStorm.Radius"/>
+                    </li>
+                    <li class="list-group-item">
+                        Chi tiết:
+                        <input placeholder="Mô tả chi tiết" type="text" ng-model="vm.selectedStorm.Description" />
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-primary" ng-click="vm.updateStorm()" title="Cập nhật thông tin bão">Lưu</button>
+                        <button class="btn btn-danger" ng-click="vm.deleteStorm()" title="Xóa thông tin bão">Xóa</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </div> <!--/.main-->
 

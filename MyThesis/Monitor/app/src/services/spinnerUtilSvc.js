@@ -2,9 +2,9 @@
     angular
         .module('app')
         .service('spinnerUtilSvc', spinnerUtilSvc);
-    spinnerUtilSvc.$inject = ['usSpinnerService'];
+    spinnerUtilSvc.$inject = ['usSpinnerService', '$timeout'];
 
-    function spinnerUtilSvc(usSpinnerService) {
+    function spinnerUtilSvc(usSpinnerService, $timeout) {
         var service = {
             showSpinner: showSpinner,
             hideSpinner: hideSpinner
@@ -12,7 +12,9 @@
         return service;
 
         function showSpinner(key, overlay) {
-            usSpinnerService.spin(key);
+            $timeout(function () {
+                usSpinnerService.spin(key);
+            }, 100);
             overlay.show();
         }
 

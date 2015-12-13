@@ -26,10 +26,11 @@
 
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <ul class="nav menu">
-        <li><a class="clickable-element" ng-href="#/home"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang chủ</a></li>
-        <li><a class="clickable-element" ng-href="#/simulate"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Hành trình tàu</a></li>
-        <li><a class="clickable-element" ng-href="#/edit"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Chỉnh sửa</a></li>
-        <li class="active"><a class="clickable-element"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Thời tiết</a></li>
+        <li><a class="clickable-element" ng-href="#/home"><span class="ion-home ion-icon-custom"></span> Trang chủ</a></li>
+        <li><a class="clickable-element" ng-href="#/simulate"><span class="ion-arrow-graph-down-right ion-icon-custom"></span> Hành trình tàu</a></li>
+        <li><a class="clickable-element" ng-href="#/edit"><span class="ion-android-boat ion-icon-custom"></span> Chỉnh sửa thông tin tàu</a></li>
+        <li ng-if="vm.currentUser.Id === 1"><a class="clickable-element" ng-href="#/storm"><span class="ion-ios-thunderstorm-outline ion-icon-custom"></span> Chỉnh sửa thông tin bão</a></li>
+        <li class="active"><a class="clickable-element"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Thời tiết</a></li>
         <li role="presentation" class="divider"></li>
     </ul>
 

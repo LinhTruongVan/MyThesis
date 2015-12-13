@@ -16,6 +16,7 @@
 
         vm.logout = logout;
         vm.updateShip = updateShip;
+        vm.deleteShip = deleteShip;
 
         init();
 
@@ -63,6 +64,26 @@
             }
 
             return true;
+        }
+
+        function deleteShip() {
+            spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
+            editDataSvc.deleteShip(vm.selectedShip.Id).then(function () {
+
+                for (var i=0; i< vm.ships.length; i++) {
+                    var tempShip = vm.ships[i];
+                    if (tempShip.Id === vm.selectedShip.Id) {
+                        vm.ships.splice(i, 1);
+                        break;
+                    }
+                }
+
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.success('Xóa tàu thành công');
+            }, function () {
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.error('Xóa tàu không thành công');
+            });
         }
 
     }

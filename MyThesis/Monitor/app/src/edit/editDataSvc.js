@@ -7,7 +7,8 @@
     
     function editDataSvc(host, $http) {
         return {
-            updateShip: updateShip
+            updateShip: updateShip,
+            deleteShip: deleteShip
         };
 
         function updateShip(userId, ship) {
@@ -21,6 +22,17 @@
             };
             return $http(req);
         }
-    }
 
+        function deleteShip(shipId) {
+            var req = {
+                method: 'DELETE',
+                url: host + '/ships/' + shipId,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            };
+            return $http(req);
+        }
+
+    }
 })();

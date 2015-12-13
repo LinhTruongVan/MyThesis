@@ -12,6 +12,8 @@
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
 
+        vm.logout = logout;
+
         init();
 
         function init() {

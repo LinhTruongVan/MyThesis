@@ -77,13 +77,14 @@
     <Content Include="app\indexSvc.js" />
     <Content Include="app\src\common\commonDataSvc.js" />
     <Content Include="app\src\common\commonSvc.js" />
+    <Content Include="app\src\editStorm\storm.html" />
+    <Content Include="app\src\editStorm\stormCtrl.js" />
+    <Content Include="app\src\editStorm\stormDataSvc.js" />
     <Content Include="app\src\edit\edit.html" />
     <Content Include="app\src\edit\editCtrl.js" />
     <Content Include="app\src\edit\editDataSvc.js" />
-    <Content Include="app\src\internationalShip\internationalShipDataSvc.js" />
     <Content Include="app\src\weather\weather.html" />
     <Content Include="app\src\weather\weatherCtrl.js" />
-    <Content Include="app\src\internationalShip\internationalShipSvc.js" />
     <Content Include="app\src\simulate\simulate.html" />
     <Content Include="app\src\simulate\simulateCtrl.js" />
     <Content Include="app\src\home\home.html" />

@@ -13,6 +13,7 @@
                  .when('/home', { templateUrl: 'src/home/home.html', controller: 'homeCtrl', controllerAs: 'vm' })
                  .when('/simulate', { templateUrl: 'src/simulate/simulate.html', controller: 'simulateCtrl', controllerAs: 'vm' })
                  .when('/edit', { templateUrl: 'src/edit/edit.html', controller: 'editCtrl', controllerAs: 'vm' })
+                .when('/storm', { templateUrl: 'src/editStorm/storm.html', controller: 'stormCtrl', controllerAs: 'vm' })
                  .when('/weather', { templateUrl: 'src/weather/weather.html', controller: 'weatherCtrl', controllerAs: 'vm' })
                  .when('/login', { templateUrl: 'src/loginPage/loginPage.html', controller: 'loginPageCtrl', controllerAs: 'vm' })
                  .when('/signup', { templateUrl: 'src/signUpPage/signUpPage.html', controller: 'signUpPageCtrl', controllerAs: 'vm' })

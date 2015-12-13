@@ -25,7 +25,7 @@
         }
 
         function login() {
-            if (validateUser() === false) return;
+            if (!validateUser()) return;
 
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
             userDataSvc.login(vm.user).then(function(response) {
