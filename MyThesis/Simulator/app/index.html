@@ -10,7 +10,7 @@
     <link href="bower_components/toastr/toastr.min.css" rel="stylesheet" />
     <link href="bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
     <link href="bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet" />
-    <link href="bower_components/angularjs-slider/dist/rzslider.min.css" rel="stylesheet"/>
+    <link href="bower_components/angularjs-slider/dist/rzslider.min.css" rel="stylesheet" />
     <link href="assets/lumio/css/styles.css" rel="stylesheet" />
     <link href="assets/css/home.css" rel="stylesheet" />
 
@@ -48,6 +48,7 @@
         <ul class="nav menu">
             <li class="clickable-element"><a ng-click="vm.openCreateShipDialog()"><span class="menu-icon ion-android-boat"></span>Thêm tàu</a></li>
             <li class="clickable-element"><a ng-click="vm.openCreateWarningLocationDialog()"><span class="menu-icon ion-android-pin"></span>Thêm cảnh báo</a></li>
+            <li class="clickable-element"><a ng-click="vm.openCreateStormDialog()"><span class="menu-icon ion-ios-thunderstorm-outline"></span>Thêm bão</a></li>
             <li class="clickable-element"><a ng-click="vm.openSimulatorSettingDialog()"><span class="menu-icon ion-android-settings"></span>Cài đặt</a></li>
             <!--<li class="clickable-element"><a><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a></li>
             <li class="clickable-element"><a><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
@@ -113,6 +114,9 @@
     <script src="src/ship/shipCtrl.js"></script>
     <script src="src/ship/ship.js"></script>
     <script src="src/ship/shipDataSvc.js"></script>
+
+    <script src="src/createStormDialog/createStormDialogDataSvc.js"></script>
+    <script src="src/createStormDialog/createStormDialogCtrl.js"></script>
 
 </body>
 

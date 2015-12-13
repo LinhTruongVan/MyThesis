@@ -20,6 +20,7 @@
         vm.openCreateShipDialog = openCreateShipDialog;
         vm.openCreateWarningLocationDialog = openCreateWarningLocationDialog;
         vm.openSimulatorSettingDialog = openSimulatorSettingDialog;
+        vm.openCreateStormDialog = openCreateStormDialog;
 
         init();
 
@@ -75,6 +76,16 @@
             $uibModal.open({
                 templateUrl: "/src/simulatorSettingDialog/simulator-setting-dialog.html",
                 controller: "simulatorSettingDialogCtrl"
+            });
+        }
+
+        function openCreateStormDialog() {
+            $uibModal.open({
+                templateUrl: "/src/createStormDialog/create-storm-dialog.html",
+                controller: "createStormDialogCtrl",
+                resolve: {
+                    overlay: vm.overlay
+                }
             });
         }
 

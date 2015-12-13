@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h4>Thêm Bão</h4>
+</div>
+
+<div class="modal-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Tên</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="storm.Name" placeholder="Tên bão">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Vĩ độ tâm bão</label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" ng-model="storm.Latitude" placeholder="Vĩ độ">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Kinh độ tâm bão</label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" ng-model="storm.Longitude" placeholder="Kinh độ">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Bán kính</label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" ng-model="storm.Radius" placeholder="Bán kính">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Chi tiết</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="storm.Description" placeholder="Mô tả chi tiết">
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="createStorm()">Thêm</button>
+    <button class="btn btn-warning" type="button" ng-click="closeDialog()">Hủy</button>
+</div>
