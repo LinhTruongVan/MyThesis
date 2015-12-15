@@ -39,20 +39,49 @@
                 L.mapbox.accessToken = 'pk.eyJ1IjoidHZsaW5oIiwiYSI6ImNpZzJlMXRubDFiYmp0emt2OTJidmpsdHkifQ.es8RI1Tt5uJAEmE33tWkrw#6/13.699/110.369';
                 vm.leafletMap = L.mapbox.map('leaflet-map').setView([13.699, 110.369], 6);
 
-                var baseMaps = commonSvc.getBaseMaps(vm.leafletMap);
-                var groupedOverlays = {
-                    'Thời tiết': commonSvc.getOverlayWeatherLayers(),
-                    'Tàu quốc tế': commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data),
-                    'Tàu': commonSvc.getOverlayShipLocationLayersForMonitor(vm.leafletMap, summaryData.Ships),
-                    'Bão': commonSvc.getOverlayStormLayers(vm.leafletMap, summaryData.Storms),
-                    'Cảnh báo': commonSvc.getOverlayWarningLocationLayers(summaryData.WarningLocations)
-                };
+                var baseMaps = [
+                    {
+                        groupName: "Bản đồ",
+                        expanded: true,
+                        layers: commonSvc.getBaseMaps(vm.leafletMap)
+                    }
+                ];
+
+                var internationalShipLocationLayers = commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data);
+                var shipLocationLayersForMonitor = commonSvc.getOverlayShipLocationLayersForMonitor(vm.leafletMap, summaryData.Ships);
+
+                var overlayLayers = [
+                     {
+                         groupName: "Thời tiết",
+                         layers: commonSvc.getOverlayWeatherLayers()
+                     },
+                      {
+                          groupName: "Tàu quốc tế",
+                          layers: internationalShipLocationLayers
+                      },
+                      {
+                          groupName: "Tàu",
+                          layers: shipLocationLayersForMonitor
+                      },
+                    {
+                        groupName: "Bão",
+                        layers: commonSvc.getOverlayStormLayers(vm.leafletMap, summaryData.Storms)
+                    },
+                    {
+                        groupName: "Cảnh báo",
+                        layers: commonSvc.getOverlayWarningLocationLayers(summaryData.WarningLocations)
+                    }
+                ];
 
                 var options = {
-                    //exclusiveGroups: ['Thời tiết']
+                    container_width: "250px",
                 };
 
-                L.control.groupedLayers(baseMaps, groupedOverlays, options).addTo(vm.leafletMap);
+                var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlayLayers, options);
+                vm.leafletMap.addControl(styledLayerControl);
+
+                vm.leafletMap.addLayer(internationalShipLocationLayers['Tàu quốc tế']);
+                vm.leafletMap.addLayer(shipLocationLayersForMonitor['Tất cả']);
 
                 L.control.coordinates({
                     position: "bottomleft",
@@ -64,12 +93,12 @@
                     useDMS: false,
                     useLatLngOrder: true,
                     markerType: L.marker,
-                    markerProps: {} 
+                    markerProps: {}
                 }).addTo(vm.leafletMap);
 
                 var minDistanceForSafe = 50;
                 vm.shipIdsHasIncidentWithInternationalShip = commonSvc.getShipIdsHasIncidentWithInternationalShip(summaryData.Ships, summaryData.InternationShipData.Data, minDistanceForSafe * 1000);
-                if (vm.shipIdsHasIncidentWithInternationalShip.length >0) {
+                if (vm.shipIdsHasIncidentWithInternationalShip.length > 0) {
                     vm.warningMessage = '<div>Tàu (<strong>' + vm.shipIdsHasIncidentWithInternationalShip.join(',') + '</strong>) đang trong khu vực có bán kính dưới ' + minDistanceForSafe + 'km so với tàu quốc tế. Hãy cẩn thận để tránh va chạm</div>';
                     toastr.warning(vm.warningMessage);
                 }

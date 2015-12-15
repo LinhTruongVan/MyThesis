@@ -37,19 +37,49 @@
                 L.mapbox.accessToken = 'pk.eyJ1IjoidHZsaW5oIiwiYSI6ImNpZzJlMXRubDFiYmp0emt2OTJidmpsdHkifQ.es8RI1Tt5uJAEmE33tWkrw#6/13.699/110.369';
                 vm.leafletMap = L.mapbox.map('leaflet-map').setView([13.699, 110.369], 6);
 
-                var baseMaps = commonSvc.getBaseMaps(vm.leafletMap);
-                var groupedOverlays = {
-                    'Thời tiết': commonSvc.getOverlayWeatherLayers(),
-                    'Tàu quốc tế': commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data),
-                    'Tàu': commonSvc.getOverlayShipLocationLayersForSimulate(vm.leafletMap, summaryData.Ships),
-                    'Cảnh báo': commonSvc.getOverlayWarningLocationLayers(summaryData.WarningLocations)
-                };
+                var baseMaps = [
+                    {
+                        groupName: "Bản đồ",
+                        expanded: true,
+                        layers: commonSvc.getBaseMaps(vm.leafletMap)
+                    }
+                ];
+
+                var internationalShipLocationLayers = commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data);
+                var shipLocationLayersForSimulate = commonSvc.getOverlayShipLocationLayersForSimulate(vm.leafletMap, summaryData.Ships);
+
+                var overlayLayers = [
+                     {
+                         groupName: "Thời tiết",
+                         layers: commonSvc.getOverlayWeatherLayers()
+                     },
+                     {
+                         groupName: "Tàu quốc tế",
+                         layers: internationalShipLocationLayers
+                     },
+                     {
+                         groupName: "Tàu",
+                         layers: shipLocationLayersForSimulate
+                     },
+                    {
+                        groupName: "Bão",
+                        layers: commonSvc.getOverlayStormLayers(vm.leafletMap, summaryData.Storms)
+                    },
+                    {
+                        groupName: "Cảnh báo",
+                        layers: commonSvc.getOverlayWarningLocationLayers(summaryData.WarningLocations)
+                    }
+                ];
 
                 var options = {
-                    exclusiveGroups: ['Thời tiết']
+                    container_width: "250px",
                 };
 
-                L.control.groupedLayers(baseMaps, groupedOverlays, options).addTo(vm.leafletMap);
+                var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlayLayers, options);
+                vm.leafletMap.addControl(styledLayerControl);
+
+                vm.leafletMap.addLayer(internationalShipLocationLayers['Tàu quốc tế']);
+                vm.leafletMap.addLayer(shipLocationLayersForSimulate['Tất cả']);
 
                 L.control.coordinates({
                     position: "bottomleft", //optional default "bootomright"

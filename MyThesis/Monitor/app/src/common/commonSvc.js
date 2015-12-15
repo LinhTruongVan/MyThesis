@@ -126,7 +126,7 @@
 
         function getOverlayShipLocationLayersForSimulate(leafletMap, ships) {
             var layers = {
-                'Tất cả': new L.LayerGroup().addTo(leafletMap)
+                'Tất cả': new L.LayerGroup()
             };
 
             var movingMarkers = getAllMovingMarkerForShips();
@@ -183,7 +183,7 @@
 
         function getOverlayInternationalShipLocationLayers(leafletMap, shipLocations) {
             var layerGroup = {
-                'Tàu quốc tế': new L.LayerGroup().addTo(leafletMap)
+                'Tàu quốc tế': new L.LayerGroup()
             }
 
             setupInternationShipMarkers();
@@ -215,7 +215,7 @@
 
         function getOverlayShipLocationLayersForMonitor(leafletMap, ships) {
             var layerGroup = {
-                'Tất cả': new L.LayerGroup().addTo(leafletMap)
+                'Tất cả': new L.LayerGroup()
             };
 
             setupShipLocationMarkers();
@@ -322,7 +322,7 @@
 
         function getOverlayStormLayers(leafletMap, storms) {
             var layerGroup = {
-                'Bão': new L.LayerGroup().addTo(leafletMap)
+                'Bão': new L.LayerGroup()
             };
 
             setupStormMarkers();
