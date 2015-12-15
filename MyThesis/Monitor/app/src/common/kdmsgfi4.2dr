@@ -23,9 +23,9 @@
 
         function getBaseMaps(leafletMap) {
             return {
-                'Cơ bản': L.mapbox.tileLayer('mapbox.streets').addTo(leafletMap),
-                'Cổ điển': L.mapbox.tileLayer('mapbox.run-bike-hike'),
-                'Vệ tinh': L.mapbox.tileLayer('mapbox.streets-satellite')
+                'StreetMap(1)': L.mapbox.tileLayer('mapbox.streets').addTo(leafletMap),
+                'StreetMap(2)': L.mapbox.tileLayer('mapbox.outdoors'),
+                'Satellite': L.mapbox.tileLayer('mapbox.streets-satellite')
             };
         }
 

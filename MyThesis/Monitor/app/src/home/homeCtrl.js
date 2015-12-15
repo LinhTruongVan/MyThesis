@@ -44,6 +44,7 @@
                     'Thời tiết': commonSvc.getOverlayWeatherLayers(),
                     'Tàu quốc tế': commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data),
                     'Tàu': commonSvc.getOverlayShipLocationLayersForMonitor(vm.leafletMap, summaryData.Ships),
+                    'Bão': commonSvc.getOverlayStormLayers(vm.leafletMap, summaryData.Storms),
                     'Cảnh báo': commonSvc.getOverlayWarningLocationLayers(summaryData.WarningLocations)
                 };
 
@@ -65,8 +66,6 @@
                     markerType: L.marker,
                     markerProps: {} 
                 }).addTo(vm.leafletMap);
-
-                //L.circle([12.5, 116.5], 200000, {color: 'red'}).addTo(vm.leafletMap);
 
                 var minDistanceForSafe = 50;
                 vm.shipIdsHasIncidentWithInternationalShip = commonSvc.getShipIdsHasIncidentWithInternationalShip(summaryData.Ships, summaryData.InternationShipData.Data, minDistanceForSafe * 1000);
