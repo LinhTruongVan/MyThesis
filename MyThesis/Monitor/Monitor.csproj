@@ -72,6 +72,16 @@
     <Content Include="app\assets\script\leaflet-openweathermap\leaflet-openweathermap.css" />
     <Content Include="app\assets\script\leaflet-openweathermap\leaflet-openweathermap.js" />
     <Content Include="app\assets\script\leaflet-openweathermap\owmloading.gif" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\BebasNeue-webfont.svg" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Dharma Type Font License.txt" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\images\arrow_down.png" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\images\arrow_up.png" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\images\bgnoise_lg.jpg" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\images\check.png" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\images\delete.png" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\images\layers.png" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\styledLayerControl.css" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\styledLayerControl.js" />
     <Content Include="app\assets\script\moving_marker\moving_marker.js" />
     <Content Include="app\assets\script\rotated_marker\rotated_marker.js" />
     <Content Include="app\indexSvc.js" />
@@ -104,6 +114,23 @@
     <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.woff" />
     <Content Include="app\bower.json" />
     <Content Include="app\assets\script\leaflet-openweathermap\README.md" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Alegreya-Black.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Alegreya-BlackItalic.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Alegreya-Bold.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Alegreya-BoldItalic.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Alegreya-Italic.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Alegreya-Regular.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\BebasNeue-webfont.eot" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\BebasNeue-webfont.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\BebasNeue-webfont.woff" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-Bold.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-BoldItalic.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-Italic.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-Light.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-LightItalic.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-Medium.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-MediumItalic.ttf" />
+    <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-Regular.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

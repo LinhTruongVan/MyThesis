@@ -17,7 +17,8 @@
             getOverlayInternationalShipLocationLayers: getOverlayInternationalShipLocationLayers,
             getOverlayShipLocationLayersForMonitor: getOverlayShipLocationLayersForMonitor,
             getShipIdsHasIncidentWithInternationalShip: getShipIdsHasIncidentWithInternationalShip,
-            getOverlayStormLayers: getOverlayStormLayers
+            getOverlayStormLayers: getOverlayStormLayers,
+            getShipIdsHasIncidentWithStorm: getShipIdsHasIncidentWithStorm
     };
         return service;
 
@@ -314,10 +315,6 @@
 
                 return (d <= maxDistance);
             }
-
-            function convertToRadian(x) {
-                return x * Math.PI / 180;
-            }
         }
 
         function getOverlayStormLayers(leafletMap, storms) {
@@ -353,6 +350,45 @@
 
                 return htmlBuilder;
             }
+        }
+
+        function getShipIdsHasIncidentWithStorm(ships, storms, distance) {
+            var shipIds = [];
+
+            for (var i = 0; i < ships.length; i++) {
+                var ship = ships[i];
+                var shipLastLocation = ship.ShipLocations[ship.ShipLocations.length - 1];
+                for (var j = 0; j < storms.length; j++){
+                    var storm = storms[j];
+
+                    if (isShipHasIncidentWithStorm(shipLastLocation, storm)) {
+                        shipIds.push(ship.Id);
+                        break;
+                    }
+                }
+            }
+
+            return shipIds;
+
+            function isShipHasIncidentWithStorm(shipLocation, stormInfo) {
+                var R = 6378137; // Earth’s mean radius in meter
+
+                var dLat = convertToRadian(stormInfo.Latitude - shipLocation.Latitude);
+                var dLong = convertToRadian(stormInfo.Longitude - shipLocation.Longitude);
+
+                var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(convertToRadian(shipLocation.Latitude)) * Math.cos(convertToRadian(stormInfo.Latitude )) *
+                  Math.sin(dLong / 2) * Math.sin(dLong / 2);
+
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                var d = R * c; // the distance in meter
+
+                return (d <= distance + stormInfo.Radius);
+            }
+        }
+
+        function convertToRadian(x) {
+            return x * Math.PI / 180;
         }
 
     }
