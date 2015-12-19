@@ -87,6 +87,8 @@
     <Content Include="app\indexSvc.js" />
     <Content Include="app\src\common\commonDataSvc.js" />
     <Content Include="app\src\common\commonSvc.js" />
+    <Content Include="app\src\law\law.html" />
+    <Content Include="app\src\law\lawCtrl.js" />
     <Content Include="app\src\editStorm\storm.html" />
     <Content Include="app\src\editStorm\stormCtrl.js" />
     <Content Include="app\src\editStorm\stormDataSvc.js" />
