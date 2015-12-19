@@ -58,13 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\assets\css\home.css" />
-    <Content Include="app\assets\lumio\css\styles.css" />
-    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.svg" />
-    <Content Include="app\assets\lumio\js\html5shiv.min.js" />
-    <Content Include="app\assets\lumio\js\lumino.glyphs.js" />
-    <Content Include="app\assets\lumio\js\respond.min.js" />
+    <Content Include="app\assets\css\push-down.css" />
     <Content Include="app\src\app.const.js" />
     <Content Include="app\src\app.js" />
+    <Content Include="app\src\addShip\add-ship.html" />
+    <Content Include="app\src\addShip\addShipCtrl.js" />
+    <Content Include="app\src\addShip\add-ship.js" />
     <Content Include="app\src\createShipDialog\create-ship-dialog.html" />
     <Content Include="app\src\createShipDialog\createShipDialogCtrl.js" />
     <Content Include="app\src\createShipDialog\createShipDialogSvc.js" />
@@ -78,6 +77,10 @@
     <Content Include="app\src\home\homeCtrl.js" />
     <Content Include="app\src\home\homeDataSvc.js" />
     <Content Include="app\src\home\homeSvc.js" />
+    <Content Include="app\src\pushDown\pushDownSvc.js" />
+    <Content Include="app\src\pushDown\push-down.html" />
+    <Content Include="app\src\pushDown\push-down.js" />
+    <Content Include="app\src\pushDown\pushDownCtrl.js" />
     <Content Include="app\src\services\latlongUtilSvc.js" />
     <Content Include="app\src\services\spinnerUtilSvc.js" />
     <Content Include="app\src\ship\ship.html" />
@@ -90,9 +93,6 @@
     <Content Include="package.json" />
     <Content Include="bower.json" />
     <Content Include="app\bower.json" />
-    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.eot" />
-    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.ttf" />
-    <Content Include="app\assets\lumio\font\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

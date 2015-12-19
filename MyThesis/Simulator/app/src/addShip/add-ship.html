@@ -1,0 +1,51 @@
+﻿<div class="form-group">
+    <div class="push-down__heading">Thêm Tàu</div>
+</div>
+<div class="form-group">
+    <label for="shipUser" class="control-label">Chủ tàu</label>
+    <div class="push-down__input-wrapper">
+        <select id="shipUser" class="form-control" ng-options="item.Id as item.UserName for item in vm.users" ng-model="vm.newShip.UserId">
+            <option value=''>- Chủ tàu -</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="shipType" class="control-label">Loại tàu</label>
+    <div class="push-down__input-wrapper">
+        <select id="shipType" class="form-control" ng-options="shipType.value as shipType.name for shipType in vm.shipTypes" ng-model="vm.newShip.ShipType">
+            <option value=''>- Loại tàu -</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="shipSpeed" class="control-label">Vận tốc</label>
+    <div class="push-down__input-wrapper">
+        <input id="shipSpeed" type="number" class="form-control" ng-model="vm.newShip.Speed" placeholder="Vận tốc tàu">
+    </div>
+</div>
+<div class="form-group">
+    <label for="shipWeight" class="control-label">Trọng tải</label>
+    <div class="push-down__input-wrapper">
+        <input id="shipWeight" type="number" class="form-control" ng-model="vm.newShip.Weight" placeholder="Trọng tải tàu">
+    </div>
+</div>
+<div class="form-group">
+    <label for="shipCation" class="control-label">Thuyền trưởng</label>
+    <div class="push-down__input-wrapper">
+        <input id="shipCation" type="text" class="form-control" ng-model="vm.newShip.Caption" placeholder="Tên thuyền trưởng">
+    </div>
+</div>
+<div class="form-group">
+    <label for="shipSailors" class="control-label">Thuyền trưởng</label>
+    <div class="push-down__input-wrapper">
+        <input id="shipSailors" type="number" class="form-control" ng-model="vm.newShip.Sailors" placeholder="Số lượng thuyền viên">
+    </div>
+</div>
+<div class="form-group">
+    <div class="push-down__button-group-wrapper">
+        <div class="push-down__button-group">
+            <button class="push-down__button--done" ng-click="vm.createShip()">Thêm Tàu</button>
+            <button class="push-down__button--cancel" ng-click="vm.close()">Hủy</button>
+        </div>
+    </div>
+</div>

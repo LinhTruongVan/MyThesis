@@ -1,5 +1,11 @@
-﻿.overlay{
-	position: fixed;
+﻿@media (min-width: 1200px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+.overlay {
+    position: fixed;
     background: rgba(0, 0, 0, 0.3);
     width: 100vw;
     height: 100vh;
@@ -8,25 +14,63 @@
     left: 0;
 }
 
-.clickable-element {
+body {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.home__navbar {
+    height: 80px;
+    background: #244f95;
+}
+
+.home__navbar__brand {
+    font-size: 45px;
+    color: whitesmoke;
+    height: 80px;
+    line-height: 80px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.home__menu{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #244f95;
+}
+
+.home__menu__ul{
+    margin-left: 10px;
+}
+
+.home__menu__li{
+    margin-left: -5px;
+    padding-right: 10px;
+    padding-left: 10px;
+     height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.home__menu__li:hover, .home__menu__li--active{
+    background-color:  #244f95;
+}
+
+.home__menu__li:hover a{
+    color: whitesmoke;
+}
+
+.home__menu__li--active a{
+    color: whitesmoke !important;
+}
+
+.home__menu__li a{
     cursor: pointer;
+    text-decoration: none;
+    color: #000;
 }
 
-.menu-icon {
-    font-size: 25px;
-    margin-right: 10px;
+.home__menu__li a i{
+    margin-left: 5px;
+    margin-right: 5px;
 }
-
-.ship-info-table {
-    margin-bottom: 0;
-}
-
-.table-no-border>thead>tr>th, 
-.table-no-border>tbody>tr>th, 
-.table-no-border>tfoot>tr>th, 
-.table-no-border>thead>tr>td, 
-.table-no-border>tbody>tr>td, 
-.table-no-border>tfoot>tr>td {
-  border-top: none; 
-}
-

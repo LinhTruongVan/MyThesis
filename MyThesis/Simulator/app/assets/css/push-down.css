@@ -1,0 +1,67 @@
+﻿.push-down {
+    background-color: #dcf0fa;
+    border-bottom: 6px solid #244f95;
+    padding: 20px 20px 0 20px;
+    min-height: 200px;
+}
+
+.push-down__remove-icon {
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+}
+
+    .push-down__remove-icon a {
+        color: #000;
+        text-decoration: none;
+    }
+
+.push-down__input-wrapper {
+    width: 45%;
+}
+
+.push-down__heading {
+    font-size: 32px;
+    color: #244f95;
+    text-transform: capitalize;
+}
+
+.push-down__button-group-wrapper {
+    width: 45%;
+    min-height: 38px;
+    position: relative;
+}
+
+.push-down__button-group {
+    position: absolute;
+    right: 0;
+}
+
+.push-down__button--done {
+    border-radius: 5px;
+    border: 2px solid #244f95;
+    padding: 7px 20px 7px 20px;
+    background: transparent;
+    font-size: 14px;
+    color: #244f95;
+    margin-right: 15px;
+}
+
+.push-down__button--cancel {
+    border-radius: 5px;
+    border: 2px solid #244f95;
+    padding: 7px 20px 7px 20px;
+    background: transparent;
+    font-size: 14px;
+    color: #244f95;
+}
+
+.push-down__button--done:hover {
+    background-color: #244f95;
+    color: whitesmoke;
+}
+
+.push-down__button--cancel:hover {
+    background-color: whitesmoke;
+}

@@ -6,16 +6,22 @@
         .controller('homeCtrl', homeCtrl);
 
     homeCtrl.$inject = ['spinnerUtilSvc', '$uibModal', 'homeSvc', 'shipDataSvc', 'simulatorSettingDialogSvc',
-    'homeDataSvc'];
+    'homeDataSvc', 'pushDownSvc'];
 
     function homeCtrl(spinnerUtilSvc, $uibModal, homeSvc, shipDataSvc, simulatorSettingDialogSvc,
-        homeDataSvc) {
+        homeDataSvc, pushDownSvc) {
         var vm = this;
         vm.overlay = angular.element(document.querySelector('#overlay'));
 
         vm.ships = [];
         vm.users = [];
         vm.settingTimeout = simulatorSettingDialogSvc.getSettingTimeout();
+
+        vm.pushDownSettings = pushDownSvc.getPushDownSettings();
+        vm.showAddShip = showAddShip;
+        vm.showAddWarning = showAddWarning;
+        vm.showAddStorm = showAddStorm;
+        vm.showEditSettings = showEditSettings;
 
         vm.openCreateShipDialog = openCreateShipDialog;
         vm.openCreateWarningLocationDialog = openCreateWarningLocationDialog;
@@ -89,6 +95,21 @@
             });
         }
 
+        function showAddShip() {
+            pushDownSvc.showAddShip();
+        }
+
+        function showAddWarning() {
+            pushDownSvc.showAddWarning();
+        }
+
+        function showAddStorm() {
+            pushDownSvc.showAddStorm();
+        }
+
+        function showEditSettings() {
+            pushDownSvc.showEditSettings();
+        }
+
     }
-    
 })();
