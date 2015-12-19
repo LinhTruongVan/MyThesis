@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.user = {};
+        vm.isUserExist = userSvc.isUserExist();
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
 

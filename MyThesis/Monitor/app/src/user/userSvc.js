@@ -15,7 +15,8 @@
             getCurrentUser: getCurrentUser,
             setCurrentUser: setCurrentUser,
             getCurrentUserRole: getCurrentUserRole,
-            validateCurrentUser: validateCurrentUser
+            validateCurrentUser: validateCurrentUser,
+            isUserExist: isUserExist
         };
 
         function getCurrentUser() {
@@ -36,6 +37,14 @@
             var currentUser = JSON.parse(sessionStorage.getItem('user'));
             if (!currentUser || !currentUser.Id) {
                 $location.path('/login');
+                return false;
+            };
+            return true;
+        }
+
+        function isUserExist() {
+            var currentUser = JSON.parse(sessionStorage.getItem('user'));
+            if (!currentUser || !currentUser.Id) {
                 return false;
             };
             return true;

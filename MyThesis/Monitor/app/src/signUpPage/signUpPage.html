@@ -1,4 +1,34 @@
-﻿<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+﻿<div class="col-md-offset-4 col-md-4">
+    <form class="form-horizontal login-page__form col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10">
+        <div class="form-group">
+            <label class="login-page__form__title control-label">Recom</label>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control login-page__form__input" placeholder="Tài khoản" ng-model="vm.newUser.UserName">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control login-page__form__input" placeholder="Số điện thoại" ng-model="vm.newUser.Phone">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control login-page__form__input" placeholder="Mật khẩu" ng-model="vm.newUser.Password">
+        </div>
+        <div class="form-group">
+            <button class="login-page__form__button pull-right" ng-click="vm.createUser()">Đăng ký</button>
+        </div>
+        <div class="form-group">
+            <a href="#/login" class="control-label login-page__form__ps">Trở về trang đăng nhập</a>
+        </div>
+    </form>
+</div>
+
+<div class="login-page__company">@Trương Văn Linh - Nguyễn Thành Vinh</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="overlay" id="overlay" style="display: none;">
+        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
+    </div>
+</div>
+<!--<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
     <div class="login-panel panel panel-default">
         <div class="panel-heading">Đăng Ký</div>
         <div class="panel-body">
@@ -24,4 +54,4 @@
     <div class="overlay" id="overlay" style="display: none; ">
         <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
     </div>
-</div>
+</div>-->
