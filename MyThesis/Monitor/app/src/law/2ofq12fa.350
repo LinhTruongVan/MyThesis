@@ -1,7 +1,7 @@
 ﻿
 <div class="col-xs-12 col-sm-12 col-md-12 main__navbar">
     <div class="main__navbar__brand">
-        <span>THESIS</span>
+        <span>RECOM</span>
         <div class="main__navbar__user">
             <span class="main__navbar__user__text">{{vm.currentUser.UserName}}</span>
             <a class="main__navbar__user__button" ng-click="vm.logout()"><span class="glyphicon glyphicon-off"></span></a>
@@ -16,23 +16,58 @@
         <li class="main__menu__li"><a href="#/simulate">Hành trình tàu</a></li>
         <li class="main__menu__li"><a href="#/edit">Thông Tin Tàu</a></li>
         <li class="main__menu__li"><a href="#/storm">Thông Tin Bão</a></li>
-        <li class="main__menu__li"><a href="#/weather">Thời Tiết</a></li>
-        <li class="main__menu__li main__menu__li--active"><a>Pháp Luật</a></li>
+        <li class="main__menu__li main__menu__li--active"><a>Thời Tiết</a></li>
+        <li class="main__menu__li"><a href="#/law">Pháp Luật</a></li>
     </ul>
 </div>
 
 <div class="col-xs-12 col-sm-12 col-md-12 main__container">
-    <div class="main__detail container">
-        <form class="form-horizontal" style="padding-left: 20px; padding-right: 20px;">
-            <div class="form-group"></div>
-            <div class="form-group">
-                <label class="col-xs-3 col-sm-3 col-md-3 control-label">Chuyên Mục</label>
-                <div class="col-xs-8 col-sm-8 col-md-8">
-                    <select class="form-control" ng-options="mode for mode in vm.modes" ng-model="vm.mode"></select>
-                </div>
+    <div id="weather-div">
+        <iframe id="weather-iframe" src="http://www.kttv.gov.vn/website/vi-VN/80/13/Default.aspx" scrolling="no" style="width: 100%; height: 1800px;">></iframe>
+    </div>
+</div>
+
+<div class="main__author">@Trương Văn Linh - Nguyễn Thành Vinh</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="overlay" id="overlay" style="display: none;">
+        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
+    </div>
+</div>
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <ul class="nav menu">
+        <li><a class="clickable-element" ng-href="#/home"><span class="ion-home ion-icon-custom"></span> Trang chủ</a></li>
+        <li><a class="clickable-element" ng-href="#/simulate"><span class="ion-arrow-graph-down-right ion-icon-custom"></span> Hành trình tàu</a></li>
+        <li><a class="clickable-element" ng-href="#/edit"><span class="ion-android-boat ion-icon-custom"></span> Chỉnh sửa thông tin tàu</a></li>
+        <li ng-if="vm.currentUser.Id === 1"><a class="clickable-element" ng-href="#/storm"><span class="ion-ios-thunderstorm-outline ion-icon-custom"></span> Chỉnh sửa thông tin bão</a></li>
+        <li><a class="clickable-element" ng-href="#/weather"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Thời tiết</a></li>
+        <li class="active"><a class="clickable-element"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Pháp luật</a></li>
+        <li role="presentation" class="divider"></li>
+    </ul>
+
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Pháp luật</h3>
+        </div>
+    </div><!--/.row-->
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-warning">
+                <label>Về: </label>
+                <select class="form-control" ng-options="mode for mode in vm.modes" ng-model="vm.mode"></select>
             </div>
-            <div class="form-group" ng-if="vm.mode === vm.modes[0]">
-                <div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-info">
+                <div ng-if="vm.mode === vm.modes[0]">
                     <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
                         <span class="normal-h1">
                             <b>
@@ -168,7 +203,7 @@ color:black"><font size="2">3. Bộ Thuỷ sản định kỳ công bố:</font>
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    a) Danh mục các loài thuỷ sản đã được ghi trong sách đỏ Việt Nam và
+                                    A) Danh mục các loài thuỷ sản đã được ghi trong sách đỏ Việt Nam và
                                     các loài thuỷ sản khác bị cấm khai thác; danh mục các loài thuỷ sản bị cấm khai
                                     thác có thời hạn và thời gian cấm khai thác;
                                 </font>
@@ -180,7 +215,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Các phương pháp khai thác, loại nghề khai thác<b><i>,</i> </b>
+                                    B) Các phương pháp khai thác, loại nghề khai thác<b><i>,</i> </b>
                                     ngư cụ bị cấm sử dụng hoặc bị hạn chế sử dụng;
                                 </font>
                             </span>
@@ -191,7 +226,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    c) Chủng loại, kích cỡ tối thiểu các loài thuỷ sản được phép khai
+                                    C) Chủng loại, kích cỡ tối thiểu các loài thuỷ sản được phép khai
                                     thác, mùa vụ khai thác;
                                 </font>
                             </span>
@@ -200,7 +235,7 @@ color:black">
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">d) Khu vực cấm khai thác và khu vực cấm khai thác có thời hạn.</font></span>
+color:black"><font size="2">D) Khu vực cấm khai thác và khu vực cấm khai thác có thời hạn.</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
@@ -315,7 +350,7 @@ color:black"><font size="2">1. Nguồn tài chính để tái tạo nguồn lợ
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">a) Ngân sách nhà nước cấp;</font></span>
+color:black"><font size="2">A) Ngân sách nhà nước cấp;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
@@ -323,7 +358,7 @@ color:black"><font size="2">a) Ngân sách nhà nước cấp;</font></span>
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Quỹ tái tạo nguồn lợi thuỷ sản được hình
+                                    B) Quỹ tái tạo nguồn lợi thuỷ sản được hình
                                     thành từ sự đóng góp của tổ chức, cá nhân khai thác, nuôi trồng, chế biến, mua
                                     bán, xuất khẩu, nhập khẩu thuỷ sản; sự đóng góp của tổ chức, cá nhân hoạt động
                                     trong các ngành, nghề có ảnh hưởng trực tiếp đến nguồn lợi thuỷ sản; tài trợ của
@@ -352,9 +387,7 @@ color:black"><font size="2">&nbsp;</font></span>
                         </span>
                     </p>
                 </div>
-            </div>
-            <div class="form-group" ng-if="vm.mode === vm.modes[1]">
-                <div>
+                <div ng-if="vm.mode === vm.modes[1]">
                     <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
                         <span class="normal-h1">
                             <b>
@@ -651,31 +684,31 @@ color:black"><font size="2">2. Nội dung chủ yếu của Giấy phép khai th
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">a) Nghề khai thác, ngư cụ khai thác;</font></span>
+color:black"><font size="2">A) Nghề khai thác, ngư cụ khai thác;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">b) Vùng, tuyến được phép khai thác;</font></span>
+color:black"><font size="2">B) Vùng, tuyến được phép khai thác;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">c) Thời gian hoạt động khai thác;</font></span>
+color:black"><font size="2">C) Thời gian hoạt động khai thác;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">d) Thời hạn của Giấy phép;</font></span>
+color:black"><font size="2">D) Thời hạn của Giấy phép;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">đ) Các nội dung cần thiết khác theo quy định của pháp luật.</font></span>
+color:black"><font size="2">Đ) Các nội dung cần thiết khác theo quy định của pháp luật.</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
@@ -1141,7 +1174,7 @@ color:black">
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">a) Địa điểm xây dựng cơ sở nuôi trồng thuỷ sản theo quy hoạch;</font></span>
+color:black"><font size="2">A) Địa điểm xây dựng cơ sở nuôi trồng thuỷ sản theo quy hoạch;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
@@ -1149,7 +1182,7 @@ color:black"><font size="2">a) Địa điểm xây dựng cơ sở nuôi trồng
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Cơ sở nuôi trồng thuỷ sản phải bảo đảm điều kiện, tiêu chuẩn kỹ
+                                    B) Cơ sở nuôi trồng thuỷ sản phải bảo đảm điều kiện, tiêu chuẩn kỹ
                                     thuật về nuôi trồng thuỷ sản; tiêu chuẩn vệ sinh thú y và bảo vệ môi trường theo
                                     quy định của pháp luật;
                                 </font>
@@ -1161,7 +1194,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    c) Sử dụng các loại thức ăn, thuốc thú y bảo đảm tiêu chuẩn theo
+                                    C) Sử dụng các loại thức ăn, thuốc thú y bảo đảm tiêu chuẩn theo
                                     quy định của pháp luật về thú y.
                                 </font>
                             </span>
@@ -1386,7 +1419,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    a) Tổ chức, cá nhân thuê mặt nước biển để nuôi trồng thuỷ sản theo
+                                    A) Tổ chức, cá nhân thuê mặt nước biển để nuôi trồng thuỷ sản theo
                                     dự án được cơ quan nhà nước có thẩm quyền xét duyệt;
                                 </font>
                             </span>
@@ -1397,7 +1430,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Tổ chức, cá nhân nước ngoài thuê mặt nước biển để nuôi trồng
+                                    B) Tổ chức, cá nhân nước ngoài thuê mặt nước biển để nuôi trồng
                                     thuỷ sản theo dự án được cơ quan nhà nước có thẩm quyền của Việt Nam xét duyệt.
                                 </font>
                             </span>
@@ -1475,7 +1508,7 @@ color:black">
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">a) Sử dụng không đúng mục đích;</font></span>
+color:black"><font size="2">A) Sử dụng không đúng mục đích;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
@@ -1483,7 +1516,7 @@ color:black"><font size="2">a) Sử dụng không đúng mục đích;</font></s
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Quá 24 tháng liền mà không sử dụng để nuôi trồng thuỷ sản, trừ
+                                    B) Quá 24 tháng liền mà không sử dụng để nuôi trồng thuỷ sản, trừ
                                     trường hợp có lý do chính đáng được cơ quan nhà nước có thẩm quyền chấp thuận;
                                 </font>
                             </span>
@@ -1494,7 +1527,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    c) Người sử dụng mặt nước biển để nuôi trồng thuỷ sản không thực
+                                    C) Người sử dụng mặt nước biển để nuôi trồng thuỷ sản không thực
                                     hiện đầy đủ các nghĩa vụ quy định tại Điều 26 và Điều 31 của Luật này;
                                 </font>
                             </span>
@@ -1505,7 +1538,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    d) Người sử dụng mặt nước biển để nuôi trồng thuỷ sản tự nguyện trả
+                                    D) Người sử dụng mặt nước biển để nuôi trồng thuỷ sản tự nguyện trả
                                     lại diện tích được giao, thuê;
                                 </font>
                             </span>
@@ -1516,7 +1549,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    đ) Nhà nước có nhu cầu thu hồi vì mục đích công cộng, quốc phòng và
+                                    Đ) Nhà nước có nhu cầu thu hồi vì mục đích công cộng, quốc phòng và
                                     an ninh.
                                 </font>
                             </span>
@@ -1588,7 +1621,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    a) Thế chấp tài sản thuộc sở hữu của mình gắn liền với mặt nước
+                                    A) Thế chấp tài sản thuộc sở hữu của mình gắn liền với mặt nước
                                     biển được thuê tại tổ chức tín dụng Việt Nam để vay vốn sản xuất, kinh doanh
                                     theo quy định của pháp luật;
                                 </font>
@@ -1600,7 +1633,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Chuyển nhượng tài sản thuộc sở hữu của mình
+                                    B) Chuyển nhượng tài sản thuộc sở hữu của mình
                                     gắn liền với mặt nước biển được thuê; người nhận tài sản đó nếu có yêu cầu được
                                     Nhà nước tiếp tục cho thuê mặt nước biển để nuôi trồng thuỷ sản thì vẫn có các
                                     quyền quy định tại khoản này.
@@ -1625,7 +1658,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    a) Thế chấp giá trị quyền sử dụng mặt nước
+                                    A) Thế chấp giá trị quyền sử dụng mặt nước
                                     biển được thuê và tài sản thuộc sở hữu của mình gắn liền với mặt nước biển được
                                     thuê trong thời hạn thuê tại tổ chức tín dụng Việt Nam để vay vốn sản xuất, kinh
                                     doanh theo quy định của pháp luật;
@@ -1638,7 +1671,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Chuyển nhượng quyền sử dụng mặt nước biển cùng với tài sản thuộc
+                                    B) Chuyển nhượng quyền sử dụng mặt nước biển cùng với tài sản thuộc
                                     sở hữu của mình gắn liền với mặt nước biển được thuê. Cá nhân được để thừa kế
                                     quyền sử dụng mặt nước biển được thuê trong thời hạn thuê theo quy định của pháp
                                     luật. Người nhận chuyển nhượng, người được thừa kế quyền sử dụng mặt nước biển
@@ -1652,7 +1685,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    c) Góp vốn bằng giá trị quyền sử dụng mặt nước biển được thuê cùng
+                                    C) Góp vốn bằng giá trị quyền sử dụng mặt nước biển được thuê cùng
                                     với tài sản thuộc sở hữu của mình gắn liền với mặt nước biển đã thuê để hợp tác
                                     sản xuất, kinh doanh với tổ chức, cá nhân trong nước và tổ chức, cá nhân nước
                                     ngoài theo quy định của pháp luật;
@@ -1665,7 +1698,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    d) Cho thuê lại quyền sử dụng mặt nước biển trong thời hạn thuê mặt
+                                    D) Cho thuê lại quyền sử dụng mặt nước biển trong thời hạn thuê mặt
                                     nước biển. Việc cho thuê lại chỉ được thực hiện khi mặt nước biển đó đã được đầu
                                     tư theo dự án và người thuê lại phải sử dụng mặt nước biển đó đúng mục đích.
                                 </font>
@@ -1961,7 +1994,7 @@ color:black"><font size="2">4. Bộ Thuỷ sản có trách nhiệm: </font></sp
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    a) Công bố danh mục và tiêu chuẩn thức ăn, nguyên liệu làm thức ăn
+                                    A) Công bố danh mục và tiêu chuẩn thức ăn, nguyên liệu làm thức ăn
                                     nuôi trồng thủy sản; thuốc, hoá chất dùng trong nuôi trồng thuỷ sản thuộc danh
                                     mục hàng hoá xuất khẩu, nhập khẩu chuyên ngành thuỷ sản;
                                 </font>
@@ -1973,7 +2006,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    b) Quy định tiêu chuẩn vệ sinh thú y, bảo vệ
+                                    B) Quy định tiêu chuẩn vệ sinh thú y, bảo vệ
                                     môi trường đối với cơ sở sản xuất, kinh doanh thức ăn nuôi trồng thuỷ sản, thuốc
                                     thú y dùng trong nuôi trồng thuỷ sản;
                                 </font>
@@ -1985,7 +2018,7 @@ color:black">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
                                 <font size="2">
-                                    c) Công bố danh mục thuốc, hoá chất được dùng
+                                    C) Công bố danh mục thuốc, hoá chất được dùng
                                     trong nuôi trồng thuỷ sản;
                                     cấm sử dụng, hạn chế sử dụng trong nuôi trồng thuỷ sản.
                                 </font>
@@ -2045,9 +2078,7 @@ color:black"><font size="2">&nbsp;</font></span>
                         </span>
                     </p>
                 </div>
-            </div>
-            <div class="form-group" ng-if="vm.mode === vm.modes[2]">
-                <div>
+                <div ng-if="vm.mode === vm.modes[2]">
                     <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
                         <span class="normal-h1">
                             <b>
@@ -2395,9 +2426,7 @@ color:black">
                         </span>
                     </p>
                 </div>
-            </div>
-            <div class="form-group" ng-if="vm.mode === vm.modes[3]">
-                <div>
+                <div ng-if="vm.mode === vm.modes[3]">
                     <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
                         <span class="normal-h1">
                             <b>
@@ -2413,7 +2442,7 @@ color:black"><font size="2">CHƯƠNG II</font></span>
                                     <span style="font-family: Arial; color: black">
                                         <font size="2">
                                             HÀNH VI VỊ PHẠM HÀNH CHÍNH, HÌNH THỨC XỬ PHẠT
-                                            VÀ BIỆN PHÁP KHẮC PHỤC HẬU QUẢ
+                                             VÀ BIỆN PHÁP KHẮC PHỤC HẬU QUẢ
                                         </font>
                                     </span>
                                 </span>
@@ -2452,25 +2481,25 @@ color:black">
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">a) Phạt tiền từ 500.000 đồng đến 1.000.000 đồng nếu khối lượng san hô dưới 10 kg;</font></span>
+color:black"><font size="2">A) Phạt tiền từ 500.000 đồng đến 1.000.000 đồng nếu khối lượng san hô dưới 10 kg;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">b) Phạt tiền từ 2.000.000 đồng đến 5.000.000 đồng nếu khối lượng san hô từ 10 kg đến dưới 50 kg;</font></span>
+color:black"><font size="2">B) Phạt tiền từ 2.000.000 đồng đến 5.000.000 đồng nếu khối lượng san hô từ 10 kg đến dưới 50 kg;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">c) Phạt tiền từ 6.000.000 đồng đến 10.000.000 đồng nếu khối lượng san hô từ 50 kg đến dưới 100 kg;</font></span>
+color:black"><font size="2">C) Phạt tiền từ 6.000.000 đồng đến 10.000.000 đồng nếu khối lượng san hô từ 50 kg đến dưới 100 kg;</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
-color:black"><font size="2">d) Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng nếu khối lượng san hô từ 100 kg trở lên.</font></span>
+color:black"><font size="2">D) Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng nếu khối lượng san hô từ 100 kg trở lên.</font></span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
@@ -2547,7 +2576,7 @@ color:black">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
-                                <font size="2">a) Phạt tiền từ 300.000 đồng đến 500.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép đến dưới 30 kg;</font>
+                                <font size="2">A) Phạt tiền từ 300.000 đồng đến 500.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép đến dưới 30 kg;</font>
                             </span>
                         </span>
                     </p>
@@ -2555,7 +2584,7 @@ color:black">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
-                                <font size="2">b) Phạt tiền từ 1.000.000 đồng đến 2.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 30 kg đến dưới 100 kg;</font>
+                                <font size="2">B) Phạt tiền từ 1.000.000 đồng đến 2.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 30 kg đến dưới 100 kg;</font>
                             </span>
                         </span>
                     </p>
@@ -2563,7 +2592,7 @@ color:black">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
-                                <font size="2">c) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 100 kg đến dưới 200 kg;</font>
+                                <font size="2">C) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 100 kg đến dưới 200 kg;</font>
                             </span>
                         </span>
                     </p>
@@ -2571,7 +2600,7 @@ color:black">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
-                                <font size="2">d) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 200 kg đến dưới 300 kg;</font>
+                                <font size="2">D) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 200 kg đến dưới 300 kg;</font>
                             </span>
                         </span>
                     </p>
@@ -2579,7 +2608,7 @@ color:black">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
-                                <font size="2">đ) Phạt tiền từ 10.000.000 đồng đến 12.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 300 kg trở lên.</font>
+                                <font size="2">Đ) Phạt tiền từ 10.000.000 đồng đến 12.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 300 kg trở lên.</font>
                             </span>
                         </span>
                     </p>
@@ -2595,42 +2624,42 @@ color:black">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;
 color:black">
-                                <font size="2">a) Phạt tiền từ 1.000.000 đồng đến 2.000.000 đồng đối với tàu cá không lắp máy có chiều dài đường nước thiết kế dưới 15 mét hoặc tàu cá lắp máy có tổng công suất máy chính dưới 20 sức ngựa;</font>
+                                <font size="2">A) Phạt tiền từ 1.000.000 đồng đến 2.000.000 đồng đối với tàu cá không lắp máy có chiều dài đường nước thiết kế dưới 15 mét hoặc tàu cá lắp máy có tổng công suất máy chính dưới 20 sức ngựa;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">b) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng đối với tàu cá có chiều dài đường nước thiết kế từ 15 mét trở lên mà không lắp máy hoặc tàu cá có lắp máy có tổng công suất máy chính từ 20 sức ngựa trở lên đến dưới 50 sức ngựa;</font>
+                                <font size="2">B) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng đối với tàu cá có chiều dài đường nước thiết kế từ 15 mét trở lên mà không lắp máy hoặc tàu cá có lắp máy có tổng công suất máy chính từ 20 sức ngựa trở lên đến dưới 50 sức ngựa;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">c) Phạt tiền từ 4.000.000 đồng đến 6.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 50 sức ngựa đến dưới 90 sức ngựa;</font>
+                                <font size="2">C) Phạt tiền từ 4.000.000 đồng đến 6.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 50 sức ngựa đến dưới 90 sức ngựa;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">d) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 90 sức ngựa đến dưới 250 sức ngựa;</font>
+                                <font size="2">D) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 90 sức ngựa đến dưới 250 sức ngựa;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">đ) Phạt tiền từ 8.000.000 đồng đến 10.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 250 sức ngựa đến dưới 400 sức ngựa;</font>
+                                <font size="2">Đ) Phạt tiền từ 8.000.000 đồng đến 10.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 250 sức ngựa đến dưới 400 sức ngựa;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">e) Phạt tiền từ 10.000.000 đồng đến 12.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 400 sức ngựa trở lên.</font>
+                                <font size="2">E) Phạt tiền từ 10.000.000 đồng đến 12.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 400 sức ngựa trở lên.</font>
                             </span>
                         </span>
                     </p>
@@ -2644,50 +2673,49 @@ color:black">
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">a) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng nếu khối lượng thủy sản dưới 20 kg;</font>
+                                <font size="2">A) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng nếu khối lượng thủy sản dưới 20 kg;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">b) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng nếu khối lượng thủy sản từ 20 kg đến dưới 50 kg;</font>
+                                <font size="2">B) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng nếu khối lượng thủy sản từ 20 kg đến dưới 50 kg;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">c) Phạt tiền từ 8.000.000 đồng đến 12.000.000 đồng nếu khối lượng thủy sản từ 50 kg đến dưới 100 kg;</font>
+                                <font size="2">C) Phạt tiền từ 8.000.000 đồng đến 12.000.000 đồng nếu khối lượng thủy sản từ 50 kg đến dưới 100 kg;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">d) Phạt tiền từ 12.000.000 đồng đến 20.000.000 đồng nếu khối lượng thủy sản từ 100 kg đến dưới 300 kg;</font>
+                                <font size="2">D) Phạt tiền từ 12.000.000 đồng đến 20.000.000 đồng nếu khối lượng thủy sản từ 100 kg đến dưới 300 kg;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">đ) Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng nếu khối lượng thủy sản từ 300 kg đến dưới 500 kg;</font>
+                                <font size="2">Đ) Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng nếu khối lượng thủy sản từ 300 kg đến dưới 500 kg;</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">e) Phạt tiền từ 30.000.000 đồng đến 40.000.000 đồng nếu khối lượng thủy sản trên 500 kg.</font>
+                                <font size="2">E) Phạt tiền từ 30.000.000 đồng đến 40.000.000 đồng nếu khối lượng thủy sản trên 500 kg.</font>
                             </span>
                         </span>
                     </p>
                     <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
                         <span class="normal-h1">
                             <span style="font-family:&quot;Arial&quot;;color:black">
-                                <font size="2">
-                                    4. Hình thức xử phạt bổ sung:<br />
+                                <font size="2">4. Hình thức xử phạt bổ sung:<br />
                                     Tịch thu công cụ khai thác thủy sản (trừ tàu cá) đối với trường hợp vi phạm nghề cấm khai thác quy định tại Khoản 2 Điều này.<br />
                                     5. Biện pháp khắc phục hậu quả:<br />
                                     Buộc thả số thủy sản còn sống trở lại môi trường sống của chúng đối với hành vi quy định tại Khoản 1, Khoản 2, Khoản 3 Điều này.
@@ -2777,15 +2805,13 @@ color:black"><font size="2"> Vi phạm các hoạt động bị nghiêm cấm t�
                     </p>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div class="main__author">@Trương Văn Linh - Nguyễn Thành Vinh</div>
+</div> <!--/.main-->
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="overlay" id="overlay" style="display: none;">
         <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
     </div>
 </div>
-

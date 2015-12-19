@@ -1,93 +1,77 @@
-﻿<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><span>Ship</span>Monitor</a>
-
-            <ul class="user-menu" ng-if="vm.currentUser.Id">
-                <li class="dropdown pull-right">
-                    <a class="dropdown-toggle clickable-element" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{vm.currentUser.UserName}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <!--<li><a><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-                        <li><a><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>-->
-                        <li><a ng-click="vm.logout()"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
+﻿
+<div class="col-xs-12 col-sm-12 col-md-12 main__navbar">
+    <div class="main__navbar__brand">
+        <span>THESIS</span>
+        <div class="main__navbar__user">
+            <span class="main__navbar__user__text">{{vm.currentUser.UserName}}</span>
+            <a class="main__navbar__user__button" ng-click="vm.logout()"><span class="glyphicon glyphicon-off"></span></a>
         </div>
+    </div>
 
-    </div><!-- /.container-fluid -->
-</nav>
+</div>
 
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-    <ul class="nav menu">
-        <li><a class="clickable-element" ng-href="#/home"><span class="ion-home ion-icon-custom"></span> Trang chủ</a></li>
-        <li><a class="clickable-element" ng-href="#/simulate"><span class="ion-arrow-graph-down-right ion-icon-custom"></span> Hành trình tàu</a></li>
-        <li><a class="clickable-element" ng-href="#/edit"><span class="ion-android-boat ion-icon-custom"></span> Chỉnh sửa thông tin tàu</a></li>
-        <li class="active"><a class="clickable-element"><span class="ion-ios-thunderstorm-outline ion-icon-custom"></span> Chỉnh sửa thông tin bão</a></li>
-        <li><a class="clickable-element" ng-href="#/weather"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Thời tiết</a></li>
-        <li><a class="clickable-element" ng-href="#/law"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Pháp luật</a></li>
-        <li role="presentation" class="divider"></li>
+<div class="col-xs-12 col-sm-12 col-md-12 main__menu">
+    <ul class="list-inline main__menu__ul pull-right">
+        <li class="main__menu__li"><a href="#/home">Trang chủ</a></li>
+        <li class="main__menu__li"><a href="#/simulate">Hành trình tàu</a></li>
+        <li class="main__menu__li"><a href="#/edit">Thông Tin Tàu</a></li>
+        <li class="main__menu__li main__menu__li--active"><a>Thông Tin Bão</a></li>
+        <li class="main__menu__li"><a href="#/weather">Thời Tiết</a></li>
+        <li class="main__menu__li"><a href="#/law">Pháp Luật</a></li>
     </ul>
+</div>
 
-</div><!--/.sidebar-->
-
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Chỉnh sửa thông tin bão</h3>
-        </div>
-    </div><!--/.row-->
-    <br />
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="alert alert-warning">
-                <label>Mã cơn bão: </label>
-                <select class="form-control" ng-options="item as item.Id for item in vm.storms" ng-model="vm.selectedStorm"></select>
+<div class="col-xs-12 col-sm-12 col-md-12 main__container">
+    <div class="main__detail container">
+        <form class="form-horizontal" style="margin-top: 10px;">
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Bão</label>
+                <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.storms.length}}</label>
             </div>
-        </div>
-    </div>
-    <br />
-    <div class="row" ng-if="vm.selectedStorm.Id">
-        <div class="col-lg-8">
-            <div class="alert alert-info">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        Tên bão:
-                        <input placeholder="Tên bão" type="text" ng-model="vm.selectedStorm.Name" />
-                    </li>
-                    <li class="list-group-item">
-                        Vĩ độ của tâm bão:
-                        <input placeholder="Vĩ độ của tâm bão" type="number" ng-model="vm.selectedStorm.Latitude"/>
-                    </li>
-                    <li class="list-group-item">
-                        Kinh độ của tâm bão:
-                        <input placeholder="Kinh độ của tâm bão" type="number" ng-model="vm.selectedStorm.Longitude"/>
-                    </li>
-                    <li class="list-group-item">
-                        Bán kính của bão:
-                        <input placeholder="Bán kính bão" type="number" ng-model="vm.selectedStorm.Radius"/>
-                    </li>
-                    <li class="list-group-item">
-                        Chi tiết:
-                        <input placeholder="Mô tả chi tiết" type="text" ng-model="vm.selectedStorm.Description" />
-                    </li>
-                    <li class="list-group-item">
-                        <button class="btn btn-primary" ng-click="vm.updateStorm()" title="Cập nhật thông tin bão">Lưu</button>
-                        <button class="btn btn-danger" ng-click="vm.deleteStorm()" title="Xóa thông tin bão">Xóa</button>
-                    </li>
-                </ul>
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 control-label">Mã Cơn Bão</label>
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                    <select class="form-control" ng-options="item as item.Id for item in vm.storms" ng-model="vm.selectedStorm"></select>
+                </div>
             </div>
-        </div>
+            <div ng-if="vm.selectedStorm.Id">
+                <div class="form-group">
+                    <label for="stormName" class="col-xs-3 col-sm-3 col-md-3 control-label">Tên Bão</label>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <input id="stormName" class="form-control" placeholder="Tên bão" type="text" ng-model="vm.selectedStorm.Name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="stormRadius" class="col-xs-3 col-sm-3 col-md-3 control-label">Bán Kính</label>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <input id="stormRadius" class="form-control" placeholder="Bán kính" type="number" ng-model="vm.selectedStorm.Radius" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="stormLatitude" class="col-xs-3 col-sm-3 col-md-3 control-label">Vĩ Độ Tâm Bão</label>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <input id="stormLatitude" class="form-control" placeholder="Vĩ độ tâm bão" type="number" ng-model="vm.selectedStorm.Latitude" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="stormLongitude" class="col-xs-3 col-sm-3 col-md-3 control-label">Kinh Độ Tâm Bão</label>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <input id="stormLongitude" class="form-control" placeholder="Kinh độ tâm bão" type="number" ng-model="vm.selectedStorm.Longitude" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <button ng-click="vm.updateStorm()" class="login-page__form__button" style="border-color: #244f95; color: #244f95; background-color: white;">Lưu Thay Đổi</button>
+                        <button ng-click="vm.deleteStorm()" class="login-page__form__button" style="border-color: #244f95; color: #244f95;">Xóa Bão</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 
-</div> <!--/.main-->
+<div class="main__author">@Trương Văn Linh - Nguyễn Thành Vinh</div>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="overlay" id="overlay" style="display: none;">

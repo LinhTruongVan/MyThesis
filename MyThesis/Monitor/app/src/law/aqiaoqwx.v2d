@@ -1,0 +1,2793 @@
+﻿
+<div class="col-xs-12 col-sm-12 col-md-12 main__navbar">
+    <div class="main__navbar__brand">
+        <span>RECOM</span>
+        <div class="main__navbar__user">
+            <span class="main__navbar__user__text">{{vm.currentUser.UserName}}</span>
+            <a class="main__navbar__user__button" ng-click="vm.logout()"><span class="glyphicon glyphicon-off"></span></a>
+        </div>
+    </div>
+
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 main__menu">
+    <ul class="list-inline main__menu__ul pull-right">
+        <li class="main__menu__li"><a href="#/home">Trang chủ</a></li>
+        <li class="main__menu__li"><a href="#/simulate">Hành trình tàu</a></li>
+        <li class="main__menu__li"><a href="#/edit">Thông Tin Tàu</a></li>
+        <li class="main__menu__li"><a href="#/storm">Thông Tin Bão</a></li>
+        <li class="main__menu__li"><a href="#/weather">Thời Tiết</a></li>
+        <li class="main__menu__li main__menu__li--active"><a>Pháp Luật</a></li>
+    </ul>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 main__container">
+    <div class="main__detail container">
+        <form class="form-horizontal">
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 control-label">Chuyên Mục</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <select class="form-control" ng-options="mode for mode in vm.modes" ng-model="vm.mode"></select>
+                </div>
+            </div>
+            <div class="form-group"></div>
+        </form>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-info">
+                    <div ng-if="vm.mode === vm.modes[0]">
+                        <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">CHƯƠNG II</font></span>
+                                </b>
+                            </span><b>
+                                <span style="color:black">
+                                    <font size="2" face="Arial">
+                                        <br clear="all">
+                                    </font>
+                                    <span class="normal-h1">
+                                        <span style="font-family: Arial; color: black">
+                                            <font size="2">
+                                                BẢO VỆ VÀ PHÁT TRIỂN
+                                                NGUỒN LỢI THUỶ SẢN
+                                            </font>
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px; margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">&nbsp;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 7. </font></span>
+                                </b>
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">Bảo vệ môi trường sống của các loài thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân có trách nhiệm bảo vệ môi trường sống của các
+                                        loài thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân tiến hành hoạt động thuỷ sản hoặc có các hoạt
+                                        động khác ảnh hưởng trực tiếp đến môi trường sống, di cư, sinh sản của các loài
+                                        thuỷ sản phải tuân theo quy định của Luật này, pháp luật về bảo vệ môi trường,
+                                        pháp luật về tài nguyên nước và các quy định khác của pháp luật có liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Tổ chức, cá nhân khi xây dựng mới, thay đổi
+                                        hoặc phá bỏ các công trình có liên quan đến môi trường sống, di cư, sinh sản của
+                                        các loài thuỷ sản phải thực hiện việc đánh giá tác động môi trường theo quy định
+                                        của pháp luật về bảo vệ môi trường.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Tổ chức, cá nhân khai thác thuỷ sản bằng đặt đăng, đáy hoặc bằng
+                                        phương pháp ngăn, chắn khác ở các sông, hồ, đầm, phá phải dành hành lang cho các
+                                        loài thuỷ sản di chuyển theo quy định của Uỷ ban nhân dân địa phương.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 8.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Bảo tồn, bảo vệ, tái tạo và phát triển nguồn lợi thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Nhà nước có chính sách bảo tồn, bảo vệ nguồn lợi thuỷ sản, đặc
+                                        biệt là các loài thuỷ sản đang có nguy cơ tuyệt chủng, các loài quý hiếm, các
+                                        loài có giá trị kinh tế cao và các loài có ý nghĩa khoa học; khuyến khích nghiên
+                                        cứu khoa học để có các biện pháp phù hợp nhằm phát triển nguồn lợi thuỷ sản; đầu
+                                        tư sản xuất giống thuỷ sản để thả vào môi trường sống tự nhiên và tạo ra các
+                                        vùng cư trú nhân tạo nhằm tái tạo và phát triển nguồn lợi thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân có nghĩa vụ thực hiện việc bảo tồn, bảo vệ, tái
+                                        tạo và phát triển nguồn lợi thuỷ sản theo quy định của Luật này và các quy định
+                                        khác của pháp luật có liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">3. Bộ Thuỷ sản định kỳ công bố:</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        A) Danh mục các loài thuỷ sản đã được ghi trong sách đỏ Việt Nam và
+                                        các loài thuỷ sản khác bị cấm khai thác; danh mục các loài thuỷ sản bị cấm khai
+                                        thác có thời hạn và thời gian cấm khai thác;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Các phương pháp khai thác, loại nghề khai thác<b><i>,</i> </b>
+                                        ngư cụ bị cấm sử dụng hoặc bị hạn chế sử dụng;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        C) Chủng loại, kích cỡ tối thiểu các loài thuỷ sản được phép khai
+                                        thác, mùa vụ khai thác;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">D) Khu vực cấm khai thác và khu vực cấm khai thác có thời hạn.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Trong trường hợp cần thiết và được sự đồng ý của Bộ Thuỷ sản, Uỷ
+                                        ban nhân dân tỉnh, thành phố trực thuộc trung ương (sau đây gọi chung là cấp
+                                        tỉnh) công bố bổ sung những nội dung quy định tại khoản 3 Điều này cho phù hợp
+                                        với<b><i> </i></b>thực tế hoạt động khai thác nguồn lợi thuỷ sản tại địa phương.
+                                    </font><b>
+                                        <i>
+                                            <font size="2">
+                                            </font>
+                                        </i>
+                                    </b>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 9.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Quy hoạch và quản lý khu bảo tồn vùng nước nội địa, khu bảo tồn
+                                        biển
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Căn cứ vào mức độ đa dạng sinh học điển hình theo tiêu chuẩn
+                                        quốc gia, quốc tế, các khu bảo tồn vùng nước nội địa, khu bảo tồn biển được phân
+                                        loại thành vườn quốc gia; khu bảo tồn loài, sinh cảnh; khu dự trữ tài nguyên
+                                        thiên nhiên thuỷ sinh.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Chính phủ ban hành tiêu chuẩn để phân loại và công bố các khu
+                                        bảo tồn; quy hoạch, xây dựng và phân cấp quản lý các khu bảo tồn vùng nước nội
+                                        địa, khu bảo tồn biển; ban hành quy chế quản lý khu bảo tồn có tầm quan trọng
+                                        quốc gia và quốc tế.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Uỷ ban nhân dân cấp tỉnh ban hành quy chế quản lý khu bảo tồn được
+                                        phân cấp cho địa phương quản lý theo hướng dẫn của Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Nhà nước đầu tư để bảo tồn quỹ gen và đa dạng sinh học thuỷ sản;
+                                        có chính sách khuyến khích tổ chức, cá nhân trong nước, tổ chức, cá nhân nước
+                                        ngoài đầu tư xây dựng và tham gia quản lý các khu bảo tồn; có chính sách hỗ trợ
+                                        chuyển đổi nghề nghiệp, tái định cư, bảo đảm lợi ích cho dân cư trong khu bảo
+                                        tồn.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Tổ chức, cá nhân có trách nhiệm bảo vệ các khu bảo tồn vùng nước
+                                        nội địa, khu bảo tồn biển theo Quy chế quản lý khu bảo tồn.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 10.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Nguồn tài chính để tái tạo nguồn lợi thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">1. Nguồn tài chính để tái tạo nguồn lợi thuỷ sản bao gồm:</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">A) Ngân sách nhà nước cấp;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Quỹ tái tạo nguồn lợi thuỷ sản được hình
+                                        thành từ sự đóng góp của tổ chức, cá nhân khai thác, nuôi trồng, chế biến, mua
+                                        bán, xuất khẩu, nhập khẩu thuỷ sản; sự đóng góp của tổ chức, cá nhân hoạt động
+                                        trong các ngành, nghề có ảnh hưởng trực tiếp đến nguồn lợi thuỷ sản; tài trợ của
+                                        tổ chức, cá nhân trong nước, tổ chức, cá nhân nước ngoài; các nguồn thu khác
+                                        theo quy định của pháp luật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Chính phủ quy định việc quản lý, sử dụng nguồn tài chính để tái
+                                        tạo nguồn lợi thuỷ sản; quy định cụ thể đối tượng, mức đóng góp và trường hợp
+                                        được miễn, giảm đóng góp vào quỹ tái tạo nguồn lợi thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">&nbsp;</font></span>
+                            </span>
+                        </p>
+                    </div>
+                    <div ng-if="vm.mode === vm.modes[1]">
+                        <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">CHƯƠNG III</font></span>
+                                </b>
+                            </span><b>
+                                <span style="color:black">
+                                    <font size="2" face="Arial">
+                                        <br clear="all">
+                                    </font>
+                                    <span class="normal-h1">
+                                        <span style="font-family: Arial; color: black"><font size="2">KHAI THÁC THUỶ SẢN</font></span>
+                                    </span>
+                                </span>
+                            </b>
+                        </p>
+                        <p class="normal-p" align="center" style="margin-bottom:6px;text-align:justify; margin-top:6px">
+                            <span style="color:black"><font size="2" face="Arial">&nbsp;</font></span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 11. </font></span>
+                                </b>
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">Nguyên tắc khai thác thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Khai thác thuỷ sản ở vùng biển, sông, hồ, đầm, phá và các vùng
+                                        nước tự nhiên khác phải bảo đảm không làm cạn kiệt nguồn lợi thuỷ sản; phải tuân
+                                        theo quy định về mùa vụ khai thác, thời hạn khai thác, vùng khai thác, chủng
+                                        loại và kích cỡ thuỷ sản được khai thác, sản lượng cho phép khai thác hàng năm
+                                        và phải tuân theo quy định của Luật này và các quy định khác của pháp luật có
+                                        liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Sử dụng các loại ngư cụ, phương tiện khai
+                                        thác thuỷ sản có kích cỡ phù hợp với các loài thuỷ sản được phép khai thác.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 12.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Khai thác thuỷ sản xa bờ</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Nhà nước có chính sách đồng bộ về đầu tư, đào tạo nghề, xây dựng
+                                        hệ thống thông tin liên lạc, điều tra nguồn lợi, dự báo ngư trường, dịch vụ hậu
+                                        cần, tổ chức các hình thức sản xuất phù hợp để khuyến khích tổ chức, cá nhân
+                                        phát triển khai thác thuỷ sản xa bờ.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân đầu tư vào hoạt động khai thác thuỷ sản xa bờ
+                                        được áp dụng theo Luật khuyến khích đầu tư trong nước và được hưởng các chính
+                                        sách ưu đãi khác của Nhà nước.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Tổ chức, cá nhân khai thác thuỷ sản xa bờ phải có trang thiết bị
+                                        bảo đảm thông tin liên lạc, phương tiện cứu sinh trên tàu cá; tuân theo các quy
+                                        định của pháp luật về hàng hải.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Chủ tàu có trách nhiệm mua bảo hiểm bắt buộc đối với thuyền viên
+                                        làm việc trên tàu cá khai thác thuỷ sản xa bờ. Nhà nước có chính sách khuyến
+                                        khích<b><i> </i></b>đối với chủ tàu tự nguyện mua bảo hiểm thân tàu.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Điều kiện bảo hiểm, mức phí bảo hiểm, số tiền bảo hiểm tối thiểu
+                                        đối với thuyền viên được thực hiện theo quy định của pháp luật về kinh doanh bảo
+                                        hiểm.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 13.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Khai thác thuỷ sản ven bờ</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Nhà nước có chính sách tổ chức lại sản xuất, chuyển đổi cơ cấu
+                                        nghề nghiệp trong hoạt động khai thác thuỷ sản ở vùng biển ven bờ và cơ cấu nghề
+                                        nghiệp giữa các nghề khai thác, nuôi trồng, chế biến thuỷ sản, nghề nông, nghề
+                                        rừng, nghề dịch vụ.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân khai thác thuỷ sản ven bờ khi chuyển đổi sang
+                                        khai thác thuỷ sản xa bờ, nuôi trồng thuỷ sản thì được hướng dẫn, đào tạo, hỗ
+                                        trợ vốn, giao đất, mặt nước biển để nuôi trồng thuỷ sản theo chính sách của Nhà
+                                        nước.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Tổ chức, cá nhân khai thác thuỷ sản ven bờ phải có phương tiện
+                                        cứu sinh, phương tiện theo dõi dự báo thời tiết; tuân theo các quy định của pháp
+                                        luật về giao thông đường thuỷ nội địa và pháp luật về hàng hải.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 14.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Điều tra, nghiên cứu nguồn lợi thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Nhà nước đầu tư cho điều tra, nghiên cứu, đánh giá nguồn lợi
+                                        thuỷ sản và xây dựng bản đồ về nguồn lợi thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Bộ Thuỷ sản chủ trì phối hợp với các bộ, ngành có liên quan và
+                                        Uỷ ban nhân dân cấp tỉnh tổ chức việc điều tra, đánh giá nguồn lợi thuỷ sản ở
+                                        từng vùng biển, ngư trường, vùng sông, hồ lớn; công bố ngư trường, vùng khai
+                                        thác thuỷ sản, xác định sản lượng khai thác cho phép hàng năm ở từng vùng biển,
+                                        ngư trường.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Uỷ ban nhân dân cấp tỉnh có trách nhiệm tổ chức đánh giá nguồn
+                                        lợi thuỷ sản trong phạm vi địa phương theo hướng dẫn của Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 15.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Quản lý vùng khai thác thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân hoạt động khai thác thuỷ sản trên các vùng
+                                        biển, sông, hồ, đầm, phá và các vùng nước tự nhiên khác phải tuân theo quy định
+                                        của Luật này và các quy định khác của pháp luật có liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Chính phủ có trách nhiệm phân vùng biển, phân tuyến khai thác
+                                        thuỷ sản; phân công, phân cấp quản lý cho các bộ, ngành hữu quan và địa phương
+                                        để bảo đảm sự phối hợp chặt chẽ, đồng bộ giữa các lực lượng kiểm tra, kiểm soát
+                                        hoạt động thuỷ sản trên các vùng biển, tuyến khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Uỷ ban nhân dân cấp tỉnh có trách nhiệm ban hành quy chế vùng
+                                        khai thác thuỷ sản ở sông, hồ, đầm, phá và các vùng nước tự nhiên khác thuộc
+                                        phạm vi quản lý của mình theo hướng dẫn của Bộ Thuỷ sản; tổ chức cho nhân dân
+                                        địa phương thực hiện quyền giám sát, phát hiện, tố cáo hành vi vi phạm pháp luật
+                                        về thuỷ sản trong vùng khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 16.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Giấy phép khai thác thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân khai thác thuỷ sản phải có Giấy phép khai thác
+                                        thuỷ sản, trừ trường hợp cá nhân khai thác thuỷ sản bằng tàu cá có trọng tải
+                                        dưới 0,5 tấn hoặc không sử dụng tàu cá.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">2. Nội dung chủ yếu của Giấy phép khai thác thuỷ sản bao gồm:</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">A) Nghề khai thác, ngư cụ khai thác;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">B) Vùng, tuyến được phép khai thác;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">C) Thời gian hoạt động khai thác;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">D) Thời hạn của Giấy phép;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">Đ) Các nội dung cần thiết khác theo quy định của pháp luật.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Chính phủ quy định trình tự, thủ tục, phân cấp thẩm quyền cấp,
+                                        thu hồi Giấy phép khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 17. </font></span>
+                                </b>
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">Điều kiện cấp Giấy phép khai thác thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Tổ chức, cá nhân khai thác thuỷ sản được cấp Giấy phép khai thác
+                                        thuỷ sản phải có các điều kiện sau đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">1. Có đăng ký kinh doanh khai thác thuỷ sản;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">2. Có tàu cá đã đăng ký, đăng kiểm;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">3. Có ngư cụ, phương tiện khai thác phù hợp;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Thuyền trưởng, máy trưởng trên tàu cá phải có văn bằng, chứng
+                                        chỉ phù hợp theo quy định của pháp luật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 18. </font></span>
+                                </b>
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">Thu hồi Giấy phép khai thác thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Tổ chức, cá nhân khai thác thuỷ sản bị thu hồi Giấy phép khai thác
+                                        thuỷ sản trong trường hợp sau đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">1. Không còn đủ điều kiện quy định tại Điều 17 của Luật này;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2.
+                                        Vi phạm nghiêm trọng các quy định của Luật này về khai thác thuỷ sản hoặc đã bị
+                                        xử phạt vi phạm hành chính về hoạt động thuỷ sản ba lần trong thời hạn của Giấy
+                                        phép khai thác thuỷ sản;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">3. Tẩy xoá, sửa chữa nội dung Giấy phép khai thác thuỷ sản;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Có hành vi vi phạm khác mà pháp luật quy định phải thu hồi Giấy
+                                        phép khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 19.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Báo cáo khai thác thuỷ sản và ghi nhật ký khai thác thủy sản
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân có Giấy phép khai thác thuỷ sản phải báo cáo
+                                        khai thác thuỷ sản với cơ quan quản lý thuỷ sản ở địa phương nơi đăng ký tàu cá.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Đối với loại tàu cá mà theo quy định của Bộ Thuỷ sản thuyền
+                                        trưởng phải có bằng thuyền trưởng, thì khi hoạt động khai thác thuỷ sản thuyền
+                                        trưởng có trách nhiệm tổ chức thực hiện việc ghi nhật ký khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Bộ Thuỷ sản ban hành mẫu sổ, chế độ quản lý và nội dung của nhật
+                                        ký khai thác thuỷ sản; nội dung, chế độ báo cáo khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Uỷ ban nhân dân cấp tỉnh có trách nhiệm tổ chức việc báo cáo khai
+                                        thác thuỷ sản trong phạm vi địa phương theo hướng dẫn của Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 20.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Quyền của tổ chức, cá nhân khai thác thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Khai thác thuỷ sản theo nội dung ghi trong
+                                        Giấy phép khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Được cơ quan chuyên môn thông báo kịp thời về tình hình diễn
+                                        biến thời tiết; được thông báo về nguồn lợi thuỷ sản, thông tin về hoạt động
+                                        thuỷ sản, thị trường thuỷ sản và hướng dẫn về kỹ thuật khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Được Nhà nước bảo vệ quyền và lợi ích hợp pháp do thành quả lao
+                                        động và kết quả đầu tư trong khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">4. Có các quyền khác theo quy định của pháp luật.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 21.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Nghĩa vụ của tổ chức, cá nhân khai thác thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">1. Thực hiện các quy định ghi trong Giấy phép khai thác thuỷ sản.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">2. Nộp thuế, phí, lệ phí theo quy định của pháp luật.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Đánh dấu ngư cụ đang được sử dụng tại ngư trường bằng dấu hiệu
+                                        dễ nhận biết theo quy định của Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Tuân thủ sự kiểm tra, kiểm soát của các lực lượng, cơ quan có
+                                        thẩm quyền theo quy định của pháp luật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">5. Phải cứu nạn khi gặp người, tàu thuyền bị nạn.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        6. Tuân theo<i> </i>các quy định về quản lý vùng khai thác, bảo vệ
+                                        trật tự, an ninh trên địa bàn khai thác.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        7. Phát hiện, tố giác, ngăn chặn các hành vi vi phạm pháp luật về
+                                        thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">8. Thực hiện các nghĩa vụ khác theo quy định của pháp luật.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 22.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Phòng, tránh và giảm nhẹ tác hại của thiên tai trong khai thác
+                                        thuỷ sản
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân khai thác thuỷ sản phải tuân theo quy định của
+                                        pháp luật về phòng, tránh thiên tai; phải có đủ trang thiết bị an toàn theo quy
+                                        định của pháp luật; chủ động thực hiện các biện pháp phòng, tránh, giảm nhẹ tác
+                                        hại của thiên tai; tham gia cứu hộ, cứu nạn.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Các cơ quan nhà nước có liên quan phải kịp thời tổ chức, áp dụng
+                                        các biện pháp để cứu người, tàu thuyền và các tài sản khác bị tai nạn, sự cố,
+                                        thiên tai trong khai thác thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">&nbsp;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">CHƯƠNG IV</font></span>
+                                </b>
+                            </span><b>
+                                <span style="color:black">
+                                    <font size="2" face="Arial">
+                                        <br clear="all">
+                                    </font>
+                                    <span class="normal-h1">
+                                        <span style="font-family: Arial; color: black"><font size="2">NUÔI TRỒNG THỦY SẢN</font></span>
+                                    </span>
+                                </span>
+                            </b>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px; margin-top:6px" align="center">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">&nbsp;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 23.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Quy hoạch phát triển nuôi trồng thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Quy hoạch phát triển nuôi trồng thuỷ sản là một bộ phận của quy
+                                        hoạch tổng thể phát triển ngành Thuỷ sản đã được Chính phủ phê duyệt.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Bộ Thuỷ sản chủ trì phối hợp với các bộ có liên quan và Uỷ ban
+                                        nhân dân cấp tỉnh xây dựng quy hoạch phát triển nuôi trồng thuỷ sản trong phạm
+                                        vi cả nước và trong phạm vi từng tỉnh, thành phố trực thuộc trung ương.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Căn cứ vào quy hoạch đã được Chính phủ phê duyệt và theo hướng dẫn
+                                        của Bộ Thuỷ sản, Uỷ ban nhân dân cấp tỉnh xây dựng quy hoạch chi tiết để trình
+                                        Hội đồng nhân dân cùng cấp thông qua và báo cáo Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Căn cứ vào quy hoạch, kế hoạch phát triển nuôi trồng thuỷ sản của
+                                        tỉnh, thành phố trực thuộc trung ương đã được phê duyệt và theo sự chỉ đạo của
+                                        Uỷ ban nhân dân cấp tỉnh, Uỷ ban nhân dân cấp dưới xây dựng quy hoạch chi tiết
+                                        các vùng nuôi trồng thuỷ sản trong phạm vi quản lý của mình để trình Hội đồng
+                                        nhân dân cùng cấp thông qua và báo cáo Uỷ ban nhân dân cấp trên trực tiếp.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Việc thay đổi, bổ sung quy hoạch phát triển nuôi trồng thuỷ sản
+                                        phải do cơ quan có thẩm quyền thông qua, phê duyệt quy hoạch quyết định.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 24.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Điều kiện nuôi trồng thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân nuôi trồng thuỷ sản phải có các điều kiện sau
+                                        đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">A) Địa điểm xây dựng cơ sở nuôi trồng thuỷ sản theo quy hoạch;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Cơ sở nuôi trồng thuỷ sản phải bảo đảm điều kiện, tiêu chuẩn kỹ
+                                        thuật về nuôi trồng thuỷ sản; tiêu chuẩn vệ sinh thú y và bảo vệ môi trường theo
+                                        quy định của pháp luật;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        C) Sử dụng các loại thức ăn, thuốc thú y bảo đảm tiêu chuẩn theo
+                                        quy định của pháp luật về thú y.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Bộ Thuỷ sản ban hành tiêu chuẩn, quy trình, quy phạm nuôi trồng
+                                        đối với cơ sở nuôi trồng thuỷ sản; chủ trì phối hợp với các bộ, cơ quan ngang bộ
+                                        có liên quan, Uỷ ban nhân dân cấp tỉnh trong việc hướng dẫn, tổ chức kiểm tra và<i>
+                                        </i>công nhận cơ sở nuôi trồng thuỷ sản theo phương thức bán thâm canh, thâm
+                                        canh đạt tiêu chuẩn bảo đảm vệ sinh an toàn thực phẩm.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 25.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Quyền của tổ chức, cá nhân nuôi trồng thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Được cơ quan nhà nước có thẩm quyền cấp giấy chứng nhận quyền sử
+                                        dụng đất để nuôi trồng thuỷ sản, mặt nước biển để nuôi trồng thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Được Nhà nước bảo vệ khi bị người khác xâm hại đến quyền sử dụng
+                                        đất để nuôi trồng thuỷ sản, mặt nước biển để nuôi trồng thuỷ sản hợp pháp của
+                                        mình; được bồi thường thiệt hại khi Nhà nước thu hồi vì mục đích công cộng, quốc
+                                        phòng, an ninh trước khi hết thời hạn được giao, cho thuê theo quy định của pháp
+                                        luật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Được cơ quan chuyên ngành thuỷ sản phổ
+                                        biến, đào tạo, tập huấn, chuyển giao kỹ thuật mới về nuôi trồng thuỷ sản, kỹ
+                                        thuật sản xuất giống thuỷ sản mới, kỹ thuật phòng trừ và phát hiện dịch bệnh
+                                        thuỷ sản, thông báo về tình hình môi trường và dịch bệnh vùng nuôi trồng thuỷ
+                                        sản, thông tin về thị trường thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 26.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Nghĩa vụ của tổ chức, cá nhân nuôi trồng thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Sử dụng đúng mục đích, có hiệu quả diện tích đất, mặt nước biển
+                                        được giao, cho thuê để nuôi trồng thuỷ sản và bảo vệ các công trình phục vụ
+                                        chung cho nuôi trồng thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Thực hiện nghĩa vụ tài chính về sử dụng đất để nuôi trồng thuỷ
+                                        sản, mặt nước biển để nuôi trồng thuỷ sản theo quy định của pháp luật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Báo cáo thống kê nuôi trồng thuỷ sản theo quy định của pháp luật
+                                        về thống kê.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Giao lại đất để nuôi trồng thuỷ sản, mặt nước biển để nuôi trồng
+                                        thuỷ sản khi có quyết định thu hồi theo quy định của pháp luật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">5. Thực hiện các quy định của pháp luật về bảo vệ môi trường.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 27. </font></span>
+                                </b>
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Giao, cho thuê, thu hồi đất để nuôi trồng thuỷ sản
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Việc giao, cho thuê, thu hồi đất để nuôi
+                                        trồng thuỷ sản phải tuân theo quy định của pháp luật về đất đai và các quy định
+                                        khác của pháp luật có liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân được giao, cho thuê đất để
+                                        nuôi trồng thuỷ sản phải thực hiện các quyền và nghĩa vụ theo quy định của Luật
+                                        này, pháp luật về đất đai và các quy định khác của pháp luật có liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 28.</font></span>
+                                </b><i>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> </font></span>
+                                </i>
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">
+                                        Giao, cho thuê mặt
+                                        nước biển để nuôi trồng thuỷ sản
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Việc giao, cho thuê mặt nước biển để nuôi trồng thuỷ sản phải
+                                        thực hiện theo quy hoạch phát triển nuôi trồng thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Uỷ ban nhân dân huyện, quận, thị xã, thành phố thuộc tỉnh giao
+                                        mặt nước biển không thu tiền sử dụng mặt nước biển cho cá nhân sinh sống tại địa
+                                        phương trực tiếp nuôi trồng thuỷ sản mà nguồn sống chủ yếu dựa vào thu nhập từ
+                                        nuôi trồng thuỷ sản được Uỷ ban nhân dân xã, phường, thị trấn sở tại xác nhận
+                                        hoặc phải chuyển đổi cơ cấu nghề nghiệp theo quy định tại khoản 1 Điều 13 của
+                                        Luật này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Uỷ ban nhân dân cấp tỉnh cho thuê mặt nước biển để nuôi trồng
+                                        thuỷ sản trong các trường hợp sau đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        A) Tổ chức, cá nhân thuê mặt nước biển để nuôi trồng thuỷ sản theo
+                                        dự án được cơ quan nhà nước có thẩm quyền xét duyệt;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Tổ chức, cá nhân nước ngoài thuê mặt nước biển để nuôi trồng
+                                        thuỷ sản theo dự án được cơ quan nhà nước có thẩm quyền của Việt Nam xét duyệt.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Đối với tổ chức, cá nhân được Nhà nước giao mặt nước biển để
+                                        nuôi trồng thủy sản trước khi Luật này có hiệu lực thì được chuyển sang thuê khi
+                                        hết thời hạn được giao, trừ đối tượng quy định tại khoản 2 Điều này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        5. Uỷ ban nhân dân cấp tỉnh giao mặt nước biển cho cơ quan nghiên
+                                        cứu khoa học về thuỷ sản theo quy hoạch, chương trình được cơ quan nhà nước có
+                                        thẩm quyền phê duyệt.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        6. Thời hạn giao, cho thuê mặt nước biển để nuôi trồng thuỷ sản
+                                        không quá 20 năm. Khi hết thời hạn giao, cho thuê mặt nước biển, người sử dụng
+                                        có nhu cầu tiếp tục sử dụng để nuôi trồng thuỷ sản mà Nhà nước không có nhu cầu
+                                        thu hồi thì người sử dụng được quyền tiếp tục sử dụng theo quyết định giao mặt
+                                        nước biển hoặc hợp đồng thuê mặt nước biển mới.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        7. Chính phủ quy định chi tiết việc giao, cho thuê và hạn mức diện
+                                        tích mặt nước biển được giao, cho thuê để nuôi trồng thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 29.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Thu hồi mặt nước biển đã giao, cho thuê để nuôi trồng thuỷ sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Nhà nước thực hiện việc thu hồi toàn bộ hoặc một phần mặt nước
+                                        biển đã giao, cho thuê để nuôi trồng thuỷ sản trong các trường hợp sau đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">A) Sử dụng không đúng mục đích;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Quá 24 tháng liền mà không sử dụng để nuôi trồng thuỷ sản, trừ
+                                        trường hợp có lý do chính đáng được cơ quan nhà nước có thẩm quyền chấp thuận;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        C) Người sử dụng mặt nước biển để nuôi trồng thuỷ sản không thực
+                                        hiện đầy đủ các nghĩa vụ quy định tại Điều 26 và Điều 31 của Luật này;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        D) Người sử dụng mặt nước biển để nuôi trồng thuỷ sản tự nguyện trả
+                                        lại diện tích được giao, thuê;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Đ) Nhà nước có nhu cầu thu hồi vì mục đích công cộng, quốc phòng và
+                                        an ninh.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Cơ quan nào có thẩm quyền giao, cho thuê mặt nước biển để nuôi
+                                        trồng thuỷ sản thì có quyền thu hồi mặt nước biển để nuôi trồng thuỷ sản đã
+                                        giao, cho thuê theo quy định của pháp luật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 30.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Quyền của tổ chức, cá nhân được giao, cho thuê mặt nước biển để
+                                        nuôi trồng thuỷ sản
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Tổ chức, cá nhân được giao, cho thuê mặt nước biển để nuôi trồng
+                                        thuỷ sản ngoài các quyền quy định tại Điều 25 của Luật này còn có các quyền sau
+                                        đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Cá nhân được giao mặt nước biển để nuôi trồng thuỷ sản được để
+                                        thừa kế; được thế chấp tài sản thuộc sở hữu của mình gắn liền với quyền sử dụng
+                                        mặt nước biển để vay vốn sản xuất, kinh doanh theo quy định của pháp luật;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân được Nhà nước cho thuê mặt nước biển để nuôi
+                                        trồng thuỷ sản mà trả tiền thuê mặt nước biển hàng năm có các quyền sau đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        A) Thế chấp tài sản thuộc sở hữu của mình gắn liền với mặt nước
+                                        biển được thuê tại tổ chức tín dụng Việt Nam để vay vốn sản xuất, kinh doanh
+                                        theo quy định của pháp luật;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Chuyển nhượng tài sản thuộc sở hữu của mình
+                                        gắn liền với mặt nước biển được thuê; người nhận tài sản đó nếu có yêu cầu được
+                                        Nhà nước tiếp tục cho thuê mặt nước biển để nuôi trồng thuỷ sản thì vẫn có các
+                                        quyền quy định tại khoản này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Tổ chức, cá nhân được Nhà nước cho thuê mặt
+                                        nước biển để nuôi trồng thuỷ sản đã trả trước tiền thuê mặt nước biển ít nhất là
+                                        10 năm có các quyền sau đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        A) Thế chấp giá trị quyền sử dụng mặt nước
+                                        biển được thuê và tài sản thuộc sở hữu của mình gắn liền với mặt nước biển được
+                                        thuê trong thời hạn thuê tại tổ chức tín dụng Việt Nam để vay vốn sản xuất, kinh
+                                        doanh theo quy định của pháp luật;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Chuyển nhượng quyền sử dụng mặt nước biển cùng với tài sản thuộc
+                                        sở hữu của mình gắn liền với mặt nước biển được thuê. Cá nhân được để thừa kế
+                                        quyền sử dụng mặt nước biển được thuê trong thời hạn thuê theo quy định của pháp
+                                        luật. Người nhận chuyển nhượng, người được thừa kế quyền sử dụng mặt nước biển
+                                        đã thuê để nuôi trồng thuỷ sản có các quyền quy định tại khoản này;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        C) Góp vốn bằng giá trị quyền sử dụng mặt nước biển được thuê cùng
+                                        với tài sản thuộc sở hữu của mình gắn liền với mặt nước biển đã thuê để hợp tác
+                                        sản xuất, kinh doanh với tổ chức, cá nhân trong nước và tổ chức, cá nhân nước
+                                        ngoài theo quy định của pháp luật;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        D) Cho thuê lại quyền sử dụng mặt nước biển trong thời hạn thuê mặt
+                                        nước biển. Việc cho thuê lại chỉ được thực hiện khi mặt nước biển đó đã được đầu
+                                        tư theo dự án và người thuê lại phải sử dụng mặt nước biển đó đúng mục đích.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 31.</font></span>
+                                </b><i>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> </font></span>
+                                </i>
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">
+                                        Nghĩa vụ của tổ
+                                        chức, cá nhân sử dụng mặt nước biển để nuôi trồng thuỷ sản
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Tổ chức, cá nhân sử dụng mặt nước biển để nuôi trồng thuỷ sản ngoài
+                                        các nghĩa vụ quy định tại Điều 26 của Luật này còn có các nghĩa vụ sau đây:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Sử dụng đúng ranh giới khu vực nuôi trồng, tuân theo quy định
+                                        của pháp luật về nuôi trồng thuỷ sản, pháp luật về bảo vệ môi trường và các quy
+                                        định khác của pháp luật có liên quan;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Không làm tổn hại đến lợi ích hợp pháp của người sử dụng mặt
+                                        nước biển xung quanh; thực hiện các quy định về an toàn cho người và tài sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 32.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Vùng nuôi trồng thuỷ sản tập trung</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Nhà nước hỗ trợ đầu tư xây dựng kết cấu hạ
+                                        tầng vùng nuôi trồng thuỷ sản tập trung theo quy hoạch, kế hoạch phát triển
+                                        ngành Thuỷ sản; đầu tư xây dựng trạm quan trắc môi trường thuỷ sản, trạm kiểm
+                                        soát dịch bệnh thủy sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân nuôi trồng thủy sản ở vùng nuôi trồng thuỷ sản
+                                        tập trung phải tuân theo các quy định của vùng nuôi trồng thuỷ sản tập trung;
+                                        tiêu chuẩn kỹ thuật chuyên ngành của công trình nuôi trồng thuỷ sản, kỹ thuật
+                                        nuôi trồng thuỷ sản và môi trường nuôi trồng thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Bộ Thuỷ sản quy định tiêu chuẩn chất lượng nước cho nuôi trồng
+                                        thuỷ sản, tiêu chuẩn kỹ thuật chuyên ngành của công trình nuôi trồng thuỷ sản;
+                                        ban hành quy chế tổ chức, hoạt động của vùng nuôi trồng thuỷ sản tập trung và
+                                        thời gian cấm thu hoạch để bảo đảm vệ sinh an toàn thực phẩm.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Uỷ ban nhân dân cấp tỉnh có trách nhiệm tổ chức thực hiện việc
+                                        quản lý vùng nuôi trồng thuỷ sản tập trung.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 33.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Giống thủy sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Giống thủy sản để nuôi trồng, tái tạo, phát triển nguồn lợi thuỷ
+                                        sản phải bảo đảm chất lượng theo hệ thống tiêu chuẩn của Việt Nam.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân sản xuất, kinh doanh giống thủy sản phải có đủ
+                                        điều kiện kinh doanh theo quy định của Chính phủ; phải bảo đảm sản xuất giống
+                                        theo quy định của tiêu chuẩn ngành.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Giống thủy sản mới, giống thuỷ sản lần đầu đưa vào nuôi trồng
+                                        phải được Bộ Thuỷ sản công nhận và cho phép đưa vào sản xuất, kinh doanh.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Nhà nước có chính sách khuyến khích nghiên cứu giống thuỷ sản
+                                        quý hiếm, tạo giống thuỷ sản mới; đầu tư xây dựng các trung tâm giống thuỷ sản
+                                        quốc gia. Bộ Thuỷ sản phối hợp với Uỷ ban nhân dân cấp tỉnh tổ chức kiểm tra
+                                        chất lượng giống thuỷ sản ở các cơ sở sản xuất giống.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 34.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Nhập khẩu, xuất khẩu giống thủy sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Giống thủy sản nhập khẩu phải qua kiểm dịch theo quy định của
+                                        pháp luật về thú y và pháp luật về bảo vệ và kiểm dịch thực vật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Giống thuỷ sản mới nhập khẩu lần đầu phải được Bộ Thuỷ sản cho
+                                        phép bằng văn bản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Giống thuỷ sản quá cảnh Việt Nam phải thực hiện theo quy định
+                                        của pháp luật về thú y, pháp luật về bảo vệ và kiểm dịch thực vật và các quy
+                                        định khác của pháp luật có liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Giống thuỷ sản xuất khẩu phải thuộc danh
+                                        mục hàng hoá xuất khẩu chuyên ngành thuỷ sản, trừ trường hợp trao đổi giống, hợp
+                                        tác nghiên cứu khoa học kỹ thuật, quà tặng và trường hợp đặc biệt khác do Bộ
+                                        Thuỷ sản quy định.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 35.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Thức ăn nuôi trồng thuỷ sản; thuốc, hoá chất dùng trong nuôi trồng
+                                        thủy sản
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Thức ăn, nguyên liệu làm thức ăn nuôi trồng thuỷ sản; thuốc, hoá
+                                        chất dùng trong nuôi trồng thủy sản phải bảo đảm đạt tiêu chuẩn ngành, tiêu
+                                        chuẩn Việt Nam.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Tổ chức, cá nhân khi nhập khẩu thức ăn, nguyên liệu làm thức ăn
+                                        nuôi trồng thủy sản; thuốc, hoá chất dùng trong nuôi trồng thuỷ sản thuộc danh
+                                        mục hàng hoá nhập khẩu chuyên ngành thuỷ sản phải tuân theo quy định của pháp
+                                        luật về thú y, chất lượng hàng hoá, thương mại và các quy định khác của pháp
+                                        luật có liên quan. Trường hợp không thuộc danh mục hàng hoá nhập khẩu chuyên
+                                        ngành thuỷ sản, trước khi nhập khẩu thương mại lần đầu phải qua khảo nghiệm,
+                                        kiểm nghiệm theo quy định của Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Tổ chức, cá nhân sản xuất, kinh doanh thức ăn nuôi trồng thuỷ
+                                        sản; thuốc, hoá chất dùng trong nuôi trồng thủy sản phải có đủ điều kiện kinh
+                                        doanh theo quy định của Chính phủ; phải tuân theo các quy định của pháp luật về
+                                        thú y, chất lượng hàng hoá, bảo vệ môi trường, nhãn hiệu hàng hoá và các quy
+                                        định khác của pháp luật có liên quan.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">4. Bộ Thuỷ sản có trách nhiệm: </font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        A) Công bố danh mục và tiêu chuẩn thức ăn, nguyên liệu làm thức ăn
+                                        nuôi trồng thủy sản; thuốc, hoá chất dùng trong nuôi trồng thuỷ sản thuộc danh
+                                        mục hàng hoá xuất khẩu, nhập khẩu chuyên ngành thuỷ sản;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        B) Quy định tiêu chuẩn vệ sinh thú y, bảo vệ
+                                        môi trường đối với cơ sở sản xuất, kinh doanh thức ăn nuôi trồng thuỷ sản, thuốc
+                                        thú y dùng trong nuôi trồng thuỷ sản;
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        C) Công bố danh mục thuốc, hoá chất được dùng
+                                        trong nuôi trồng thuỷ sản;
+                                        cấm sử dụng, hạn chế sử dụng trong nuôi trồng thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 36.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Phòng trừ dịch bệnh thủy sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân sản xuất giống thuỷ sản, nuôi trồng thuỷ sản
+                                        phải áp dụng các biện pháp phòng ngừa dịch bệnh thuỷ sản. Khi dịch bệnh thuỷ sản
+                                        phát sinh phải kịp thời có biện pháp xử lý và phải thông báo cho chính quyền địa
+                                        phương và cơ quan chuyên môn.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Thuỷ sản nuôi trồng bị nhiễm bệnh phải được xử lý theo quy định của
+                                        pháp luật về thú y, pháp luật về bảo vệ và kiểm dịch thực vật.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Bộ Thuỷ sản, Uỷ ban nhân dân các cấp có trách nhiệm tổ chức thực
+                                        hiện phòng trừ dịch bệnh thuỷ sản. Việc quyết định công bố, bãi bỏ quyết định
+                                        công bố dịch bệnh thuỷ sản; công bố danh mục các bệnh thuỷ sản, dịch bệnh thuỷ
+                                        sản được thực hiện theo quy định của pháp luật về thú y.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">&nbsp;</font></span>
+                            </span>
+                        </p>
+                    </div>
+                    <div ng-if="vm.mode === vm.modes[2]">
+                        <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">CHƯƠNG V</font></span>
+                                </b>
+                            </span><b>
+                                <span style="color:black">
+                                    <font size="2" face="Arial">
+                                        <br clear="all">
+                                    </font>
+                                    <span class="normal-h1">
+                                        <span style="font-family: Arial; color: black">
+                                            <font size="2">
+                                                TÀU CÁ VÀ CƠ SỞ DỊCH VỤ
+                                                HOẠT ĐỘNG THUỶ SẢN
+                                            </font>
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 37. </font></span>
+                                </b>
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">Phát triển tàu cá</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Việc phát triển tàu cá phải phù hợp với quy hoạch phát triển
+                                        ngành Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Nhà nước có chính sách khuyến khích phát triển tàu cá phù hợp
+                                        với chiến lược khai thác thuỷ sản xa bờ.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Tổ chức, cá nhân nhập khẩu tàu cá phải thực hiện theo quy định
+                                        của Chính phủ.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 38.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Đóng mới, cải hoán tàu cá</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tổ chức, cá nhân đóng mới, cải hoán tàu cá thuộc diện đăng kiểm
+                                        phải được cơ quan nhà nước có thẩm quyền cho phép và phê duyệt hồ sơ thiết kế
+                                        tàu; tàu cá được đóng mới, cải hoán phải bảo đảm các tiêu chuẩn chất lượng, an
+                                        toàn kỹ thuật; tiêu chuẩn về bảo vệ môi trường.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Bộ Thuỷ sản cho phép và phê duyệt hồ sơ thiết kế đóng mới, cải hoán
+                                        tàu cá có chiều dài đường nước thiết kế từ 20 mét trở lên; cơ quan quản lý nhà
+                                        nước về thuỷ sản cấp tỉnh cho phép và phê duyệt hồ sơ thiết kế đóng mới, cải
+                                        hoán tàu cá có chiều dài đường nước thiết kế dưới 20 mét.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Cơ sở sản xuất, kinh doanh đóng mới, cải hoán tàu cá phải có đủ
+                                        điều kiện kinh doanh theo quy định của Chính phủ.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Bộ Thuỷ sản ban hành tiêu chuẩn chất lượng, an toàn kỹ thuật;
+                                        tiêu chuẩn về bảo vệ môi trường của tàu cá.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 39.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Đăng kiểm tàu cá</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tàu cá phải được đăng kiểm, trừ các tàu cá có chiều dài đường
+                                        nước thiết kế dưới 15 mét mà không lắp máy hoặc có lắp máy mà tổng công suất
+                                        dưới 20 sức ngựa.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Bộ Thuỷ sản tổ chức thống nhất thực hiện việc đăng kiểm tàu cá
+                                        trong phạm vi cả nước; thực hiện việc đăng kiểm đối với tàu cá có chiều dài
+                                        đường nước thiết kế từ 20 mét trở lên. Uỷ ban nhân dân cấp tỉnh tổ chức thực
+                                        hiện việc đăng kiểm theo sự hướng dẫn thống nhất của Bộ Thuỷ sản đối với tàu cá
+                                        có chiều dài đường nước thiết kế dưới 20 mét.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Cơ quan đăng kiểm tàu cá khi kiểm tra an toàn kỹ thuật tàu cá
+                                        phải tuân theo hệ thống tiêu chuẩn ngành, tiêu chuẩn Việt Nam.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 40. </font></span>
+                                </b>
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">Đăng ký tàu cá và đăng ký thuyền viên tàu cá</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Tàu cá phải được đăng ký; tên tàu, số đăng ký tàu phải<b>
+                                            <i> </i>
+                                        </b>được ghi trên thân tàu theo quy định của Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Chủ tàu cá phải đăng ký thuyền viên làm việc trên tàu, có sổ
+                                        danh bạ thuyền viên và sổ thuyền viên theo quy định của Bộ Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Bộ Thuỷ sản thống nhất quản lý việc đăng ký
+                                        tàu cá và đăng ký thuyền viên tàu cá, quy định chức danh thuyền viên tàu cá
+                                        trong phạm vi cả nước; thực hiện việc đăng ký tàu cá, thuyền viên tàu cá của đơn
+                                        vị trực thuộc Bộ Thuỷ sản, đơn vị thuộc các bộ, ngành khác, đơn vị vũ trang nhân
+                                        dân làm kinh tế; tàu cá của Việt Nam khai thác thuỷ sản ở ngoài vùng biển của
+                                        Việt Nam.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Uỷ ban nhân dân cấp tỉnh tổ chức thực hiện việc đăng ký tàu cá,
+                                        thuyền viên tàu cá của địa phương theo hướng dẫn của Bộ Thuỷ sản, trừ tàu cá,
+                                        thuyền viên tàu cá quy định tại khoản 3 Điều này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 41.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Cảng cá, bến cá, khu neo đậu trú bão của tàu cá</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Việc phát triển cảng cá, bến cá, khu neo đậu trú bão của tàu cá
+                                        phải phù hợp với quy hoạch phát triển ngành Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Nhà nước đầu tư xây dựng cơ sở hạ tầng của
+                                        cảng cá, khu neo đậu trú bão của tàu cá và hỗ trợ đầu tư xây dựng cơ sở hạ tầng
+                                        của bến cá; khuyến khích tổ chức, cá nhân thuộc các thành phần kinh tế tham gia
+                                        đầu tư xây dựng các công trình phục vụ sản xuất, kinh doanh của cảng cá, bến cá,
+                                        khu neo đậu trú bão của tàu cá.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Bộ Thuỷ sản chủ trì phối hợp với các bộ có liên quan và Uỷ ban
+                                        nhân dân cấp tỉnh ban hành quy chế mẫu về quản lý cảng cá, bến cá, khu neo đậu
+                                        trú bão của tàu cá; ban hành tiêu chuẩn kỹ thuật của cảng cá, khu neo đậu trú
+                                        bão của tàu cá.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Uỷ ban nhân dân cấp tỉnh có trách nhiệm tổ chức và phân cấp quản
+                                        lý cảng cá, bến cá, khu neo đậu trú bão của tàu cá thuộc phạm vi quản lý của địa
+                                        phương.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 42.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Chợ thuỷ sản đầu mối</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Chợ thuỷ sản đầu mối là nơi giao dịch bán buôn thuỷ sản, được
+                                        đặt ở vùng sản xuất thuỷ sản tập trung hoặc nơi tiêu thụ thuỷ sản với khối lượng
+                                        lớn. Việc phát triển chợ thuỷ sản đầu mối phải phù hợp với quy hoạch phát triển
+                                        ngành Thuỷ sản.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Nhà nước có chính sách hỗ trợ đầu tư xây dựng chợ thuỷ sản đầu
+                                        mối; khuyến khích tổ chức, cá nhân tham gia đầu tư xây dựng, kinh doanh khai
+                                        thác và quản lý chợ thuỷ sản đầu mối.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Bộ Thuỷ sản phối hợp với các bộ có liên quan và Uỷ ban nhân dân
+                                        cấp tỉnh ban hành quy chế mẫu về quản lý chợ thuỷ sản đầu mối; hướng dẫn, kiểm
+                                        tra việc thực hiện quy chế quản lý chợ thuỷ sản đầu mối; xây dựng tiêu chuẩn kỹ
+                                        thuật của chợ thuỷ sản đầu mối.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Uỷ ban nhân dân cấp tỉnh có trách nhiệm phê duyệt quy chế, tổ
+                                        chức quản lý hoạt động của chợ thuỷ sản đầu mối; kiểm tra vệ sinh an toàn thực
+                                        phẩm tại chợ thuỷ sản đầu mối.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div ng-if="vm.mode === vm.modes[3]">
+                        <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">CHƯƠNG II</font></span>
+                                </b>
+                            </span><b>
+                                <span style="color:black">
+                                    <font size="2" face="Arial">
+                                        <br clear="all">
+                                    </font>
+                                    <span class="normal-h1">
+                                        <span style="font-family: Arial; color: black">
+                                            <font size="2">
+                                                HÀNH VI VỊ PHẠM HÀNH CHÍNH, HÌNH THỨC XỬ PHẠT
+                                                VÀ BIỆN PHÁP KHẮC PHỤC HẬU QUẢ
+                                            </font>
+                                        </span>
+                                    </span>
+                                </span>
+                            </b>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 5.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Vi phạm quy định về bảo vệ môi trường sống của các loài thủy sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Mức phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với hành vi hủy hoại rạn san hô, thảm cỏ biển, thảm rong biển.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        2. Mức phạt tiền đối với hành vi khai thác, mua bán, vận chuyển san hô được quy định như sau:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">A) Phạt tiền từ 500.000 đồng đến 1.000.000 đồng nếu khối lượng san hô dưới 10 kg;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">B) Phạt tiền từ 2.000.000 đồng đến 5.000.000 đồng nếu khối lượng san hô từ 10 kg đến dưới 50 kg;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">C) Phạt tiền từ 6.000.000 đồng đến 10.000.000 đồng nếu khối lượng san hô từ 50 kg đến dưới 100 kg;</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2">D) Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng nếu khối lượng san hô từ 100 kg trở lên.</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        3. Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng đối với hành vi phá hủy, cản trở trái phép đường di chuyển tự nhiên của các loài thủy sản ở sông, hồ, đầm, phá, eo, vịnh.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        4. Hình thức xử phạt bổ sung:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Tịch thu tang vật (trừ tàu cá, thiết bị an toàn hàng hải và phương tiện vận chuyển) đối với hành vi quy định tại Khoản 1, Khoản 2, Khoản 3 Điều này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        5. Biện pháp khắc phục hậu quả:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        Buộc khôi phục lại tình trạng ban đầu đối với hành vi quy định tại Khoản 3 Điều này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 6.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Vi phạm quy định về bảo vệ các loài thủy sản</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">
+                                        1. Mức phạt đối với hành vi khai thác thủy sản nếu khối lượng các loài thủy sản có kích thước nhỏ hơn kích thước cho phép khai thác vượt quá mức cho phép khai thác lẫn hoặc khai thác ngoài tự nhiên giống, loài thủy sản có kích thước nhỏ hơn kích thước cho phép như sau:
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">A) Phạt tiền từ 300.000 đồng đến 500.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép đến dưới 30 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">B) Phạt tiền từ 1.000.000 đồng đến 2.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 30 kg đến dưới 100 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">C) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 100 kg đến dưới 200 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">D) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 200 kg đến dưới 300 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">Đ) Phạt tiền từ 10.000.000 đồng đến 12.000.000 đồng nếu khối lượng vượt quá mức cho phép khai thác lẫn hoặc khối lượng giống, loài thủy sản khai thác ngoài tự nhiên có kích thước nhỏ hơn kích thước cho phép từ 300 kg trở lên.</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">2. Mức phạt tiền đối với hành vi vi phạm các quy định về thời gian cấm khai thác, vùng cấm, nghề cấm khai thác theo quy định của pháp luật như sau:</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;
+color:black">
+                                    <font size="2">A) Phạt tiền từ 1.000.000 đồng đến 2.000.000 đồng đối với tàu cá không lắp máy có chiều dài đường nước thiết kế dưới 15 mét hoặc tàu cá lắp máy có tổng công suất máy chính dưới 20 sức ngựa;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">B) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng đối với tàu cá có chiều dài đường nước thiết kế từ 15 mét trở lên mà không lắp máy hoặc tàu cá có lắp máy có tổng công suất máy chính từ 20 sức ngựa trở lên đến dưới 50 sức ngựa;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">C) Phạt tiền từ 4.000.000 đồng đến 6.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 50 sức ngựa đến dưới 90 sức ngựa;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">D) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 90 sức ngựa đến dưới 250 sức ngựa;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">Đ) Phạt tiền từ 8.000.000 đồng đến 10.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 250 sức ngựa đến dưới 400 sức ngựa;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">E) Phạt tiền từ 10.000.000 đồng đến 12.000.000 đồng đối với tàu cá lắp máy có tổng công suất máy chính từ 400 sức ngựa trở lên.</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">3. Mức phạt đối với hành vi khai thác các loài thủy sản trong danh mục cấm khai thác theo quy định của pháp luật như sau:</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">A) Phạt tiền từ 2.000.000 đồng đến 4.000.000 đồng nếu khối lượng thủy sản dưới 20 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">B) Phạt tiền từ 6.000.000 đồng đến 8.000.000 đồng nếu khối lượng thủy sản từ 20 kg đến dưới 50 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">C) Phạt tiền từ 8.000.000 đồng đến 12.000.000 đồng nếu khối lượng thủy sản từ 50 kg đến dưới 100 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">D) Phạt tiền từ 12.000.000 đồng đến 20.000.000 đồng nếu khối lượng thủy sản từ 100 kg đến dưới 300 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">Đ) Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng nếu khối lượng thủy sản từ 300 kg đến dưới 500 kg;</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">E) Phạt tiền từ 30.000.000 đồng đến 40.000.000 đồng nếu khối lượng thủy sản trên 500 kg.</font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">
+                                        4. Hình thức xử phạt bổ sung:<br />
+                                        Tịch thu công cụ khai thác thủy sản (trừ tàu cá) đối với trường hợp vi phạm nghề cấm khai thác quy định tại Khoản 2 Điều này.<br />
+                                        5. Biện pháp khắc phục hậu quả:<br />
+                                        Buộc thả số thủy sản còn sống trở lại môi trường sống của chúng đối với hành vi quy định tại Khoản 1, Khoản 2, Khoản 3 Điều này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 7.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Vi phạm quy định về quản lý các loài thủy sinh quý hiếm có nguy cơ tuyệt chủng</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">
+                                        1. Mức phạt đối với một trong các hành vi khai thác, mua bán, thu gom, nuôi, lưu giữ, sơ chế, chế biến các loài thủy sinh quý hiếm có nguy cơ tuyệt chủng lớn, có thứ hạng sẽ nguy cấp (VU) như sau:<br />
+                                        a) Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng nếu khối lượng thủy sinh dưới 10 kg;<br />
+                                        b) Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng nếu khối lượng thủy sinh từ 10 kg đến dưới 20 kg;<br />
+                                        c) Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng nếu khối lượng thủy sinh từ 20 kg đến dưới 30 kg;<br />
+                                        d) Phạt tiền từ 30.000.000 đồng đến 40.000.000 đồng nếu khối lượng thủy sinh từ 30 kg trở lên.<br />
+                                        2. Mức phạt đối với một trong các hành vi khai thác, mua bán, thu gom, nuôi, lưu giữ, sơ chế, chế biến các loài thủy sinh quý hiếm có nguy cơ tuyệt chủng rất lớn, có thứ hạng nguy cấp (EN) như sau:<br />
+                                        a) Phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng nếu khối lượng thủy sinh dưới 10 kg;<br />
+                                        b) Phạt tiền từ 20.000.000 đồng đến 30.000.000 đồng nếu khối lượng thủy sinh từ 10 kg đến dưới 20 kg;<br />
+                                        c) Phạt tiền từ 30.000.000 đồng đến 40.000.000 đồng nếu khối lượng thủy sinh từ 20 kg đến dưới 30 kg;<br />
+                                        d) Phạt tiền từ 40.000.000 đồng đến 50.000.000 đồng nếu khối lượng thủy sinh từ 30 kg trở lên.<br />
+                                        3. Mức phạt đối với một trong các hành vi khai thác, mua bán, thu gom, nuôi, lưu giữ, sơ chế, chế biến các loài thủy sinh quý hiếm có nguy cơ tuyệt chủng rất lớn, có thứ hạng rất nguy cấp (CR) như sau:<br />
+                                        a) Phạt tiền từ 20.000.000 đồng đến 40.000.000 đồng nếu khối lượng thủy sinh dưới 10 kg;<br />
+                                        b) Phạt tiền từ 40.000.000 đồng đến 60.000.000 đồng nếu khối lượng thủy sinh từ 10 kg đến dưới 20 kg;<br />
+                                        c) Phạt tiền từ 60.000.000 đồng đến 80.000.000 đồng nếu khối lượng thủy sinh từ 20 kg đến dưới 30 kg;<br />
+                                        d) Phạt tiền từ 80.000.000 đồng đến 100.000.000 đồng nếu khối lượng thủy sinh từ 30 kg trở lên.<br />
+                                        4. Hình thức xử phạt bổ sung:<br />
+                                        a) Tịch thu thủy sinh quý hiếm và sản phẩm của chúng đối với các hành vi quy định tại Khoản 1 Khoản 2, Khoản 3 Điều này;<br />
+                                        b) Tước quyền sử dụng giấy phép khai thác thủy sản từ 01 tháng đến 03 tháng đối với các hành vi khai thác quy định tại Khoản 1, Khoản 2, Khoản 3 Điều này.<br />
+                                        5. Biện pháp khắc phục hậu quả:<br />
+                                        a) Buộc thả số thủy sinh quý hiếm còn sống trở lại môi trường sống của chúng đối với các hành vi quy định tại khoản 1, khoản 2, khoản 3 Điều này;<br />
+                                        b) Chuyển giao số thủy sinh quý hiếm đã chết cho cơ quan có thẩm quyền để xử lý đối với các hành vi quy định tại Khoản 1, Khoản 2, Khoản 3 Điều này.
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <b>
+                                    <span style="font-family:&quot;Arial&quot;;
+color:black;l"><font size="2">Điều 8.</font></span>
+                                </b><span style="font-family:&quot;Arial&quot;;
+color:black"><font size="2"> Vi phạm các hoạt động bị nghiêm cấm tại các phân khu chức năng trong khu bảo tồn biển</font></span>
+                            </span>
+                        </p>
+                        <p class="normal-p" style="margin-bottom:6px;margin-top:6px" align="justify">
+                            <span class="normal-h1">
+                                <span style="font-family:&quot;Arial&quot;;color:black">
+                                    <font size="2">
+                                        1. Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng đối với một trong các hành vi vi phạm hoạt động bị nghiêm cấm xảy ra tại vành đai bảo vệ các khu bảo tồn biển như sau:<br />
+                                        a) Khai thác nguồn lợi thủy sản bằng các nghề, công cụ có tính hủy diệt nguồn lợi và ảnh hưởng môi trường sống của các loài thủy sinh vật;<br />
+                                        b) Xâm hại, phá hủy các hệ sinh thái;<br />
+                                        c) Thả neo trên các rạn san hô, cỏ biển (trừ trường hợp bất khả kháng).<br />
+                                        2. Phạt tiền từ 10.000.000 đồng đến 15.000.000 đồng đối với một trong các hành vi vi phạm hoạt động bị nghiêm cấm xảy ra tại phân khu phát triển như sau:<br />
+                                        a) Khai thác nguồn lợi thủy sản bằng lưới kéo và các nghề, công cụ khác có tính hủy diệt nguồn lợi và môi trường sống của các loài thủy sinh vật;<br />
+                                        b) Dẫm đạp hoặc thả neo trên các rạn san hô, thảm cỏ biển (trừ trường hợp bất khả kháng);<br />
+                                        3. Phạt tiền từ 15.000.000 đồng đến 25.000.000 đồng đối với một trong các hành vi vi phạm hoạt động bị nghiêm cấm xảy ra tại phân khu phục hồi sinh thái như sau:<br />
+                                        a) Khai thác nguồn lợi thủy sản bằng bất cứ phương pháp, công cụ nào;<br />
+                                        b) Nuôi trồng thủy sản;<br />
+                                        c) Xây dựng các công trình hạ tầng phục vụ nghề cá, giao thông vận tải, thông tin liên lạc, khai khoáng, kể cả các công trình ngầm dưới đáy biển và các hoạt động khác gây xáo trộn các lớp trầm tích, làm đục nước, ảnh hưởng đến sự sống của các loài thủy sinh trong phân khu;<br />
+                                        d) Dẫm, đạp hoặc thả neo trên các rạn san hô, thảm cỏ biển (trừ trường hợp bất khả kháng).<br />
+                                        4. Phạt tiền từ 25.000.000 đồng đến 35.000.000 đồng đối với một trong các hành vi vi phạm hoạt động bị nghiêm cấm xảy ra tại phân khu bảo vệ nghiêm ngặt như sau:<br />
+                                        a) Khai thác nguồn lợi thủy sản bằng bất cứ phương pháp, công cụ nào;<br />
+                                        b) Nuôi trồng thủy sản;<br />
+                                        c) Xây dựng các công trình hạ tầng phục vụ du lịch, nghề cá, giao thông vận tải, thông tin liên lạc, khai khoáng, kể cả các công trình ngầm dưới đáy biển và các hoạt động khác gây xáo trộn các lớp trầm tích, làm đục nước, ảnh hưởng đến sự sống của các loài thủy sinh trong phân khu;<br />
+                                        d) Tàu cá, tàu biển và các loại phương tiện thủy khác di chuyển qua lại (trừ trường hợp bất khả kháng);<br />
+                                        đ) Dẫm đạp lên các rạn san hô, thảm cỏ biển.<br />
+                                        5. Hình thức xử phạt bổ sung:<br />
+                                        a) Tịch thu công cụ, ngư cụ khai thác thủy sản (trừ tàu cá) đối với hành vi quy định tại Điểm a Khoản 1; Điểm a Khoản 2; Điểm a Khoản 3; Điểm a Khoản 4 Điều này;<br />
+                                        b) Đình chỉ hoạt động nuôi trồng thủy sản từ 01 tháng đến 03 tháng đối với hành vi quy định tại Điểm b Khoản 3; Điểm b Khoản 4 Điều này;<br />
+                                        c) Đình chỉ hoạt động xây dựng công trình hạ tầng từ 03 tháng đến 06 tháng đối với hành vi quy định tại Điểm c Khoản 3; Điểm c Khoản 4 Điều này.
+                                        6. Biện pháp khắc phục hậu quả:<br />
+                                        a) Buộc di chuyển lồng, bè nuôi trồng thủy sản ra khỏi phạm vi khu bảo tồn biển đối với hành vi quy định tại Điểm b Khoản 3; Điểm b Khoản 4 Điều này;<br />
+                                        b) Buộc khôi phục lại tình trạng ban đầu đối với hành vi quy định tại Điểm c Khoản 3; Điểm c Khoản 4 Điều này.<br />
+                                    </font>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="main__author">@Trương Văn Linh - Nguyễn Thành Vinh</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="overlay" id="overlay" style="display: none;">
+        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
+    </div>
+</div>
+

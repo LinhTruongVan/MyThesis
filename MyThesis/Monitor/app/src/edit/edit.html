@@ -1,6 +1,6 @@
 ﻿<div class="col-xs-12 col-sm-12 col-md-12 main__navbar">
     <div class="main__navbar__brand">
-        <span>RECOM</span>
+        <span>THESIS</span>
         <div class="main__navbar__user">
             <span class="main__navbar__user__text">{{vm.currentUser.UserName}}</span>
             <a class="main__navbar__user__button" ng-click="vm.logout()"><span class="glyphicon glyphicon-off"></span></a>
@@ -33,31 +33,33 @@
                     <select class="form-control" ng-options="item as item.Id for item in vm.ships" ng-model="vm.selectedShip"></select>
                 </div>
             </div>
-            <div class="form-group" ng-if="vm.selectedShip.Id">
-                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Thuyền Trưởng</label>
-                <div class="col-xs-5 col-sm-5 col-md-5">
-                    <input class="form-control" type="text" ng-model="vm.selectedShip.Caption">
+            <div ng-if="vm.selectedShip.Id">
+                <div class="form-group">
+                    <label for="shipCation" class="col-xs-3 col-sm-3 col-md-3 control-label">Thuyền Trưởng</label>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <input id="shipCation" class="form-control" type="text" ng-model="vm.selectedShip.Caption">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group" ng-if="vm.selectedShip.Id">
-                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Trọng Tải</label>
-                <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.Weight}}</label>
-            </div>
-            <div class="form-group" ng-if="vm.selectedShip.Id">
-                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Thuyền Viên</label>
-                <div class="col-xs-5 col-sm-5 col-md-5">
-                    <input class="form-control" type="number" ng-model="vm.selectedShip.Sailors">
+                <div class="form-group">
+                    <label for="shipWeight" class="col-xs-3 col-sm-3 col-md-3 control-label">Trọng Tải</label>
+                    <label id="shipWeight" class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.Weight}}</label>
                 </div>
-            </div>
-            <div class="form-group" ng-if="vm.selectedShip.Id">
-                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Ngày Ra Khơi</label>
-                <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.SailedAt  |date: format: 'short'}}</label>
-            </div>
-            <div class="form-group" ng-if="vm.selectedShip.Id">
-                <div class="col-xs-3 col-sm-3 col-md-3"></div>
-                <div class="col-xs-5 col-sm-5 col-md-5">
-                    <button ng-click="vm.updateShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95;">Lưu Thay Đổi</button>
-                    <button ng-click="vm.deleteShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95;">Xóa Tàu</button>
+                <div class="form-group">
+                    <label for="shipSailors" class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Thuyền Viên</label>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <input id="shipSailors" class="form-control" type="number" ng-model="vm.selectedShip.Sailors">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 col-sm-3 col-md-3 control-label">Ngày Ra Khơi</label>
+                    <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.SailedAt  |date: format: 'short'}}</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <button ng-click="vm.updateShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95; background-color: white;">Lưu Thay Đổi</button>
+                        <button ng-click="vm.deleteShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95;">Xóa Tàu</button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -71,37 +73,3 @@
         <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
     </div>
 </div>
-<!--<div class="row">
-    <div class="col-lg-12">
-        <h3>Chỉnh sửa thông tin tàu</h3>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="alert alert-warning">
-                <label>Mã tàu: </label>
-                <select class="form-control" ng-options="item as item.Id for item in vm.ships" ng-model="vm.selectedShip"></select>
-            </div>
-        </div>
-    </div>
-    <br />
-    <div class="row" ng-if="vm.selectedShip.Id">
-        <div class="col-lg-8">
-            <div class="alert alert-info">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        Thuyền trưởng:
-                        <input type="text" ng-model="vm.selectedShip.Caption" />
-                    </li>
-                    <li class="list-group-item">
-                        Số lượng thuyền viên:
-                        <input type="number" ng-model="vm.selectedShip.Sailors" />
-                    </li>
-                    <li class="list-group-item">
-                        <button class="btn btn-primary" ng-click="vm.updateShip()" title="Cập nhật thông tin tàu">Lưu</button>
-                        <button class="btn btn-danger" ng-click="vm.deleteShip()" title="Xóa tàu">Xóa</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>-->
