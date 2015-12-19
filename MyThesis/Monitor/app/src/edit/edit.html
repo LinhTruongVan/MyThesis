@@ -1,49 +1,80 @@
-﻿<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><span>Ship</span>Monitor</a>
-
-            <ul class="user-menu" ng-if="vm.currentUser.Id">
-                <li class="dropdown pull-right">
-                    <a class="dropdown-toggle clickable-element" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{vm.currentUser.UserName}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <!--<li><a><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-                        <li><a><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>-->
-                        <li><a ng-click="vm.logout()"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
+﻿<div class="col-xs-12 col-sm-12 col-md-12 main__navbar">
+    <div class="main__navbar__brand">
+        <span>RECOM</span>
+        <div class="main__navbar__user">
+            <span class="main__navbar__user__text">{{vm.currentUser.UserName}}</span>
+            <a class="main__navbar__user__button" ng-click="vm.logout()"><span class="glyphicon glyphicon-off"></span></a>
         </div>
+    </div>
 
-    </div><!-- /.container-fluid -->
-</nav>
+</div>
 
-<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-    <ul class="nav menu">
-        <li><a class="clickable-element" ng-href="#/home"><span class="ion-home ion-icon-custom"></span> Trang chủ</a></li>
-        <li><a class="clickable-element" ng-href="#/simulate"><span class="ion-arrow-graph-down-right ion-icon-custom"></span> Hành trình tàu</a></li>
-        <li class="active"><a class="clickable-element"><span class="ion-android-boat ion-icon-custom"></span> Chỉnh sửa thông tin tàu</a></li>
-        <li ng-if="vm.currentUser.Id === 1"><a class="clickable-element" ng-href="#/storm"><span class="ion-ios-thunderstorm-outline ion-icon-custom"></span> Chỉnh sửa thông tin bão</a></li>
-        <li><a class="clickable-element" ng-href="#/weather"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Thời tiết</a></li>
-        <li><a class="clickable-element" ng-href="#/law"><span class="ion-ios-cloudy-night-outline ion-icon-custom"></span> Pháp luật</a></li>
-        <li role="presentation" class="divider"></li>
+<div class="col-xs-12 col-sm-12 col-md-12 main__menu">
+    <ul class="list-inline main__menu__ul pull-right">
+        <li class="main__menu__li"><a href="#/home">Trang chủ</a></li>
+        <li class="main__menu__li"><a href="#/simulate">Hành trình tàu</a></li>
+        <li class="main__menu__li main__menu__li--active"><a>Thông Tin Tàu</a></li>
+        <li class="main__menu__li"><a href="#/storm">Thông Tin Bão</a></li>
+        <li class="main__menu__li"><a href="#/weather">Thời Tiết</a></li>
+        <li class="main__menu__li"><a href="#/law">Pháp Luật</a></li>
     </ul>
+</div>
 
-</div><!--/.sidebar-->
+<div class="col-xs-12 col-sm-12 col-md-12 main__container">
+    <div class="main__detail container">
+        <form class="form-horizontal" style="margin-top: 10px;">
+            <div class="form-group">
+                <label class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Tàu</label>
+                <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.ships.length}}</label>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Mã Tàu</label>
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                    <select class="form-control" ng-options="item as item.Id for item in vm.ships" ng-model="vm.selectedShip"></select>
+                </div>
+            </div>
+            <div class="form-group" ng-if="vm.selectedShip.Id">
+                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Thuyền Trưởng</label>
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                    <input class="form-control" type="text" ng-model="vm.selectedShip.Caption">
+                </div>
+            </div>
+            <div class="form-group" ng-if="vm.selectedShip.Id">
+                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Trọng Tải</label>
+                <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.Weight}}</label>
+            </div>
+            <div class="form-group" ng-if="vm.selectedShip.Id">
+                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Thuyền Viên</label>
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                    <input class="form-control" type="number" ng-model="vm.selectedShip.Sailors">
+                </div>
+            </div>
+            <div class="form-group" ng-if="vm.selectedShip.Id">
+                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Ngày Ra Khơi</label>
+                <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.SailedAt  |date: format: 'short'}}</label>
+            </div>
+            <div class="form-group" ng-if="vm.selectedShip.Id">
+                <div class="col-xs-3 col-sm-3 col-md-3"></div>
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                    <button ng-click="vm.updateShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95;">Lưu Thay Đổi</button>
+                    <button ng-click="vm.deleteShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95;">Xóa Tàu</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div class="main__author">@Trương Văn Linh - Nguyễn Thành Vinh</div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Chỉnh sửa thông tin tàu</h3>
-        </div>
-    </div><!--/.row-->
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="overlay" id="overlay" style="display: none;">
+        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
+    </div>
+</div>
+<!--<div class="row">
+    <div class="col-lg-12">
+        <h3>Chỉnh sửa thông tin tàu</h3>
+    </div>
     <br />
     <div class="row">
         <div class="col-lg-8">
@@ -73,12 +104,4 @@
                 </ul>
             </div>
         </div>
-    </div>
-
-</div> <!--/.main-->
-
-<div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="overlay" id="overlay" style="display: none;">
-        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>
-    </div>
-</div>
+    </div>-->

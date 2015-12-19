@@ -171,6 +171,12 @@
                 function getShipLocationPopup(currentShip) {
                     var htmlBuilder = '';
 
+                    switch (currentShip.ShipType) {
+                        case settingConst.shipTypes.fishingShip.value:
+                            currentShip.displayType = settingConst.shipTypes.fishingShip.name;
+                            break;
+                    }
+
                     htmlBuilder += '<div><strong>Mã tàu: </strong>' + currentShip.Id + '</div>';
                     htmlBuilder += '<div><strong>Thuyền trưởng: </strong>' + currentShip.Caption + '</div>';
                     htmlBuilder += '<div><strong>Loại tàu: </strong>' + currentShip.displayType + '</div>';
