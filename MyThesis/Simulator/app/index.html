@@ -13,6 +13,7 @@
     <link href="bower_components/angularjs-slider/dist/rzslider.min.css" rel="stylesheet" />
     <link href="assets/css/home.css" rel="stylesheet" />
     <link href="assets/css/push-down.css" rel="stylesheet" />
+    <link href="assets/css/ship-container.css" rel="stylesheet" />
 
 </head>
 
@@ -40,8 +41,22 @@
         <div class="container">
             <push-down ng-if="vm.pushDownSettings.isActive">
                 <add-ship ng-if="vm.pushDownSettings.mode.addShip" overlay="vm.overlay" users="vm.users"></add-ship>
+                <add-storm ng-if="vm.pushDownSettings.mode.addStorm" overlay="vm.overlay"></add-storm>
+                <add-warning ng-if="vm.pushDownSettings.mode.addWarning" overlay="vm.overlay"></add-warning>
+                <edit-settings ng-if="vm.pushDownSettings.mode.editSettings"></edit-settings>
             </push-down>
+            <div class="ship-container">
+                <div ng-if="vm.ships.length >0">
+                    <div class="ship-container__title">Số Lượng Tàu: {{vm.ships.length}}</div>
+                    <div ng-repeat="ship in vm.ships">
+                        <ship ship-info="ship" ship-index="$index" setting-timeout="vm.settingTimeout" overlay="vm.overlay"></ship>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 author">
+        <div class="author__text">@Trương Văn Linh - Nguyễn Thành Vinh</div>
     </div>
     <!--<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <ul class="nav menu">
@@ -101,23 +116,24 @@
 
     <script src="src/addShip/addShipCtrl.js"></script>
     <script src="src/addShip/add-ship.js"></script>
+    <script src="src/addShip/createShipDialogSvc.js"></script>
 
-    <script src="src/createShipDialog/createShipDialogSvc.js"></script>
-    <script src="src/createShipDialog/createShipDialogCtrl.js"></script>
+    <script src="src/addStorm/addStormCtrl.js"></script>
+    <script src="src/addStorm/add-storm.js"></script>
+    <script src="src/addStorm/addStormDataSvc.js"></script>
 
-    <script src="src/createWarningLocationDialog/createWarningLocationDialogCtrl.js"></script>
-    <script src="src/createWarningLocationDialog/createWarningLocationDialogDataSvc.js"></script>
-    <script src="src/createWarningLocationDialog/createWarningLocationDialogSvc.js"></script>
+    <script src="src/addWarning/addWarningCtrl.js"></script>
+    <script src="src/addWarning/add-warning.js"></script>
+    <script src="src/addWarning/createWarningLocationDialogSvc.js"></script>
+    <script src="src/addWarning/createWarningLocationDialogDataSvc.js"></script>
 
-    <script src="src/simulatorSettingDialog/simulatorSettingDialogCtrl.js"></script>
-    <script src="src/simulatorSettingDialog/simulatorSettingDialogSvc.js"></script>
+    <script src="src/editSettings/editSettingsCtrl.js"></script>
+    <script src="src/editSettings/edit-settings.js"></script>
+    <script src="src/editSettings/simulatorSettingDialogSvc.js"></script>
 
     <script src="src/ship/shipCtrl.js"></script>
     <script src="src/ship/ship.js"></script>
     <script src="src/ship/shipDataSvc.js"></script>
-
-    <script src="src/createStormDialog/createStormDialogDataSvc.js"></script>
-    <script src="src/createStormDialog/createStormDialogCtrl.js"></script>
 
 </body>
 

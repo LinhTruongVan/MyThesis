@@ -1,0 +1,37 @@
+﻿<div class="form-group">
+    <div class="push-down__heading">Thêm Cảnh Báo</div>
+</div>
+<div class="form-group">
+    <label for="warningType" class="control-label">Loại cảnh báo</label>
+    <div class="push-down__input-wrapper">
+        <select id="warningType" class="form-control" ng-options="item.value as item.name for item in vm.warningLocationTypes" ng-model="vm.warningLocation.WarningLocationType">
+            <option value=''>- Loại cảnh báo -</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="warningLatitude" class="control-label">Vĩ độ</label>
+    <div class="push-down__input-wrapper">
+        <input id="warningLatitude" type="number" class="form-control" ng-model="vm.warningLocation.Latitude" placeholder="Vĩ độ">
+    </div>
+</div>
+<div class="form-group">
+    <label for="warningLongitude" class="control-label">Kinh độ</label>
+    <div class="push-down__input-wrapper">
+        <input id="warningLongitude" type="number" class="form-control" ng-model="vm.warningLocation.Longitude" placeholder="Kinh độ">
+    </div>
+</div>
+<div class="form-group">
+    <label for=warningDescription class="control-label">Chi tiết</label>
+    <div class="push-down__input-wrapper">
+        <input id="warningDescription" type="text" class="form-control" ng-model="vm.warningLocation.Description" placeholder="Chi tiết">
+    </div>
+</div>
+<div class="form-group">
+    <div class="push-down__button-group-wrapper">
+        <div class="push-down__button-group">
+            <button class="push-down__button--done" ng-click="vm.createWarningLocation()">Thêm</button>
+            <button class="push-down__button--cancel" ng-click="vm.close()">Hủy</button>
+        </div>
+    </div>
+</div>

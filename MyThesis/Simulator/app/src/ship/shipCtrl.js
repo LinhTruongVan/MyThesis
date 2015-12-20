@@ -30,7 +30,7 @@
 
         function init() {
             setupShip();
-            vm.autoSendLocationStatus = false;
+            vm.autoSendLocationStatus = true;
 
             $scope.$watch('vm.settingTimeout.updateLocation', function() {
                 autoUpdateLocation();

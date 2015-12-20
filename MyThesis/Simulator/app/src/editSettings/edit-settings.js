@@ -1,17 +1,16 @@
 ﻿(function () {
     angular
         .module('app')
-        .directive('addShip', addShip);
+        .directive('editSettings', editSettings);
 
-    function addShip() {
+    function editSettings() {
         var directive = {
             restrict: 'E',
             scope: {
-                overlay: '=',
-                users: '='
+                overlay: '='
             },
-            templateUrl: 'src/addShip/add-ship.html',
-            controller: 'addShipCtrl',
+            templateUrl: 'src/editSettings/edit-settings.html',
+            controller: 'editSettingsCtrl',
             controllerAs: 'vm'
         };
 

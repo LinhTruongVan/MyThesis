@@ -58,22 +58,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\assets\css\home.css" />
+    <Content Include="app\assets\css\ship-container.css" />
     <Content Include="app\assets\css\push-down.css" />
+    <Content Include="app\src\addShip\createShipDialogSvc.js" />
+    <Content Include="app\src\editSettings\edit-settings.html" />
+    <Content Include="app\src\editSettings\edit-settings.js" />
+    <Content Include="app\src\editSettings\editSettingsCtrl.js" />
+    <Content Include="app\src\addWarning\add-warning.html" />
+    <Content Include="app\src\addWarning\add-warning.js" />
+    <Content Include="app\src\addWarning\addWarningCtrl.js" />
+    <Content Include="app\src\addStorm\add-storm.html" />
+    <Content Include="app\src\addStorm\add-storm.js" />
+    <Content Include="app\src\addStorm\addStormCtrl.js" />
+    <Content Include="app\src\addStorm\addStormDataSvc.js" />
+    <Content Include="app\src\addWarning\createWarningLocationDialogDataSvc.js" />
+    <Content Include="app\src\addWarning\createWarningLocationDialogSvc.js" />
     <Content Include="app\src\app.const.js" />
     <Content Include="app\src\app.js" />
     <Content Include="app\src\addShip\add-ship.html" />
     <Content Include="app\src\addShip\addShipCtrl.js" />
     <Content Include="app\src\addShip\add-ship.js" />
-    <Content Include="app\src\createShipDialog\create-ship-dialog.html" />
-    <Content Include="app\src\createShipDialog\createShipDialogCtrl.js" />
-    <Content Include="app\src\createShipDialog\createShipDialogSvc.js" />
-    <Content Include="app\src\createStormDialog\create-storm-dialog.html" />
-    <Content Include="app\src\createStormDialog\createStormDialogCtrl.js" />
-    <Content Include="app\src\createStormDialog\createStormDialogDataSvc.js" />
-    <Content Include="app\src\createWarningLocationDialog\create-warning-location-dialog.html" />
-    <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogCtrl.js" />
-    <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogDataSvc.js" />
-    <Content Include="app\src\createWarningLocationDialog\createWarningLocationDialogSvc.js" />
+    <Content Include="app\src\editSettings\simulatorSettingDialogSvc.js" />
     <Content Include="app\src\home\homeCtrl.js" />
     <Content Include="app\src\home\homeDataSvc.js" />
     <Content Include="app\src\home\homeSvc.js" />
@@ -87,9 +92,6 @@
     <Content Include="app\src\ship\ship.js" />
     <Content Include="app\src\ship\shipCtrl.js" />
     <Content Include="app\src\ship\shipDataSvc.js" />
-    <Content Include="app\src\simulatorSettingDialog\simulator-setting-dialog.html" />
-    <Content Include="app\src\simulatorSettingDialog\simulatorSettingDialogCtrl.js" />
-    <Content Include="app\src\simulatorSettingDialog\simulatorSettingDialogSvc.js" />
     <Content Include="package.json" />
     <Content Include="bower.json" />
     <Content Include="app\bower.json" />

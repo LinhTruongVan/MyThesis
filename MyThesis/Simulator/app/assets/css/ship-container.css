@@ -1,0 +1,14 @@
+﻿.ship-container {
+    background-color: #dcf0fa;
+    padding: 20px;
+    min-height: 515px;
+}
+
+.ship-container__title {
+    font-size: 20px;
+}
+
+.ship__remove-button {
+    color: #000 !important;
+    opacity: 1 !important;
+}

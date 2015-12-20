@@ -1,0 +1,22 @@
+﻿<div class="form-group">
+    <div class="push-down__heading">Tùy Chỉnh</div>
+</div>
+<div class="form-group">
+    <label for="timer1" class="control-label">Cập nhật tọa độ sau(giây)</label>
+    <div class="push-down__input-wrapper">
+        <input class="form-control" id="timer1" type="number" ng-model="vm.settingTimeout.updateLocation" />
+    </div>
+</div>
+<div class="form-group">
+    <label for="timer2" class="control-label">Gửi tọa độ sau(giây)</label>
+    <div class="push-down__input-wrapper">
+        <input class="form-control" id="timer2" type="number" ng-model="vm.settingTimeout.sendLocation" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="push-down__button-group-wrapper">
+        <div class="push-down__button-group">
+            <button class="push-down__button--cancel" ng-click="vm.close()">Đóng</button>
+        </div>
+    </div>
+</div>

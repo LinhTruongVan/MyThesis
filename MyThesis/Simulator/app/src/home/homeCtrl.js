@@ -5,10 +5,10 @@
         .module('app')
         .controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['spinnerUtilSvc', '$uibModal', 'homeSvc', 'shipDataSvc', 'simulatorSettingDialogSvc',
+    homeCtrl.$inject = ['spinnerUtilSvc', 'homeSvc', 'shipDataSvc', 'simulatorSettingDialogSvc',
     'homeDataSvc', 'pushDownSvc'];
 
-    function homeCtrl(spinnerUtilSvc, $uibModal, homeSvc, shipDataSvc, simulatorSettingDialogSvc,
+    function homeCtrl(spinnerUtilSvc, homeSvc, shipDataSvc, simulatorSettingDialogSvc,
         homeDataSvc, pushDownSvc) {
         var vm = this;
         vm.overlay = angular.element(document.querySelector('#overlay'));
@@ -22,11 +22,6 @@
         vm.showAddWarning = showAddWarning;
         vm.showAddStorm = showAddStorm;
         vm.showEditSettings = showEditSettings;
-
-        vm.openCreateShipDialog = openCreateShipDialog;
-        vm.openCreateWarningLocationDialog = openCreateWarningLocationDialog;
-        vm.openSimulatorSettingDialog = openSimulatorSettingDialog;
-        vm.openCreateStormDialog = openCreateStormDialog;
 
         init();
 
@@ -43,7 +38,7 @@
 
                 homeSvc.setShips(response.data);
                 vm.ships = homeSvc.getShips();
-            }, function (error) {
+            }, function () {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.error('Tải danh sách tàu không thành công!');
             });
@@ -52,46 +47,6 @@
         function setupDataForUsers() {
             homeDataSvc.getAllUsers().then(function (response) {
                 vm.users = response.data;
-            });
-        }
-
-        function openCreateShipDialog(){
-            $uibModal.open({
-              templateUrl: "src/createShipDialog/create-ship-dialog.html",
-              controller: "createShipDialogCtrl",
-              resolve: {
-                  overlay: vm.overlay,
-                  users: function() {
-                      return vm.users;
-                  }
-              }
-            });
-        }
-
-        function openCreateWarningLocationDialog(){
-            $uibModal.open({
-                templateUrl: "/src/createWarningLocationDialog/create-warning-location-dialog.html",
-              controller: "createWarningLocationDialogCtrl",
-              resolve: {
-                overlay: vm.overlay
-              }
-            });
-        }
-
-        function openSimulatorSettingDialog() {
-            $uibModal.open({
-                templateUrl: "/src/simulatorSettingDialog/simulator-setting-dialog.html",
-                controller: "simulatorSettingDialogCtrl"
-            });
-        }
-
-        function openCreateStormDialog() {
-            $uibModal.open({
-                templateUrl: "/src/createStormDialog/create-storm-dialog.html",
-                controller: "createStormDialogCtrl",
-                resolve: {
-                    overlay: vm.overlay
-                }
             });
         }
 

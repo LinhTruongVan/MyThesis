@@ -113,7 +113,7 @@
         function setupWarningMessageForShipAndInternationShip(data, distance) {
             vm.shipIdsHasIncidentWithInternationalShip = commonSvc.getShipIdsHasIncidentWithInternationalShip(data.Ships, data.InternationShipData.Data, distance * 1000);
             if (vm.shipIdsHasIncidentWithInternationalShip.length > 0) {
-                vm.warningMessage = '<div>Tàu (<strong>' + vm.shipIdsHasIncidentWithInternationalShip.join(',') + '</strong>) đang trong khu vực có bán kính dưới ' + distance + 'km so với tàu quốc tế. Hãy cẩn thận để tránh va chạm</div>';
+                vm.warningMessage = '<div><strong>*</strong>Tàu (<strong>' + vm.shipIdsHasIncidentWithInternationalShip.join(',') + '</strong>) đang trong khu vực có bán kính dưới ' + distance + 'km so với tàu quốc tế. Hãy cẩn thận để tránh va chạm</div>';
                 toastr.warning(vm.warningMessage);
             }
         }
@@ -124,7 +124,7 @@
                 var stormNames = data.Storms.map(function (item) {
                     return item.Name;
                 });
-                vm.warningMessageForStorm = '<div>Tàu (<strong>' + vm.shipIdsHasIncidentWithStorm.join(',') + '</strong>) đang trong khu vực nguy hiểm của bão <strong>(' + stormNames.join(',') + ')</strong>.</div>';
+                vm.warningMessageForStorm = '<div><strong>*</strong>Tàu (<strong>' + vm.shipIdsHasIncidentWithStorm.join(',') + '</strong>) đang trong khu vực nguy hiểm của bão <strong>(' + stormNames.join(',') + ')</strong>.</div>';
                 toastr.warning(vm.warningMessageForStorm);
             }
         }

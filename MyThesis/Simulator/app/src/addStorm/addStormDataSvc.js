@@ -1,9 +1,9 @@
 ﻿(function () {
-    angular.module('app').factory('createStormDialogDataSvc', createStormDialogDataSvc);
+    angular.module('app').factory('addStormDataSvc', addStormDataSvc);
 
-    createStormDialogDataSvc.$inject = ['host', '$http'];
+    addStormDataSvc.$inject = ['host', '$http'];
 
-    function createStormDialogDataSvc(host, $http) {
+    function addStormDataSvc(host, $http) {
         var service = {
             createStorm: createStorm
         };

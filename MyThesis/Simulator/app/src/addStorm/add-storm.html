@@ -1,0 +1,41 @@
+﻿<div class="form-group">
+    <div class="push-down__heading">Thêm Bão</div>
+</div>
+<div class="form-group">
+    <label for="stormName" class="control-label">Tên bão</label>
+    <div class="push-down__input-wrapper">
+        <input id="stormName" type="text" class="form-control" ng-model="vm.storm.Name" placeholder="Tên bão">
+    </div>
+</div>
+<div class="form-group">
+    <label for="stormRadius" class="control-label">Bán kính</label>
+    <div class="push-down__input-wrapper">
+        <input id="stormRadius" type="number" class="form-control" ng-model="vm.storm.Radius" placeholder="Bán kính">
+    </div>
+</div>
+<div class="form-group">
+    <label for="stormLatitude" class="control-label">Vĩ độ tâm bão</label>
+    <div class="push-down__input-wrapper">
+        <input id="stormLatitude" type="number" class="form-control" ng-model="vm.storm.Latitude" placeholder="Vĩ độ tâm bão">
+    </div>
+</div>
+<div class="form-group">
+    <label for="stormLongitude" class="control-label">Kinh độ độ tâm bão</label>
+    <div class="push-down__input-wrapper">
+        <input id="stormLongitude" type="number" class="form-control" ng-model="vm.storm.Longitude" placeholder="Kinh độ tâm bão">
+    </div>
+</div>
+<div class="form-group">
+    <label for=stormDescription class="control-label">Chi tiết</label>
+    <div class="push-down__input-wrapper">
+        <input id="stormDescription" type="text" class="form-control" ng-model="vm.storm.Description" placeholder="Chi tiết">
+    </div>
+</div>
+<div class="form-group">
+    <div class="push-down__button-group-wrapper">
+        <div class="push-down__button-group">
+            <button class="push-down__button--done" ng-click="vm.createStorm()">Thêm</button>
+            <button class="push-down__button--cancel" ng-click="vm.close()">Hủy</button>
+        </div>
+    </div>
+</div>
