@@ -27,6 +27,20 @@
         <p ng-bind-html="vm.warningMessageForStorm" ng-if="vm.warningMessageForStorm"></p>
     </div>
     <div class="" ng-class="{'col-xs-12 col-sm-12 col-md-12': !vm.warningMessage && !vm.warningMessage, 'col-xs-9 col-sm-9 col-md-9 big-col': vm.warningMessage || vm.warningMessage}">
+        <div id='legend' style='display:none;'>
+            <strong>Chú thích:</strong>
+            <nav class='legend clearfix'>
+                <span style='background: url("../../assets/img/ship-marker/green.png") no-repeat;'></span>
+                <span style='background: url("../../assets/img/ship-marker/international-ship.png") no-repeat; '></span>
+                <span style='background: url("../../assets/img/warning-location/reef.png") no-repeat;'></span>
+                <span style='background: url("../../assets/img/warning-location/pirate-ship.png") no-repeat;'></span>
+                <span style='background: url("../../assets/img/warning-location/china-ship.png") no-repeat;'></span>
+                <label>Tàu ngư dân</label>
+                <label>Tàu quốc tế</label>
+                <label>Bãi rạng</label>
+                <label>Hải tặc</label>
+                <label>Tàu TQ</label>
+        </div>
         <div id="leaflet-map" class="leaflet-map"></div>
     </div>
 </div>

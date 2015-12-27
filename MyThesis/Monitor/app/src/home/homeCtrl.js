@@ -36,6 +36,7 @@
         function setupLeafletMap() {
             L.mapbox.accessToken = 'pk.eyJ1IjoidHZsaW5oIiwiYSI6ImNpZzJlMXRubDFiYmp0emt2OTJidmpsdHkifQ.es8RI1Tt5uJAEmE33tWkrw#6/13.699/110.369';
             vm.leafletMap = L.mapbox.map('leaflet-map').setView([13.699, 110.369], 6);
+            vm.leafletMap.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
             L.control.coordinates({
                 position: "bottomleft",
@@ -100,9 +101,6 @@
 
                 setupWarningMessageForShipAndInternationShip(summaryData, 50);
                 setupWarningMessageForShipAndStorm(summaryData, 50);
-                //vm.intervalForReloadData = $interval(function () {
-                //    reloadLeafletMapLayers();
-                //}, 10000);
 
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
             }, function () {

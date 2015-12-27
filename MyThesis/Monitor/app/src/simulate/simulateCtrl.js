@@ -21,6 +21,7 @@
             userSvc.validateCurrentUser();
             vm.currentUser = userSvc.getCurrentUser();
             setupLeafletMap();
+            setupLeafletMapData();
         }
 
         function logout() {
@@ -30,13 +31,28 @@
         }
 
         function setupLeafletMap() {
+            L.mapbox.accessToken = 'pk.eyJ1IjoidHZsaW5oIiwiYSI6ImNpZzJlMXRubDFiYmp0emt2OTJidmpsdHkifQ.es8RI1Tt5uJAEmE33tWkrw#6/13.699/110.369';
+            vm.leafletMap = L.mapbox.map('leaflet-map').setView([13.699, 110.369], 6);
+            vm.leafletMap.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+            L.control.coordinates({
+                position: "bottomleft", //optional default "bootomright"
+                decimals: 6, //optional default 4
+                decimalSeperator: ".", //optional default "."
+                labelTemplateLat: "Vĩ độ: {y} - ", //optional default "Lat: {y}"
+                labelTemplateLng: "Kinh độ: {x}", //optional default "Lng: {x}"
+                enableUserInput: true, //optional default true
+                useDMS: false, //optional default false
+                useLatLngOrder: true, //ordering of labels, default false-> lng-lat
+                markerType: L.marker, //optional default L.marker
+                markerProps: {} //optional default {}
+            }).addTo(vm.leafletMap);
+        }
+
+        function setupLeafletMapData() {
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
             commonDataSvc.getSummaryData(vm.currentUser).then(function (response) {
                 var summaryData = response.data;
-
-                L.mapbox.accessToken = 'pk.eyJ1IjoidHZsaW5oIiwiYSI6ImNpZzJlMXRubDFiYmp0emt2OTJidmpsdHkifQ.es8RI1Tt5uJAEmE33tWkrw#6/13.699/110.369';
-                vm.leafletMap = L.mapbox.map('leaflet-map').setView([13.699, 110.369], 6);
-
                 var baseMaps = [
                     {
                         groupName: "Bản đồ",
@@ -80,19 +96,6 @@
 
                 vm.leafletMap.addLayer(internationalShipLocationLayers['Tàu quốc tế']);
                 vm.leafletMap.addLayer(shipLocationLayersForSimulate['Tất cả']);
-
-                L.control.coordinates({
-                    position: "bottomleft", //optional default "bootomright"
-                    decimals: 6, //optional default 4
-                    decimalSeperator: ".", //optional default "."
-                    labelTemplateLat: "Vĩ độ: {y} - ", //optional default "Lat: {y}"
-                    labelTemplateLng: "Kinh độ: {x}", //optional default "Lng: {x}"
-                    enableUserInput: true, //optional default true
-                    useDMS: false, //optional default false
-                    useLatLngOrder: true, //ordering of labels, default false-> lng-lat
-                    markerType: L.marker, //optional default L.marker
-                    markerProps: {} //optional default {}
-                }).addTo(vm.leafletMap);
                 
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.success('Tải dữ liệu thành công');

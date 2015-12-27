@@ -33,6 +33,16 @@
         </div>
             <div class="form-group" ng-if="vm.mode === vm.modes[0]">
                 <div>
+                        <p align="center" style="text-align: center; line-height: normal; margin-top: 6px; margin-bottom: 6px" class="MsoBodyText">
+                            <b>
+                                <span style="font-family: Arial; color: black">
+                                    <font size="2">
+                                        LUẬT<br>
+                                        BIỂN VIỆT NAM
+                                    </font>
+                                </span>
+                            </b>
+                        </p>
                         <p style="margin-bottom:6px;text-align:justify;margin-top:6px" class="MsoNormal"><font size="2" face="Arial"><span style="color:black">&nbsp;</span></font></p>
                         <p align="justify" style="line-height: normal; margin-top: 6px; margin-bottom:6px" class="MsoBodyText"><i> <span style="font-family: Arial; color: black; letter-spacing: -.1pt"> <font size="2">Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam năm 1992 đã được sửa  đổi, bổ sung một số điều theo Nghị quyết số 51/2001/QH10; </font> </span></i></p>
                         <p align="justify" style="line-height: normal; margin-top: 6px; margin-bottom:6px" class="MsoBodyText"><i> <span style="font-family: Arial; color: black; letter-spacing: -.1pt"> <font size="2">Quốc hội ban hành Luật biển Việt Nam.</font></span></i></p>
@@ -2350,7 +2360,7 @@ color:black"><font size="2">&nbsp;</font></span>
                     </p>
                 </div>
             </div>
-            <div class="form-group" ng-if="vm.mode === vm.modes[3]">
+            <div class="form-group" ng-if="vm.mode === vm.modes[2]">
                 <div>
                     <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
                         <span class="normal-h1">
@@ -2700,7 +2710,7 @@ color:black">
                     </p>
                 </div>
             </div>
-            <div class="form-group" ng-if="vm.mode === vm.modes[4]">
+            <div class="form-group" ng-if="vm.mode === vm.modes[3]">
                 <div>
                     <p class="normal-p" align="center" style="margin-bottom:6px;margin-top:6px">
                         <span class="normal-h1">

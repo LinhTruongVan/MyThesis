@@ -102,6 +102,9 @@
         function sendSosMessage() {
             var currentLocation = setupCurrentLocationForSos();
             vm.isMoving = false;
+            vm.autoSendLocationStatus = false;
+            if (vm.intervalForSendingLocation) $interval.cancel(vm.intervalForSendingLocation);
+            if (vm.intervalForUpdatingLocation) $interval.cancel(vm.intervalForUpdatingLocation);
 
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
             shipDataSvc.sendLocation(currentLocation).then(function () {

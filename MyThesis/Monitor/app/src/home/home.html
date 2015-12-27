@@ -21,12 +21,27 @@
 </div>
 
 <div class="col-xs-12 col-sm-12 col-md-12 main__container">
-    <div class="col-xs-3 col-sm-3 col-md-3 small-col" ng-if="vm.warningMessage || vm.warningMessage">
+    <div class="col-xs-3 col-sm-3 col-md-3 small-col" ng-if="vm.warningMessage || vm.warningMessageForStorm">
         <div class="home__warning-title">Cảnh Báo</div>
         <p ng-bind-html="vm.warningMessage" ng-if="vm.warningMessage"></p>
         <p ng-bind-html="vm.warningMessageForStorm" ng-if="vm.warningMessageForStorm"></p>
     </div>
-    <div class="" ng-class="{'col-xs-12 col-sm-12 col-md-12': !vm.warningMessage && !vm.warningMessage, 'col-xs-9 col-sm-9 col-md-9 big-col': vm.warningMessage || vm.warningMessage}">
+    <div class="" ng-class="{'col-xs-12 col-sm-12 col-md-12': !vm.warningMessage && !vm.warningMessageForStorm, 'col-xs-9 col-sm-9 col-md-9 big-col': vm.warningMessage || vm.warningMessageForStorm}">
+        <div id='legend' style='display:none;'>
+            <strong>Chú thích:</strong>
+            <nav class='legend clearfix'>
+                <span style='background: url("../../assets/img/ship-marker/green.png") no-repeat;'></span>
+                <span style='background: url("../../assets/img/ship-marker/international-ship.png") no-repeat; '></span>
+                <span style='background: url("../../assets/img/warning-location/reef.png") no-repeat;'></span>
+                <span style='background: url("../../assets/img/warning-location/pirate-ship.png") no-repeat;'></span>
+                <span style='background: url("../../assets/img/warning-location/china-ship.png") no-repeat;'></span>
+                <label>Tàu ngư dân</label>
+                <label>Tàu quốc tế</label>
+                <label>Bãi rạng</label>
+                <label>Hải tặc</label>
+                <label>Tàu TQ</label>
+            </nav>
+        </div>
         <div id="leaflet-map" class="leaflet-map"></div>
     </div>
 </div>

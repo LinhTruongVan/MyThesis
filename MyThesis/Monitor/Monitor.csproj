@@ -62,10 +62,13 @@
     <Content Include="app\assets\css\login-page.css" />
     <Content Include="app\assets\img\ship-marker\black.png" />
     <Content Include="app\assets\img\ship-marker\blue.png" />
+    <Content Include="app\assets\img\ship-marker\green-2.png" />
     <Content Include="app\assets\img\ship-marker\green.png" />
+    <Content Include="app\assets\img\ship-marker\international-ship-sprites.png" />
     <Content Include="app\assets\img\ship-marker\international-ship.png" />
     <Content Include="app\assets\img\ship-marker\moving.png" />
     <Content Include="app\assets\img\ship-marker\pink.png" />
+    <Content Include="app\assets\img\ship-marker\red-2.png" />
     <Content Include="app\assets\img\ship-marker\red.png" />
     <Content Include="app\assets\img\ship-marker\yellow.png" />
     <Content Include="app\assets\img\warning-location\china-ship.png" />

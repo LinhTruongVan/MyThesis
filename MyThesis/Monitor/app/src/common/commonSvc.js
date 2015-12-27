@@ -235,6 +235,11 @@
                     iconSize: [12, 20]
                 });
 
+                var customIcon2 = L.icon({
+                    iconUrl: '../../assets/img/ship-marker/red-2.png',
+                    iconSize: [12, 20]
+                });
+
                 var shipMarkers = getAllShipLocationMarkers();
 
                 for (var i=0; i<ships.length; i++) {
@@ -260,7 +265,11 @@
                             var shipLocation = ship.ShipLocations[j];
                             var htmlPopup = getShipLocationPopup(ship, shipLocation);
 
-                            markers[ship.Id].push(L.rotatedMarker([shipLocation.Latitude, shipLocation.Longitude], { icon: customIcon, angle: shipLocation.Angle }).bindPopup(htmlPopup));
+                            if (j === ship.ShipLocations.length - 1 && shipLocation.ShipStatus !== 0) {
+                                markers[ship.Id].push(L.rotatedMarker([shipLocation.Latitude, shipLocation.Longitude], { icon: customIcon2, angle: shipLocation.Angle }).bindPopup(htmlPopup));
+                            } else {
+                                markers[ship.Id].push(L.rotatedMarker([shipLocation.Latitude, shipLocation.Longitude], { icon: customIcon, angle: shipLocation.Angle }).bindPopup(htmlPopup));
+                            }
                         }
 
                     }
