@@ -7,13 +7,13 @@ namespace ApiServer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class add_storm : IMigrationMetadata
+    public sealed partial class fullname : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(add_storm));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fullname));
         
         string IMigrationMetadata.Id
         {
-            get { return "201512130425305_add_storm"; }
+            get { return "201512281316163_fullname"; }
         }
         
         string IMigrationMetadata.Source

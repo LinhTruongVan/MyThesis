@@ -3,7 +3,7 @@ namespace ApiServer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init_db : DbMigration
+    public partial class fullname : DbMigration
     {
         public override void Up()
         {
@@ -18,6 +18,7 @@ namespace ApiServer.Migrations
                         Description = c.String(),
                         ShipId = c.Int(),
                         Angle = c.Int(),
+                        ShipStatus = c.Int(),
                         WarningLocationType = c.Int(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
                     })
@@ -44,12 +45,26 @@ namespace ApiServer.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.Storms",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Latitude = c.Single(nullable: false),
+                        Longitude = c.Single(nullable: false),
+                        Radius = c.Single(nullable: false),
+                        Description = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Users",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserName = c.String(),
                         Password = c.String(),
+                        FullName = c.String(),
                         Phone = c.String(),
                         UserRole = c.Int(nullable: false),
                     })
@@ -64,6 +79,7 @@ namespace ApiServer.Migrations
             DropIndex("dbo.Ships", new[] { "UserId" });
             DropIndex("dbo.Locations", new[] { "ShipId" });
             DropTable("dbo.Users");
+            DropTable("dbo.Storms");
             DropTable("dbo.Ships");
             DropTable("dbo.Locations");
         }

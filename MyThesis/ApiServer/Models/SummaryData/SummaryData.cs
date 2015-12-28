@@ -11,5 +11,6 @@ namespace ApiServer.Models.SummaryData
         public List<WarningLocation> WarningLocations { get; set; }
         public InternationShipData InternationShipData { get; set; }
         public List<Storm.Storm> Storms { get; set; }
+        public List<string> WarningMessages { get; set; }
     }
 }

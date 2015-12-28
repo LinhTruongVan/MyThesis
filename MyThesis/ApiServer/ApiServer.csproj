@@ -104,21 +104,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511290916366_init_db.cs" />
-    <Compile Include="Migrations\201511290916366_init_db.Designer.cs">
-      <DependentUpon>201511290916366_init_db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512060246071_add_ship_status_to_location.cs" />
-    <Compile Include="Migrations\201512060246071_add_ship_status_to_location.Designer.cs">
-      <DependentUpon>201512060246071_add_ship_status_to_location.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512060249478_not_null_ship_status.cs" />
-    <Compile Include="Migrations\201512060249478_not_null_ship_status.Designer.cs">
-      <DependentUpon>201512060249478_not_null_ship_status.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512130425305_add_storm.cs" />
-    <Compile Include="Migrations\201512130425305_add_storm.Designer.cs">
-      <DependentUpon>201512130425305_add_storm.cs</DependentUpon>
+    <Compile Include="Migrations\201512281316163_fullname.cs" />
+    <Compile Include="Migrations\201512281316163_fullname.Designer.cs">
+      <DependentUpon>201512281316163_fullname.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Location\Location.cs" />
@@ -135,6 +123,7 @@
     <Compile Include="Models\User\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\InternationalShipService.cs" />
+    <Compile Include="Services\WarningMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -149,17 +138,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511290916366_init_db.resx">
-      <DependentUpon>201511290916366_init_db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512060246071_add_ship_status_to_location.resx">
-      <DependentUpon>201512060246071_add_ship_status_to_location.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512060249478_not_null_ship_status.resx">
-      <DependentUpon>201512060249478_not_null_ship_status.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512130425305_add_storm.resx">
-      <DependentUpon>201512130425305_add_storm.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512281316163_fullname.resx">
+      <DependentUpon>201512281316163_fullname.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

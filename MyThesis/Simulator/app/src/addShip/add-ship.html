@@ -4,7 +4,7 @@
 <div class="form-group">
     <label for="shipUser" class="control-label">Chủ tàu</label>
     <div class="push-down__input-wrapper">
-        <select id="shipUser" class="form-control" ng-options="item.Id as item.UserName for item in vm.users" ng-model="vm.newShip.UserId">
+        <select id="shipUser" class="form-control" ng-options="item.Id as item.FullName for item in vm.users| filter:{UserName:'!admin'}" ng-model="vm.newShip.UserId">
             <option value=''>- Chủ tàu -</option>
         </select>
     </div>
