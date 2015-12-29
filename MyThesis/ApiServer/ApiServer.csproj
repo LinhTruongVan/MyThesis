@@ -108,6 +108,18 @@
     <Compile Include="Migrations\201512281316163_fullname.Designer.cs">
       <DependentUpon>201512281316163_fullname.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512291343309_updateDb.cs" />
+    <Compile Include="Migrations\201512291343309_updateDb.Designer.cs">
+      <DependentUpon>201512291343309_updateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512291359477_initDb.cs" />
+    <Compile Include="Migrations\201512291359477_initDb.Designer.cs">
+      <DependentUpon>201512291359477_initDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512291438425_initShips.cs" />
+    <Compile Include="Migrations\201512291438425_initShips.Designer.cs">
+      <DependentUpon>201512291438425_initShips.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Location\Location.cs" />
     <Compile Include="Models\Location\ShipLocation.cs" />
@@ -140,6 +152,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512281316163_fullname.resx">
       <DependentUpon>201512281316163_fullname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512291343309_updateDb.resx">
+      <DependentUpon>201512291343309_updateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512291359477_initDb.resx">
+      <DependentUpon>201512291359477_initDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512291438425_initShips.resx">
+      <DependentUpon>201512291438425_initShips.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

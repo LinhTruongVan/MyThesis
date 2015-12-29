@@ -1,13 +1,9 @@
 ﻿namespace ApiServer.Models.Storm
 {
-    public class Storm
+    public class Storm:Location.Location
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public float Latitude { get; set; }
-        public float Longitude { get; set; }
         public float Radius { get; set; }
-        public string Description { get; set; }
 
     }
 }

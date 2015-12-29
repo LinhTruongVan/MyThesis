@@ -21,3 +21,6 @@ E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.dll
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.pdb
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.fullname.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.csproj.GenerateResource.Cache
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.updateDb.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initDb.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initShips.resources

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using ApiServer.Models.Location;
 
 namespace ApiServer.Models.Ship
@@ -15,6 +16,7 @@ namespace ApiServer.Models.Ship
         public string Caption { get; set; }
         public int Sailors { get; set; }
         public DateTime SailedAt { get; set; }
+        [ForeignKey("ShipId")]
         public virtual ICollection<ShipLocation> ShipLocations { get; set; }
     }
 }

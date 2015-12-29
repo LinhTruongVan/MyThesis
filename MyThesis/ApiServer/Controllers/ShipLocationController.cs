@@ -17,11 +17,10 @@ namespace ApiServer.Controllers
         {
             try
             {
-                if (shipId != shipLocation.ShipId) return BadRequest();
-
                 var ship = _context.Ships.FirstOrDefault(p => p.Id == shipId);
                 if (ship == null) return NotFound();
 
+                shipLocation.ShipId = ship.Id;
                 _context.ShipLocations.Add(shipLocation);
                 _context.SaveChanges();
 

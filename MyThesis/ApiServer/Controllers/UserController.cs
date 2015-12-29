@@ -28,7 +28,7 @@ namespace ApiServer.Controllers
             var user = _context.Users.FirstOrDefault(u => u.UserName == userViewModel.UserName);
             if (user != null) return BadRequest();
 
-            userViewModel.UserRole = UserRole.User; ;
+            userViewModel.UserRole = UserRole.User;
             _context.Users.Add(userViewModel);
             _context.SaveChanges();
 
@@ -37,7 +37,7 @@ namespace ApiServer.Controllers
 
         [Route("{userId}")]
         [HttpDelete]
-        public IHttpActionResult CreateUser(int userId)
+        public IHttpActionResult DeleteUser(int userId)
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == userId);
             if (user == null) return BadRequest();

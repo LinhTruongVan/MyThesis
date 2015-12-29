@@ -2,6 +2,7 @@
 using System.Web.Http;
 using ApiServer.Models.Ship;
 using ServerApi.DAL;
+using System.Data.Entity;
 
 namespace ApiServer.Controllers
 {
@@ -26,7 +27,7 @@ namespace ApiServer.Controllers
         [HttpGet]
         public IHttpActionResult GetAllShips()
         {
-            var ships = _context.Ships.Include("ShipLocations").ToList();
+            var ships = _context.Ships.Include(s=>s.ShipLocations).ToList();
 
             return Ok(ships);
         }
@@ -46,11 +47,14 @@ namespace ApiServer.Controllers
         [HttpPut]
         public IHttpActionResult UpdateShip(int id, [FromBody] Ship updatedShip)
         {
-            if (id != updatedShip.Id) return BadRequest();
             var ship = _context.Ships.FirstOrDefault(item => item.Id == id);
             if (ship == null) return NotFound();
 
             ship.Id = updatedShip.Id;
+            ship.Caption = updatedShip.Caption;
+            ship.Sailors = updatedShip.Sailors;
+            ship.ShipStatus = updatedShip.ShipStatus;
+
             _context.SaveChanges();
 
             return Ok(ship);

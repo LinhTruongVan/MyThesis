@@ -23,22 +23,24 @@ namespace ApiServer.Controllers
             var user = _context.Users.FirstOrDefault(u => u.Id == userId);
             if (user == null) return NotFound();
 
-            var summaryData = new SummaryData();
-
-            summaryData.WarningLocations = _context.WarningLocations.ToList();
-            summaryData.InternationShipData = _internationalShipService.GetInternationShipData();
-            summaryData.Storms = _context.Storms.ToList();
-
-            switch (user.UserRole)
+            var summaryData = new SummaryData()
             {
-                case UserRole.User:
-                    summaryData.Ships = _context.Ships.Include(s => s.ShipLocations).Where(s=>s.UserId == user.Id).ToList();
-                    summaryData.Users = new List<User>() { user };
-                    break;
-                case UserRole.Admin:
-                    summaryData.Ships = _context.Ships.Include(s => s.ShipLocations).ToList();
-                    summaryData.Users = _context.Users.ToList();
-                    break;
+                WarningLocations = _context.WarningLocations.ToList(),
+                InternationShipData = _internationalShipService.GetInternationShipData(),
+                Storms = _context.Storms.ToList()
+            };
+
+            var ships = _context.Ships.Include(s => s.ShipLocations).ToList();
+
+            if (user.UserRole == UserRole.User)
+            {
+                summaryData.Ships = ships.Where(s => s.UserId == user.Id).ToList();
+                summaryData.Users = new List<User>() {user};
+            }
+            else if (user.UserRole == UserRole.Admin)
+            {
+                summaryData.Ships = ships;
+                summaryData.Users = _context.Users.ToList();
             }
 
             return Ok(summaryData);

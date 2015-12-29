@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiServer.Models.User
 {
@@ -10,6 +11,7 @@ namespace ApiServer.Models.User
         public string FullName { get; set; }
         public string Phone { get; set; }
         public UserRole UserRole { get; set; }
+        [ForeignKey("UserId")]
         public virtual ICollection<Ship.Ship> Ships { get; set; }
     }
 }
