@@ -159,7 +159,7 @@
                         runningTimes.push(10000);
                     });
 
-                    var movingMarker = L.Marker.movingMarker(shipLocations, runningTimes, { loop: true, autostart: true }).bindPopup(htmlPopup);
+                    var movingMarker = L.Marker.movingMarker(shipLocations, runningTimes, { loop: false, autostart: true }).bindPopup(htmlPopup);
                     movingMarker.setIcon(customIcon);
                     movingMarker.openPopup();
 

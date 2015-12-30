@@ -91,11 +91,15 @@
                     container_width: "250px",
                 };
 
-                var styledLayerControl = L.Control.styledLayerControl(baseMaps, overlayLayers, options);
-                vm.leafletMap.addControl(styledLayerControl);
+                vm.styledLayerControl = L.Control.styledLayerControl(baseMaps, overlayLayers, options);
+                vm.leafletMap.addControl(vm.styledLayerControl);
 
                 vm.leafletMap.addLayer(internationalShipLocationLayers['Tàu quốc tế']);
                 vm.leafletMap.addLayer(shipLocationLayersForSimulate['Tất cả']);
+
+                //vm.leafletMap.removeLayer(shipLocationLayersForSimulate['Tất cả']);
+                //vm.leafletMap.removeControl(vm.styledLayerControl);
+                //vm.leafletMap.addControl(vm.styledLayerControl);
                 
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.success('Tải dữ liệu thành công');
