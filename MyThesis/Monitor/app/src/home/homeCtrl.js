@@ -14,6 +14,7 @@
 
         vm.leafletMap = {};
         vm.intervalForReloadData = {};
+        vm.warningMessages = [];
 
         vm.logout = logout;
 
@@ -69,6 +70,7 @@
             commonDataSvc.getSummaryData(vm.currentUser).then(function (response) {
                 var summaryData = response.data;
 
+                vm.warningMessages = response.data.WarningMessages;
                 vm.overlayLayers = [
                      {
                          groupName: "Thời tiết",
@@ -99,8 +101,12 @@
                 vm.leafletMap.addLayer(vm.overlayLayers[2].layers['Tất cả']);
                 vm.leafletMap.addLayer(vm.overlayLayers[3].layers['Bão']);
 
-                setupWarningMessageForShipAndInternationShip(summaryData, 50);
-                setupWarningMessageForShipAndStorm(summaryData, 50);
+                for (var i = 0; i < vm.warningMessages.length; i++) {
+                    toastr.warning(summaryData.WarningMessages[i]);
+                }
+
+                //setupWarningMessageForShipAndInternationShip(summaryData, 50);
+                //setupWarningMessageForShipAndStorm(summaryData, 50);
 
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
             }, function () {

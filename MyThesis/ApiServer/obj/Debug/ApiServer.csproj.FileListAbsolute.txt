@@ -24,3 +24,8 @@ E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.csproj.GenerateResource.Cache
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.updateDb.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initDb.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initShips.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb1.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb2.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb3.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.GenerateLocations.resources
