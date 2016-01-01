@@ -24,7 +24,7 @@ namespace ApiServer.Migrations
             {
                 UserName = "admin",
                 Password = "admin",
-                FullName = "Admin",
+                FullName = "Người Quản Trị",
                 UserRole = UserRole.Admin
             });
 

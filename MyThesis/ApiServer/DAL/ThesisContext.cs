@@ -21,5 +21,6 @@ namespace ServerApi.DAL
         public DbSet<ShipLocation> ShipLocations { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Storm> Storms { get; set; }
+        public DbSet<InternationalShip> InternationalShips { get; set; }
     }
 }

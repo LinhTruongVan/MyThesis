@@ -29,3 +29,4 @@ E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb1.resource
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb2.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb3.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.GenerateLocations.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.internationalShip.resources

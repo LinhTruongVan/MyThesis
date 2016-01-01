@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GenerateLocationController.cs" />
+    <Compile Include="Controllers\InternationalShipController.cs" />
     <Compile Include="Controllers\ShipApisController.cs" />
     <Compile Include="Controllers\ShipController.cs" />
     <Compile Include="Controllers\ShipLocationController.cs" />
@@ -142,12 +143,17 @@
     <Compile Include="Migrations\201512301416310_GenerateLocations.Designer.cs">
       <DependentUpon>201512301416310_GenerateLocations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601011540370_internationalShip.cs" />
+    <Compile Include="Migrations\201601011540370_internationalShip.Designer.cs">
+      <DependentUpon>201601011540370_internationalShip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Location\Location.cs" />
     <Compile Include="Models\Location\ShipLocation.cs" />
     <Compile Include="Models\Location\WarningLocation.cs" />
     <Compile Include="Models\Location\WarningLocationType.cs" />
     <Compile Include="Models\Ship\CreateShipViewModel.cs" />
+    <Compile Include="Models\Ship\InternationalShip.cs" />
     <Compile Include="Models\Ship\Ship.cs" />
     <Compile Include="Models\Ship\ShipStatus.cs" />
     <Compile Include="Models\Ship\ShipType.cs" />
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512301416310_GenerateLocations.resx">
       <DependentUpon>201512301416310_GenerateLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601011540370_internationalShip.resx">
+      <DependentUpon>201601011540370_internationalShip.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
