@@ -1,5 +1,6 @@
 ﻿.main-page__logo {
-    height: 60px;
+    height: 70px;
+    margin-bottom: 5px;
 }
 
 .main__navbar {
@@ -153,5 +154,5 @@
     width: 300px;
     position: absolute;
     top: 17px;
-    left: 150px;
+    left: 220px;
 }

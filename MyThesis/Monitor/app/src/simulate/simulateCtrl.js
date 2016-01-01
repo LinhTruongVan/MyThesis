@@ -22,8 +22,6 @@
         var mainToggleButton = angular.element('#mainToggleButton');
 
         vm.logout = logout;
-        vm.applySpeedLevel = applySpeedLevel;
-        vm.selectedSpeedValue = 10;
         vm.applySettings = applySettings;
 
         init();
@@ -31,8 +29,6 @@
         function init() {
             userSvc.validateCurrentUser();
             vm.currentUser = userSvc.getCurrentUser();
-            vm.speedLevels = [1,2,3,4,5,6,7,8,9,10];
-
 
             setupLeafletMap();
             setupLeafletMapData();
@@ -118,25 +114,6 @@
             }, function() {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
             });
-        }
-
-        function applySpeedLevel(value) {
-            vm.selectedSpeedValue = value;
-
-            if (!vm.summaryData || vm.summaryData.Ships.length <= 0) return;
-
-            if (vm.overlayLayers[2].layers) {
-                for (var key in vm.overlayLayers[2].layers) {
-                    vm.leafletMap.removeLayer(vm.overlayLayers[2].layers[key]);
-                }
-                vm.leafletMap.removeControl(vm.styledLayerControl);
-            }
-
-            vm.overlayLayers[2].layers = {};
-
-            vm.styledLayerControl = L.Control.styledLayerControl(vm.baseMaps, vm.overlayLayers, vm.options);
-            vm.leafletMap.addControl(vm.styledLayerControl);
-            vm.leafletMap.addLayer(vm.shipLocationLayersForSimulate['Tất cả']);
         }
 
         function applySettings() {
