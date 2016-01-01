@@ -34,3 +34,7 @@
 .big-col{
     width: 80% !important;
 }
+
+.leaflet-bottom {
+    z-index: 900 !important;
+}

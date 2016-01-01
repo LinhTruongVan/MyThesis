@@ -103,6 +103,7 @@
                 function getWarningLocationPopup(currentLocation) {
                     var htmlBuilder = '';
 
+                    htmlBuilder += '<div><strong>' + getWarningLocationTypeName() + '</strong></div>';
                     htmlBuilder += '<div><strong>Vĩ độ: </strong>' + currentLocation.Latitude + '</div>';
                     htmlBuilder += '<div><strong>Kinh độ: </strong>' + currentLocation.Longitude + '</div>';
                     htmlBuilder += '<div><strong>Chi tiết: </strong>' + (currentLocation.Description ? currentLocation.Description : 'N/A') + '</div>';
@@ -350,7 +351,7 @@
                 storms.forEach(function(storm) {
                     var htmlPopup = getStormPopup(storm);
 
-                    L.circle([storm.Latitude, storm.Longitude], storm.Radius, options).bindPopup(htmlPopup).addTo(layerGroup['Bão']);
+                    L.circle([storm.Latitude, storm.Longitude], storm.Radius*1000, options).bindPopup(htmlPopup).addTo(layerGroup['Bão']);
                 });
             }
 
@@ -358,7 +359,7 @@
                 var htmlBuilder = '';
 
                 htmlBuilder += '<div><strong>Tên bão: </strong>' + storm.Name + '</div>';
-                htmlBuilder += '<div><strong>Bán kính: </strong>' + storm.Radius/1000 + 'km</div>';
+                htmlBuilder += '<div><strong>Bán kính: </strong>' + storm.Radius + 'km</div>';
                 htmlBuilder += '<div><strong>Vĩ độ: </strong>' + storm.Latitude + '</div>';
                 htmlBuilder += '<div><strong>Kinh độ: </strong>' + storm.Longitude + '</div>';
                 htmlBuilder += '<div><strong>Chi tiết: </strong>' + (storm.Description ? storm.Description : 'N/A') + '</div>';

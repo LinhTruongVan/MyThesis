@@ -94,7 +94,7 @@
                 vm.styledLayerControl = L.Control.styledLayerControl(baseMaps, overlayLayers, options);
                 vm.leafletMap.addControl(vm.styledLayerControl);
 
-                vm.leafletMap.addLayer(internationalShipLocationLayers['Tàu quốc tế']);
+                //vm.leafletMap.addLayer(internationalShipLocationLayers['Tàu quốc tế']);
                 vm.leafletMap.addLayer(shipLocationLayersForSimulate['Tất cả']);
 
                 //vm.leafletMap.removeLayer(shipLocationLayersForSimulate['Tất cả']);

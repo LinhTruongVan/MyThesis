@@ -2,7 +2,7 @@
     <div class="main__navbar__brand">
         <span>THESIS</span>
         <div class="main__navbar__user">
-            <span class="main__navbar__user__text">{{vm.currentUser.UserName}}</span>
+            <span class="main__navbar__user__text">{{vm.currentUser.FullName}}</span>
             <a class="main__navbar__user__button" ng-click="vm.logout()"><span class="glyphicon glyphicon-off"></span></a>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <li class="main__menu__li"><a href="#/home">Trang chủ</a></li>
         <li class="main__menu__li"><a href="#/simulate">Hành trình tàu</a></li>
         <li class="main__menu__li main__menu__li--active"><a>Thông Tin Tàu</a></li>
-        <li class="main__menu__li"><a href="#/storm">Thông Tin Bão</a></li>
+        <li class="main__menu__li" ng-if="vm.currentUser.Id === 1"><a href="#/storm">Thông Tin Bão</a></li>
         <li class="main__menu__li"><a href="#/weather">Thời Tiết</a></li>
         <li class="main__menu__li"><a href="#/law">Pháp Luật</a></li>
     </ul>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="shipWeight" class="col-xs-3 col-sm-3 col-md-3 control-label">Trọng Tải</label>
-                    <label id="shipWeight" class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.Weight}}</label>
+                    <label id="shipWeight" class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.Weight}} Kg</label>
                 </div>
                 <div class="form-group">
                     <label for="shipSailors" class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Thuyền Viên</label>

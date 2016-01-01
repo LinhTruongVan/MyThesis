@@ -24,7 +24,7 @@
 
             if (vm.currentUser.Id !== 1) {
                 toastr.error('Chỉ admin mới có quyền truy cập');
-                $location.Path('/home');
+                $location.path('/home');
             }
             setupStorms();
         }
