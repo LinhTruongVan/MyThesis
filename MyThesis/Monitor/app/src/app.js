@@ -7,7 +7,10 @@
             'ui.bootstrap',
             'angularModalService',
             'angularSpinner',
-            'ngSanitize'])
+            'ngSanitize',
+            'ui.date',
+            'timer',
+            'progress.bar'])
         .config(['$routeProvider', 'usSpinnerConfigProvider', function ($routeProvider, usSpinnerConfigProvider) {
             $routeProvider
                  .when('/home', { templateUrl: 'src/home/home.html', controller: 'homeCtrl', controllerAs: 'vm' })

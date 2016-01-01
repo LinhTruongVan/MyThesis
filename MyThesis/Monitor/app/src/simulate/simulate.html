@@ -1,6 +1,6 @@
 ﻿<div class="col-xs-12 col-sm-12 col-md-12 main__navbar">
     <div class="main__navbar__brand">
-        <span>THESIS</span>
+        <img src="../../assets/img/logo/logo.png" class="main-page__logo " />
         <div class="main__navbar__user">
             <span class="main__navbar__user__text">{{vm.currentUser.FullName}}</span>
             <a class="main__navbar__user__button" ng-click="vm.logout()"><span class="glyphicon glyphicon-off"></span></a>
@@ -42,7 +42,48 @@
                 <label>Tàu TQ</label>
             </nav>
         </div>
-        <div id="leaflet-map" class="leaflet-map"></div>
+        <div id="leaflet-map" class="leaflet-map">
+            <!--<div class="input-group" style="margin-left: 50px; margin-top: 10px;">
+                <div class="input-group-btn">
+                    <button style="border-radius: 5px;" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tốc độ mô phỏng <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <div ng-repeat="item in vm.speedLevels" style=" cursor: pointer;">
+                            <li ng-bind-template="Mức: {{item}}" style="padding-left: 10px;" ng-class="{'text-bold': item === vm.selectedSpeedValue}" ng-click="vm.applySpeedLevel(item)"></li>
+                            <li role="separator" class="divider"></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>-->
+            <div class="dropdown-form">
+                <button class="btn btn-primary" data-toggle="collapse" data-target=".nav-collapse" id="mainToggleButton">
+                    Tùy chỉnh
+                </button>
+
+                <ng-progressbar ng-if="vm.progressBarSettings.isDisplay" type="info" max="{{vm.progressBarSettings.totalTimes}}" start="{{vm.progressBarSettings.isRunning}}" class="countdown__bar"></ng-progressbar>
+                <div class="nav-collapse collapse">
+                    <div class="nav-collapse collapse">
+                        <ul class="dropdown-form__list">
+                            <li class="active">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="timer">Thời gian mô phỏng (giây)</label>
+                                        <input type="number" class="form-control" id="timer" placeholder="Thời gian mô phỏng" ng-model="vm.simulateSettings.totalTime">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="timerStart">Ngày bắt đầu</label>
+                                        <input class="form-control" placeholder="Ngày bắt đầu" id="timerStart" ui-date ng-model="vm.simulateSettings.startAt">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="timerEnd">Ngày kết thúc</label>
+                                        <input class="form-control" placeholder="Ngày kết thúc" id="timerEnd" ui-date ng-model="vm.simulateSettings.endAt">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" ng-click="vm.applySettings()">Áp dụng</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
     </div>
 </div>
 

@@ -1,4 +1,8 @@
-﻿.main__navbar {
+﻿.main-page__logo {
+    height: 60px;
+}
+
+.main__navbar {
     height: 80px;
 }
 
@@ -119,4 +123,35 @@
     text-align: center;
     font-size: 9px;
     color: #808080;
+}
+
+.dropdown-form {
+    position: absolute;
+    width: 50%;
+    padding-top: 10px;
+    padding-left: 50px;
+    z-index: 1000;
+}
+
+.dropdown-form__list {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    list-style: none;
+    font-size: 14px;
+}
+
+.countdown {
+    height: 34px;
+    position: absolute;
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+.countdown__bar{
+    margin-bottom: 0;
+    width: 300px;
+    position: absolute;
+    top: 17px;
+    left: 150px;
 }

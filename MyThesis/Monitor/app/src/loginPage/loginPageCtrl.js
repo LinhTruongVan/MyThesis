@@ -20,9 +20,9 @@
         init();
 
         function init() {
-            $(document).keypress(function (e) {
-                if (e.which === 13) login();
-            });
+            //$(document).keypress(function (e) {
+            //    if (e.which === 13) login();
+            //});
         }
 
         function login() {
@@ -31,7 +31,6 @@
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
             userDataSvc.login(vm.user).then(function(response) {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.success('Đăng nhập thành công');
                 userSvc.setCurrentUser(response.data);
                 $location.path('/home');
             }, function(error) {

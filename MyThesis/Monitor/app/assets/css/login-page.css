@@ -16,6 +16,10 @@
     }
 }
 
+.login-page__logo {
+    height: 80px;
+}
+
 .login-page__form__title {
     color: whitesmoke;
     font-size: 36px;

@@ -49,6 +49,10 @@
                 toastr.error('Chưa nhập số điện thoại liên lạc');
                 return false;
             }
+            if (!vm.newUser.FullName || vm.newUser.FullName.length <= 0) {
+                toastr.error('Chưa nhập họ tên');
+                return false;
+            }
             if (!vm.newUser.Password || vm.newUser.Password.length <= 0) {
                 toastr.error('Chưa nhập mật khẩu');
                 return false;

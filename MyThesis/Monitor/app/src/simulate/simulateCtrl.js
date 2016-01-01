@@ -5,21 +5,35 @@
         .module('app')
         .controller('simulateCtrl', simulateCtrl);
 
-    simulateCtrl.$inject = ['userSvc', '$location', 'spinnerUtilSvc', 'commonDataSvc', 'commonSvc'];
+    simulateCtrl.$inject = ['userSvc', '$location', 'spinnerUtilSvc', 'commonDataSvc', 'commonSvc', '$timeout'];
 
-    function simulateCtrl(userSvc, $location, spinnerUtilSvc, commonDataSvc, commonSvc) {
+    function simulateCtrl(userSvc, $location, spinnerUtilSvc, commonDataSvc, commonSvc, $timeout) {
         var vm = this;
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
         vm.leafletMap = {};
+        vm.simulateSettings = {};
+        vm.progressBarSettings = {
+            totalTimes: 1,
+            isRunning: false,
+            isDisplay: false
+        };
+
+        var mainToggleButton = angular.element('#mainToggleButton');
 
         vm.logout = logout;
+        vm.applySpeedLevel = applySpeedLevel;
+        vm.selectedSpeedValue = 10;
+        vm.applySettings = applySettings;
 
         init();
 
         function init() {
             userSvc.validateCurrentUser();
             vm.currentUser = userSvc.getCurrentUser();
+            vm.speedLevels = [1,2,3,4,5,6,7,8,9,10];
+
+
             setupLeafletMap();
             setupLeafletMapData();
         }
@@ -52,8 +66,8 @@
         function setupLeafletMapData() {
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
             commonDataSvc.getSummaryData(vm.currentUser).then(function (response) {
-                var summaryData = response.data;
-                var baseMaps = [
+                vm.summaryData = response.data;
+                vm.baseMaps = [
                     {
                         groupName: "Bản đồ",
                         expanded: true,
@@ -61,52 +75,129 @@
                     }
                 ];
 
-                var internationalShipLocationLayers = commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data);
-                var shipLocationLayersForSimulate = commonSvc.getOverlayShipLocationLayersForSimulate(vm.leafletMap, summaryData.Ships);
+                vm.internationalShipLocationLayers = commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, vm.summaryData.InternationShipData.Data);
+                //vm.shipLocationLayersForSimulate = commonSvc.getOverlayShipLocationLayersForSimulate(vm.leafletMap, vm.summaryData.Ships, vm.selectedSpeedValue);
+                vm.overlayStormLayers = commonSvc.getOverlayStormLayers(vm.leafletMap, vm.summaryData.Storms);
+                vm.overlayWarningLocationLayers = commonSvc.getOverlayWarningLocationLayers(vm.summaryData.WarningLocations);
+                vm.overlayWeatherLayers = commonSvc.getOverlayWeatherLayers();
 
-                var overlayLayers = [
+                vm.overlayLayers = [
                      {
                          groupName: "Thời tiết",
-                         layers: commonSvc.getOverlayWeatherLayers()
+                         layers: vm.overlayWeatherLayers
                      },
                      {
                          groupName: "Tàu quốc tế",
-                         layers: internationalShipLocationLayers
+                         layers: vm.internationalShipLocationLayers
                      },
                      {
                          groupName: "Tàu",
-                         layers: shipLocationLayersForSimulate
+                         layers: null
                      },
                     {
                         groupName: "Bão",
-                        layers: commonSvc.getOverlayStormLayers(vm.leafletMap, summaryData.Storms)
+                        layers: vm.overlayStormLayers
                     },
                     {
                         groupName: "Cảnh báo",
-                        layers: commonSvc.getOverlayWarningLocationLayers(summaryData.WarningLocations)
+                        layers: vm.overlayWarningLocationLayers
                     }
                 ];
 
-                var options = {
-                    container_width: "250px",
+                vm.options = {
+                    container_width: "250px"
                 };
 
-                vm.styledLayerControl = L.Control.styledLayerControl(baseMaps, overlayLayers, options);
-                vm.leafletMap.addControl(vm.styledLayerControl);
+                //vm.styledLayerControl = L.Control.styledLayerControl(vm.baseMaps, vm.overlayLayers, vm.options);
+                //vm.leafletMap.addControl(vm.styledLayerControl);
 
                 //vm.leafletMap.addLayer(internationalShipLocationLayers['Tàu quốc tế']);
-                vm.leafletMap.addLayer(shipLocationLayersForSimulate['Tất cả']);
-
-                //vm.leafletMap.removeLayer(shipLocationLayersForSimulate['Tất cả']);
-                //vm.leafletMap.removeControl(vm.styledLayerControl);
-                //vm.leafletMap.addControl(vm.styledLayerControl);
+                //vm.leafletMap.addLayer(vm.shipLocationLayersForSimulate['Tất cả']);
                 
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.success('Tải dữ liệu thành công');
             }, function() {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.error('Tải dữ liệu không thành công');
             });
+        }
+
+        function applySpeedLevel(value) {
+            vm.selectedSpeedValue = value;
+
+            if (!vm.summaryData || vm.summaryData.Ships.length <= 0) return;
+
+            if (vm.overlayLayers[2].layers) {
+                for (var key in vm.overlayLayers[2].layers) {
+                    vm.leafletMap.removeLayer(vm.overlayLayers[2].layers[key]);
+                }
+                vm.leafletMap.removeControl(vm.styledLayerControl);
+            }
+
+            vm.overlayLayers[2].layers = {};
+
+            vm.styledLayerControl = L.Control.styledLayerControl(vm.baseMaps, vm.overlayLayers, vm.options);
+            vm.leafletMap.addControl(vm.styledLayerControl);
+            vm.leafletMap.addLayer(vm.shipLocationLayersForSimulate['Tất cả']);
+        }
+
+        function applySettings() {
+            if (!validateSimluateSettings()) return;
+
+            var filterdShips = commonSvc.getShipAfterFilterOut(vm.summaryData.Ships, vm.simulateSettings);
+            if (filterdShips.length <= 0) {
+                toastr.warning('Danh sách tàu không hợp lệ');
+                return;
+            }
+
+            var maxNumOfLocations = 0;
+            filterdShips.forEach(function(filterdShip) {
+                var numOfShipLocations = filterdShip.ShipLocations.length;
+                if (maxNumOfLocations <= numOfShipLocations) maxNumOfLocations = numOfShipLocations;
+            });
+
+            if (vm.overlayLayers[2].layers) {
+                for (var key in vm.overlayLayers[2].layers) {
+                    vm.leafletMap.removeLayer(vm.overlayLayers[2].layers[key]);
+                }
+                vm.leafletMap.removeControl(vm.styledLayerControl);
+            }
+
+            vm.overlayLayers[2].layers = commonSvc.getOverlayShipLocationLayersForSimulate(vm.leafletMap, filterdShips, vm.simulateSettings.totalTime / maxNumOfLocations);
+
+            vm.styledLayerControl = L.Control.styledLayerControl(vm.baseMaps, vm.overlayLayers, vm.options);
+            vm.leafletMap.addControl(vm.styledLayerControl);
+
+            vm.progressBarSettings.totalTimes = vm.simulateSettings.totalTime;
+            vm.progressBarSettings.isDisplay = false;
+
+            $timeout(function () {
+                vm.progressBarSettings.isDisplay = true;
+                vm.progressBarSettings.isRunning = true;
+                vm.leafletMap.addLayer(vm.overlayLayers[2].layers['Tất cả']);
+            }, 1000);
+            
+
+            mainToggleButton.click();
+        }
+
+        function validateSimluateSettings() {
+            if (!vm.simulateSettings.totalTime || vm.simulateSettings.totalTime <= 0) {
+                toastr.error('Chưa nhập tổng thời gian mô phỏng');
+                return false;
+            }
+            if (!vm.simulateSettings.startAt) {
+                toastr.error('Chưa chọn ngày bắt đầu');
+                return false;
+            }
+            if (!vm.simulateSettings.endAt) {
+                toastr.error('Chưa chọn ngày kết thúc');
+                return false;
+            }
+            if (vm.simulateSettings.startAt > vm.simulateSettings.endAt) {
+                toastr.error('Ngày bắt đầu không được lớn hơn ngày kết thúc');
+                return false;
+            }
+
+            return true;
         }
 
     }

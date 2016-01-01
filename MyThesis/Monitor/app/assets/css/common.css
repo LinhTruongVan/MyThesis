@@ -38,3 +38,7 @@
 .leaflet-bottom {
     z-index: 900 !important;
 }
+
+.text-bold {
+    font-weight: bold;
+}

@@ -60,6 +60,7 @@
     <Content Include="app\assets\css\common.css" />
     <Content Include="app\assets\css\main.css" />
     <Content Include="app\assets\css\login-page.css" />
+    <Content Include="app\assets\img\logo\logo.png" />
     <Content Include="app\assets\img\ship-marker\black.png" />
     <Content Include="app\assets\img\ship-marker\blue.png" />
     <Content Include="app\assets\img\ship-marker\green-2.png" />
@@ -88,6 +89,10 @@
     <Content Include="app\assets\script\LeafletStyledLayerControl\css\styledLayerControl.css" />
     <Content Include="app\assets\script\LeafletStyledLayerControl\styledLayerControl.js" />
     <Content Include="app\assets\script\moving_marker\moving_marker.js" />
+    <Content Include="app\assets\script\ngProgressBar\app.js" />
+    <Content Include="app\assets\script\ngProgressBar\index.html" />
+    <Content Include="app\assets\script\ngProgressBar\progressbar.jpg" />
+    <Content Include="app\assets\script\ngProgressBar\progressBar.js" />
     <Content Include="app\assets\script\rotated_marker\rotated_marker.js" />
     <Content Include="app\indexSvc.js" />
     <Content Include="app\src\common\commonDataSvc.js" />
@@ -135,6 +140,8 @@
     <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-Medium.ttf" />
     <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-MediumItalic.ttf" />
     <Content Include="app\assets\script\LeafletStyledLayerControl\css\fonts\Ubuntu-Regular.ttf" />
+    <Content Include="app\assets\script\ngProgressBar\bower.json" />
+    <Content Include="app\assets\script\ngProgressBar\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

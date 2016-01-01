@@ -18,8 +18,9 @@
             getOverlayShipLocationLayersForMonitor: getOverlayShipLocationLayersForMonitor,
             getShipIdsHasIncidentWithInternationalShip: getShipIdsHasIncidentWithInternationalShip,
             getOverlayStormLayers: getOverlayStormLayers,
-            getShipIdsHasIncidentWithStorm: getShipIdsHasIncidentWithStorm
-    };
+            getShipIdsHasIncidentWithStorm: getShipIdsHasIncidentWithStorm,
+            getShipAfterFilterOut: getShipAfterFilterOut
+        };
         return service;
 
         function getBaseMaps(leafletMap) {
@@ -126,7 +127,7 @@
             }
         }
 
-        function getOverlayShipLocationLayersForSimulate(leafletMap, ships) {
+        function getOverlayShipLocationLayersForSimulate(leafletMap, ships, timeDelay) {
             var layers = {
                 'Tất cả': new L.LayerGroup()
             };
@@ -157,7 +158,7 @@
 
                     ship.ShipLocations.forEach(function (location) {
                         shipLocations.push([location.Latitude, location.Longitude]);
-                        runningTimes.push(10000);
+                        runningTimes.push(timeDelay * 1000);
                     });
 
                     var movingMarker = L.Marker.movingMarker(shipLocations, runningTimes, { loop: false, autostart: true }).bindPopup(htmlPopup);
@@ -243,12 +244,12 @@
 
                 var shipMarkers = getAllShipLocationMarkers();
 
-                for (var i=0; i<ships.length; i++) {
+                for (var i = 0; i < ships.length; i++) {
                     var ship = ships[i];
                     var indentifyName = 'Mã tàu ' + ship.Id;
 
                     layerGroup[indentifyName] = new L.LayerGroup();
-                    for (var j=0; j<shipMarkers[ship.Id].length; j++) {
+                    for (var j = 0; j < shipMarkers[ship.Id].length; j++) {
                         var rotateMarker = shipMarkers[ship.Id][j];
                         rotateMarker.addTo(layerGroup[indentifyName]);
                         if (j === shipMarkers[ship.Id].length - 1) angular.copy(rotateMarker).addTo(layerGroup['Tất cả']);
@@ -258,7 +259,7 @@
                 function getAllShipLocationMarkers() {
                     var markers = {};
 
-                    for (var i=0; i<ships.length; i++) {
+                    for (var i = 0; i < ships.length; i++) {
                         var ship = ships[i];
                         markers[ship.Id] = [];
 
@@ -302,11 +303,11 @@
         function getShipIdsHasIncidentWithInternationalShip(ships, internationalShipLocation, maxDistance) {
             var shipIdsWithIncident = [];
 
-            for (var i=0; i<ships.length; i++) {
+            for (var i = 0; i < ships.length; i++) {
                 var ship = ships[i];
                 var shipLastLocation = ship.ShipLocations[ship.ShipLocations.length - 1];
 
-                for (var j=0; j<internationalShipLocation.length; j++) {
+                for (var j = 0; j < internationalShipLocation.length; j++) {
                     if (isShipHasIncident(shipLastLocation, internationalShipLocation[j])) {
                         shipIdsWithIncident.push(ship.Id);
                         break;
@@ -348,10 +349,10 @@
                     weight: 2
                 };
 
-                storms.forEach(function(storm) {
+                storms.forEach(function (storm) {
                     var htmlPopup = getStormPopup(storm);
 
-                    L.circle([storm.Latitude, storm.Longitude], storm.Radius*1000, options).bindPopup(htmlPopup).addTo(layerGroup['Bão']);
+                    L.circle([storm.Latitude, storm.Longitude], storm.Radius * 1000, options).bindPopup(htmlPopup).addTo(layerGroup['Bão']);
                 });
             }
 
@@ -374,7 +375,7 @@
             for (var i = 0; i < ships.length; i++) {
                 var ship = ships[i];
                 var shipLastLocation = ship.ShipLocations[ship.ShipLocations.length - 1];
-                for (var j = 0; j < storms.length; j++){
+                for (var j = 0; j < storms.length; j++) {
                     var storm = storms[j];
 
                     if (isShipHasIncidentWithStorm(shipLastLocation, storm)) {
@@ -393,7 +394,7 @@
                 var dLong = convertToRadian(stormInfo.Longitude - shipLocation.Longitude);
 
                 var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                  Math.cos(convertToRadian(shipLocation.Latitude)) * Math.cos(convertToRadian(stormInfo.Latitude )) *
+                  Math.cos(convertToRadian(shipLocation.Latitude)) * Math.cos(convertToRadian(stormInfo.Latitude)) *
                   Math.sin(dLong / 2) * Math.sin(dLong / 2);
 
                 var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
@@ -407,5 +408,29 @@
             return x * Math.PI / 180;
         }
 
+        function getShipAfterFilterOut(ships, settings) {
+            var filteredShips = [];
+            var tempShips = angular.copy(ships);
+
+            if (!tempShips || tempShips.length <= 0) return filteredShips;
+
+            var startAt = settings.startAt.getTime();
+            var endAt = settings.endAt.getTime();
+            for (var i = 0; i < tempShips.length; i++) {
+                var currentShip = tempShips[i];
+                if (currentShip.ShipLocations.length <= 0) continue;
+
+                var availableLocations = currentShip.ShipLocations.filter(function (location) {
+                    var tempCreatedAt = new Date(location.CreatedAt).getTime();
+                    return tempCreatedAt >= startAt && tempCreatedAt <= endAt;
+                });
+                if (availableLocations.length <= 0) continue;
+
+                currentShip.ShipLocations = availableLocations;
+                filteredShips.push(currentShip);
+            }
+
+            return filteredShips;
+        }
     }
 })();
