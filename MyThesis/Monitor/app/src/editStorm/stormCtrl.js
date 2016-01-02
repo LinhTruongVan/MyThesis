@@ -5,15 +5,19 @@
         .module('app')
         .controller('stormCtrl', stormCtrl);
 
-    stormCtrl.$inject = ['userSvc', '$location', 'spinnerUtilSvc', 'stormDataSvc'];
+    stormCtrl.$inject = ['userSvc', '$location', 'spinnerUtilSvc', 'stormDataSvc', 'pushDownSvc'];
 
-    function stormCtrl(userSvc, $location, spinnerUtilSvc, stormDataSvc) {
+    function stormCtrl(userSvc, $location, spinnerUtilSvc, stormDataSvc, pushDownSvc) {
         var vm = this;
         vm.overlay = angular.element(document.querySelector('#overlay'));
 
+        vm.pushDownSettings = pushDownSvc.getPushDownSettings();
+
         vm.logout = logout;
-        vm.updateStorm = updateStorm;
-        vm.deleteStorm = deleteStorm;
+        vm.showAddStorm = showAddStorm;
+        vm.showEditStorm = showEditStorm;
+        vm.handleAfterSave = handleAfterSave;
+        vm.handleAfterEditStorm = handleAfterEditStorm;
 
         init();
 
@@ -24,24 +28,22 @@
 
             if (vm.currentUser.Id !== 1) {
                 toastr.error('Chỉ admin mới có quyền truy cập');
-                $location.path('/home');
+                $location.path('/trang-chu');
             }
             setupStorms();
         }
 
         function logout() {
             userSvc.setCurrentUser({});
-            $location.path('/login');
+            $location.path('/dang-nhap');
             sessionStorage.removeItem('user');
         }
 
         function setupStorms() {
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
-
             stormDataSvc.getStorms().then(function (response) {
                 vm.storms = response.data;
 
-                toastr.success('Tải dữ liệu thành công');
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
             }, function() {
                 toastr.error('Tải dữ liệu không thành công');
@@ -49,58 +51,24 @@
             });
         }
 
-        function updateStorm() {
-            if (!valiateStorm(vm.selectedStorm)) return;
-
-            spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
-            stormDataSvc.updateStorm(vm.selectedStorm).then(function () {
-                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.success('Cập nhật thông tin bão thành công');
-            }, function () {
-                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.error('Cập nhật thông tin bão không thành công');
-            });
+        function showAddStorm() {
+            pushDownSvc.showAddStorm();
         }
 
-        function deleteStorm() {
-            spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
-            stormDataSvc.deleteStorm(vm.selectedStorm.Id).then(function () {
-
-                for (var i = 0; i < vm.storms.length; i++) {
-                    var tempStorm = vm.storms[i];
-                    if (tempStorm.Id === vm.selectedStorm.Id) {
-                        vm.storms.splice(i, 1);
-                        break;
-                    }
-                }
-
-                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.success('Xóa thông tin bão thành công');
-            }, function () {
-                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.error('Xóa thông tin bão không thành công');
-            });
+        function showEditStorm() {
+            pushDownSvc.showEditStorm();
         }
 
-        function valiateStorm() {
-            if (!vm.selectedStorm.Name) {
-                toastr.error('Chưa nhập tên bão');
-                return false;
-            }
-            if (!vm.selectedStorm.Latitude) {
-                toastr.error('Chưa nhập vĩ độ của tâm bão');
-                return false;
-            }
-            if (!vm.selectedStorm.Longitude) {
-                toastr.error('Chưa nhập kinh độ của tâm bão');
-                return false;
-            }
-            if (!vm.selectedStorm.Radius) {
-                toastr.error('Chưa nhập bán kính của bão');
-                return false;
-            }
+        function handleAfterSave(stormFromApi) {
+            vm.storms.push(stormFromApi);
+        }
 
-            return true;
+        function handleAfterEditStorm(stormFromApi) {
+            if (stormFromApi.isDeleting) {
+                vm.storms.splice(stormFromApi.stormIndex, 1);
+            } else {
+                vm.storms[stormFromApi.stormIndex] = stormFromApi;
+            }
         }
 
     }

@@ -9,7 +9,8 @@
         return {
             getStorms: getStorms,
             updateStorm: updateStorm,
-            deleteStorm: deleteStorm
+            deleteStorm: deleteStorm,
+            addStorm: addStorm
         };
 
         function getStorms() {
@@ -42,6 +43,18 @@
                 headers: {
                     'Accept': 'application/json'
                 }
+            };
+            return $http(req);
+        }
+
+        function addStorm(storm) {
+            var req = {
+                method: 'POST',
+                url: host + '/storms/',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                data: storm
             };
             return $http(req);
         }

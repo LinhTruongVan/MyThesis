@@ -7,9 +7,22 @@
     
     function editDataSvc(host, $http) {
         return {
+            addShip: addShip,
             updateShip: updateShip,
             deleteShip: deleteShip
         };
+
+        function addShip(ship) {
+            var req = {
+                method: 'POST',
+                url: host + '/ships/',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                data: ship
+            };
+            return $http(req);
+        }
 
         function updateShip(userId, ship) {
             var req = {

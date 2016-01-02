@@ -36,7 +36,7 @@
         function validateCurrentUser() {
             var currentUser = JSON.parse(sessionStorage.getItem('user'));
             if (!currentUser || !currentUser.Id) {
-                $location.path('/login');
+                $location.path('/dang-nhap');
                 return false;
             };
             return true;

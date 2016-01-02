@@ -1,0 +1,38 @@
+﻿.push-down {
+    min-height: 200px;
+    border-top: 2px solid #244f95;
+    border-bottom: 5px solid #244f95;
+
+    margin-left: -15px;
+    margin-right: -15px;
+    position: relative;
+    background-color: #dcf0fa;
+
+    padding: 10px 20px 5px 20px;
+}
+
+.push-down__remove-btn {
+    position: absolute;
+    display: block;
+    font-size: 20px;
+    color: #000;
+    right: 15px;
+    top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.push-down__remove-btn:hover {
+    text-decoration: none;
+    color: #000;    
+}
+
+.push-down__heading {
+    font-size: 20px;
+    text-align: left !important;
+    color: #244f95;
+}
+
+.push-down__label {
+    text-align: left !important;
+}

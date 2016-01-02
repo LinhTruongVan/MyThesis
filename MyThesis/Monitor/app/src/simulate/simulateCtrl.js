@@ -36,7 +36,7 @@
 
         function logout() {
             userSvc.setCurrentUser({});
-            $location.path('/login');
+            $location.path('/dang-nhap');
             sessionStorage.removeItem('user');
         }
 

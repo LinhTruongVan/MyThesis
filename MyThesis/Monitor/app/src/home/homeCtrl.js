@@ -31,7 +31,7 @@
 
         function logout() {
             userSvc.setCurrentUser({});
-            $location.path('/login');
+            $location.path('/dang-nhap');
             sessionStorage.removeItem('user');
         }
 
@@ -113,6 +113,7 @@
 
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
             }, function () {
+                toastr.error('Tải dữ liệu không thành công');
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
             });
         }

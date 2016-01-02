@@ -32,7 +32,7 @@
             userDataSvc.login(vm.user).then(function(response) {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 userSvc.setCurrentUser(response.data);
-                $location.path('/home');
+                $location.path('/trang-chu');
             }, function(error) {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 if (error.status === 404 || error.status === 400) {

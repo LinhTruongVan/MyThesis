@@ -1,3 +1,45 @@
 .TD.leftCol {
     display: none !important;
 }
+
+.tvl-menu {
+    margin-bottom: 0;
+}
+
+.tvl-menu__li {
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-style: normal;
+    color: #000;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-left: -5px;
+}
+
+.tvl-menu__li:hover {
+     background-color: #244f95;
+    color: whitesmoke;
+}
+
+.tvl-menu__li--active {
+    background-color: #244f95;
+    color: whitesmoke;
+}
+
+.tvl-menu__li-icon {
+    margin-right: 10px;
+}
+
+.ship-list {
+}
+
+.ship-list__heading {
+    font-size: 16px;
+    text-transform: uppercase;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+}

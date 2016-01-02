@@ -3,13 +3,12 @@
 
     angular
         .module('app')
-        .controller('weatherCtrl', weatherCtrl);
+        .controller('warningLocationCtrl', warningLocationCtrl);
 
-    weatherCtrl.$inject = ['$scope', 'userSvc', '$location'];
+    warningLocationCtrl.$inject = ['userSvc', '$location', 'spinnerUtilSvc'];
 
-    function weatherCtrl($scope, userSvc, $location) {
+    function warningLocationCtrl(userSvc, $location, spinnerUtilSvc) {
         var vm = this;
-
         vm.overlay = angular.element(document.querySelector('#overlay'));
 
         vm.logout = logout;
@@ -19,12 +18,11 @@
         function init() {
             userSvc.validateCurrentUser();
             vm.currentUser = userSvc.getCurrentUser();
-
         }
 
         function logout() {
             userSvc.setCurrentUser({});
-            $location.path('/dang-nhap');
+            $location.path('/login');
             sessionStorage.removeItem('user');
         }
 

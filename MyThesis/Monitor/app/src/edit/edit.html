@@ -11,58 +11,47 @@
 
 <div class="col-xs-12 col-sm-12 col-md-12 main__menu">
     <ul class="list-inline main__menu__ul pull-right">
-        <li class="main__menu__li"><a href="#/home">Trang chủ</a></li>
-        <li class="main__menu__li"><a href="#/simulate">Hành trình tàu</a></li>
+        <li class="main__menu__li"><a href="#/trang-chu">Trang chủ</a></li>
+        <li class="main__menu__li"><a href="#/mo-phong">Hành trình tàu</a></li>
         <li class="main__menu__li main__menu__li--active"><a>Thông Tin Tàu</a></li>
-        <li class="main__menu__li" ng-if="vm.currentUser.Id === 1"><a href="#/storm">Thông Tin Bão</a></li>
-        <li class="main__menu__li"><a href="#/weather">Thời Tiết</a></li>
-        <li class="main__menu__li"><a href="#/law">Pháp Luật</a></li>
+        <li class="main__menu__li" ng-if="vm.currentUser.Id === 1"><a href="#/bao">Thông Tin Bão</a></li>
+        <li class="main__menu__li"><a href="#/canh-bao">Thông Tin Cảnh Báo</a></li>
+        <li class="main__menu__li"><a href="#/thoi-tiet">Thời Tiết</a></li>
+        <li class="main__menu__li"><a href="#/phap-luat">Pháp Luật</a></li>
     </ul>
 </div>
 
 <div class="col-xs-12 col-sm-12 col-md-12 main__container">
     <div class="main__detail container">
-        <form class="form-horizontal" style="margin-top: 10px;">
-            <div class="form-group">
-                <label class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Tàu</label>
-                <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.ships.length}}</label>
+        <div>
+            <ul class="list-inline tvl-menu">
+                <li ng-click="vm.showAddShip()" class="tvl-menu__li" ng-class="{'tvl-menu__li--active': vm.pushDownSettings.mode.addShip}">
+                    <span class="glyphicon glyphicon-plus tvl-menu__li-icon "></span>Thêm
+                </li>
+                <li ng-click="vm.showEditShip()" class="tvl-menu__li" ng-class="{'tvl-menu__li--active': vm.pushDownSettings.mode.editShip}">
+                    <span class="glyphicon glyphicon-edit tvl-menu__li-icon "></span>Chỉnh Sửa
+                </li>
+            </ul>
+        </div>
+
+        <push-down ng-if="vm.pushDownSettings.isActive">
+            <add-ship ng-if="vm.pushDownSettings.mode.addShip" handle-after-save="vm.handleAfterSave(shipFromApi)" user="vm.currentUser"></add-ship>
+            <edit-ship ng-if="vm.pushDownSettings.mode.editShip" handle-after-save="vm.handleAfterEditShip(shipFromApi)" ships="vm.ships" user="vm.currentUser"></edit-ship>
+        </push-down>
+
+        <div class="ship-list">
+            <p class="ship-list__heading">Tổng số tàu hiện tại: {{vm.ships.length}}</p>
+            <div class="col-xs-6 col-sm-6 col-md-6" ng-repeat="ship in vm.ships">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-info">Mã tàu: {{ship.Id}}</li>
+                    <li class="list-group-item list-group-item-info">Loại tàu: {{ship.ShipType ===0 ? 'Tàu đánh cá': ship.ShipType}}</li>
+                    <li class="list-group-item list-group-item-info">Thuyền trưởng: {{ship.Caption}}</li>
+                    <li class="list-group-item list-group-item-info">Số thuyền viên: {{ship.Sailors}}</li>
+                    <li class="list-group-item list-group-item-info">Vận tốc: {{ship.Speed}}</li>
+                    <li class="list-group-item list-group-item-info">Trọng tải: {{ship.Weight}}</li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label for="inputEmail3" class="col-xs-3 col-sm-3 col-md-3 control-label">Mã Tàu</label>
-                <div class="col-xs-5 col-sm-5 col-md-5">
-                    <select class="form-control" ng-options="item as item.Id for item in vm.ships" ng-model="vm.selectedShip"></select>
-                </div>
-            </div>
-            <div ng-if="vm.selectedShip.Id">
-                <div class="form-group">
-                    <label for="shipCation" class="col-xs-3 col-sm-3 col-md-3 control-label">Thuyền Trưởng</label>
-                    <div class="col-xs-5 col-sm-5 col-md-5">
-                        <input id="shipCation" class="form-control" type="text" ng-model="vm.selectedShip.Caption">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="shipWeight" class="col-xs-3 col-sm-3 col-md-3 control-label">Trọng Tải</label>
-                    <label id="shipWeight" class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.Weight}} Kg</label>
-                </div>
-                <div class="form-group">
-                    <label for="shipSailors" class="col-xs-3 col-sm-3 col-md-3 control-label">Số Lượng Thuyền Viên</label>
-                    <div class="col-xs-5 col-sm-5 col-md-5">
-                        <input id="shipSailors" class="form-control" type="number" ng-model="vm.selectedShip.Sailors">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-xs-3 col-sm-3 col-md-3 control-label">Ngày Ra Khơi</label>
-                    <label class="col-xs-5 col-sm-5 col-md-5 control-label" style="text-align: left;">{{vm.selectedShip.SailedAt  |date: format: 'short'}}</label>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-3 col-sm-3 col-md-3"></div>
-                    <div class="col-xs-5 col-sm-5 col-md-5">
-                        <button ng-click="vm.updateShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95; background-color: white;">Lưu Thay Đổi</button>
-                        <button ng-click="vm.deleteShip()" class="login-page__form__button" style="border-color: #244f95; color: #244f95;">Xóa Tàu</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

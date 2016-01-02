@@ -29,7 +29,7 @@
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.success('Đăng ký tài khoản thành công');
 
-                $location.path('/login');
+                $location.path('/dang-nhap');
             }, function (error) {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 if (error.status === 400) {

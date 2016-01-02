@@ -1,0 +1,36 @@
+﻿<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-6 control-label push-down__heading">Chỉnh Sửa thông tin bão</label>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label push-down__label ">Mã cơn bão</label>
+        <div class="col-sm-5">
+            <select class="form-control" ng-options="item as item.Id for item in vm.storms" ng-model="vm.stormViewModel"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="stormRadius" class="col-sm-2 control-label push-down__label ">Bán kính</label>
+        <div class="col-sm-5">
+            <input type="number" class="form-control" id="stormRadius" placeholder="Bán kính" ng-model="vm.stormViewModel.Radius">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="stormLatitude" class="col-sm-2 control-label push-down__label ">Vĩ độ tâm bão</label>
+        <div class="col-sm-5">
+            <input type="number" class="form-control" id="stormLatitude" placeholder="Vĩ độ tâm bão" ng-model="vm.stormViewModel.Latitude">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="stormLongitude" class="col-sm-2 control-label push-down__label ">Kinh độ tâm bão</label>
+        <div class="col-sm-5">
+            <input type="number" class="form-control" id="stormLongitude" placeholder="Kinh độ tâm bão" ng-model="vm.stormViewModel.Longitude">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 pull-right">
+            <button class="btn btn-primary" ng-click="vm.editStorm()">Chỉnh sửa</button>
+            <button class="btn btn-warning" ng-click="vm.deleteStorm()">Xóa</button>
+            <button class="btn btn-danger" ng-click="vm.close()">Đóng</button>
+        </div>
+    </div>
+</form>

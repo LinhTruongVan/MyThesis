@@ -1,0 +1,30 @@
+﻿<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-6 control-label push-down__heading">Chỉnh Sửa Tàu</label>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label push-down__label ">Mã tàu</label>
+        <div class="col-sm-5">
+            <select class="form-control" ng-options="item as item.Id for item in vm.ships" ng-model="vm.shipViewModel"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="shipCaption" class="col-sm-2 control-label push-down__label ">Thuyền trưởng</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="shipCaption" placeholder="Họ tên thuyền trưởng" ng-model="vm.shipViewModel.Caption">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="shipSailors" class="col-sm-2 control-label push-down__label ">Số thuyền viên</label>
+        <div class="col-sm-5">
+            <input type="number" class="form-control" id="shipSailors" placeholder="Số lượng thuyền viên" ng-model="vm.shipViewModel.Sailors">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 pull-right">
+            <button class="btn btn-primary" ng-click="vm.editShip()">Chỉnh sửa</button>
+            <button class="btn btn-warning" ng-click="vm.deleteShip()">Xóa</button>
+            <button class="btn btn-danger" ng-click="vm.close()">Đóng</button>
+        </div>
+    </div>
+</form>
