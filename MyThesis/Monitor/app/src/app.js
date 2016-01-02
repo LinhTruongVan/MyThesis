@@ -10,7 +10,8 @@
             'ngSanitize',
             'ui.date',
             'timer',
-            'progress.bar'])
+            'progress.bar',
+            'ui.bootstrap.datetimepicker'])
         .config(['$routeProvider', 'usSpinnerConfigProvider', function ($routeProvider, usSpinnerConfigProvider) {
             $routeProvider
                  .when('/home', { templateUrl: 'src/home/home.html', controller: 'homeCtrl', controllerAs: 'vm' })

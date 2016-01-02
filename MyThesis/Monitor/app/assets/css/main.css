@@ -128,17 +128,15 @@
 
 .dropdown-form {
     position: absolute;
-    width: 50%;
     padding-top: 10px;
     padding-left: 50px;
     z-index: 1000;
 }
 
-.dropdown-form__list {
+.dropdown-form__content{
     padding: 20px;
     border-radius: 5px;
     background-color: #ffffff;
-    list-style: none;
     font-size: 14px;
 }
 
