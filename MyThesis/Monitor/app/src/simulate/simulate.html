@@ -27,11 +27,11 @@
         <p ng-bind-html="vm.warningMessageForStorm" ng-if="vm.warningMessageForStorm"></p>
     </div>
     <div class="" ng-class="{'col-xs-12 col-sm-12 col-md-12': !vm.warningMessage && !vm.warningMessage, 'col-xs-9 col-sm-9 col-md-9 big-col': vm.warningMessage || vm.warningMessage}">
-        <div id='legend' style='display:none;'>
+        <div id='legend' style='display: none;'>
             <strong>Chú thích:</strong>
             <nav class='legend clearfix'>
                 <span style='background: url("../../assets/img/ship-marker/green-2.png") no-repeat center;'></span>
-                <span style='background: url("../../assets/img/ship-marker/international-ship.png") no-repeat center; '></span>
+                <span style='background: url("../../assets/img/ship-marker/international-ship.png") no-repeat center;'></span>
                 <span style='background: url("../../assets/img/warning-location/reef.png") no-repeat center;'></span>
                 <span style='background: url("../../assets/img/warning-location/pirate-ship.png") no-repeat center;'></span>
                 <span style='background: url("../../assets/img/warning-location/china-ship.png") no-repeat center;'></span>
@@ -43,22 +43,10 @@
             </nav>
         </div>
         <div id="leaflet-map" class="leaflet-map">
-            <!--<div class="input-group" style="margin-left: 50px; margin-top: 10px;">
-                <div class="input-group-btn">
-                    <button style="border-radius: 5px;" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tốc độ mô phỏng <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <div ng-repeat="item in vm.speedLevels" style=" cursor: pointer;">
-                            <li ng-bind-template="Mức: {{item}}" style="padding-left: 10px;" ng-class="{'text-bold': item === vm.selectedSpeedValue}" ng-click="vm.applySpeedLevel(item)"></li>
-                            <li role="separator" class="divider"></li>
-                        </div>
-                    </ul>
-                </div>
-            </div>-->
             <div class="dropdown-form">
                 <button class="btn btn-primary" data-toggle="collapse" data-target=".nav-collapse" id="mainToggleButton">
                     Tùy chỉnh mô phỏng
                 </button>
-
                 <ng-progressbar ng-if="vm.progressBarSettings.isDisplay" type="info" max="{{vm.progressBarSettings.totalTimes}}" start="{{vm.progressBarSettings.isRunning}}" class="countdown__bar"></ng-progressbar>
                 <div class="nav-collapse collapse">
                     <div class="nav-collapse collapse">
@@ -83,12 +71,11 @@
                         </ul>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
-
 <div class="main__author">@Trương Văn Linh - Nguyễn Thành Vinh</div>
-
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="overlay" id="overlay" style="display: none;">
         <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinnerSearch" spinner-start-active="false"></span>

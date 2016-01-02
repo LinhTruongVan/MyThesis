@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
+using ApiServer.Models.Location;
 using ApiServer.Models.Ship;
 using ApiServer.Models.SummaryData;
 using ApiServer.Models.User;
@@ -29,7 +30,8 @@ namespace ApiServer.Controllers
                 WarningLocations = _context.WarningLocations.ToList(),
                 InternationShipData = _internationalShipService.GetInternationShipData(),
                 Storms = _context.Storms.ToList(),
-                WarningMessages = new List<string>()
+                WarningMessages = new List<string>(),
+                MalfunctionShipLocations = new List<ShipLocation>()
             };
 
             var ships = _context.Ships.Include(s => s.ShipLocations).ToList();
@@ -62,33 +64,38 @@ namespace ApiServer.Controllers
                     }
                 }
 
-                if(latestShipLocation.ShipStatus != ShipStatus.Normal) shipIdInDanger.Add(ship.Id);
+                if (latestShipLocation.ShipStatus != ShipStatus.Normal)
+                {
+                    shipIdInDanger.Add(ship.Id);
+                    summaryData.MalfunctionShipLocations.Add(latestShipLocation);
+                }
             }
 
             if (shipIdHasCollisionWithStorm.Count > 0)
             {
-                summaryData.WarningMessages.Add("Tàu(" + string.Join(",", shipIdHasCollisionWithStorm) + ") đang nằm trong khu vực nguy hiểm với bão lớn. Hãy cẩn thận!");
+                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(",", shipIdHasCollisionWithStorm) + "</strong>) đang nằm trong khu vực nguy hiểm với bão lớn. Hãy cẩn thận!");
             }
 
             if (shipIdHasCollisionWithInternationalShip.Count > 0)
             {
-                summaryData.WarningMessages.Add("Tàu(" + string.Join(",", shipIdHasCollisionWithInternationalShip) + ") đang hoạt động gần tàu quốc tế. Hãy cẩn thận để tránh va chạm!");
+                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(",", shipIdHasCollisionWithInternationalShip) + "</strong>) đang hoạt động gần tàu quốc tế. Hãy cẩn thận để tránh va chạm!");
             }
 
             if (shipIdInDanger.Count > 0)
             {
-                summaryData.WarningMessages.Add("Tàu(" + string.Join(",", shipIdInDanger) + ") đang gặp sự cố trên biển, cần sự giúp đỡ!");
+                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(",", shipIdInDanger) + "</strong>) đang gặp sự cố trên biển, cần sự giúp đỡ:");
             }
 
-            if (user.UserRole == UserRole.User)
+            switch (user.UserRole)
             {
-                summaryData.Ships = ships.Where(s => s.UserId == user.Id).ToList();
-                summaryData.Users = new List<User>() {user};
-            }
-            else if (user.UserRole == UserRole.Admin)
-            {
-                summaryData.Ships = ships;
-                summaryData.Users = _context.Users.ToList();
+                case UserRole.User:
+                    summaryData.Ships = ships.Where(s => s.UserId == user.Id).ToList();
+                    summaryData.Users = new List<User>() {user};
+                    break;
+                case UserRole.Admin:
+                    summaryData.Ships = ships;
+                    summaryData.Users = _context.Users.ToList();
+                    break;
             }
 
             return Ok(summaryData);

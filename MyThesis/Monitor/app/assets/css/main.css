@@ -156,3 +156,7 @@
     top: 17px;
     left: 220px;
 }
+.home__warning-message-container {
+    height: 525px;
+    overflow-y: auto;
+}

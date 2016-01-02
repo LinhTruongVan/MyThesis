@@ -1,0 +1,10 @@
+E:\MyThesis\MyThesis\InternationalShipBuilder\bin\Debug\InternationalShipBuilder.exe.config
+E:\MyThesis\MyThesis\InternationalShipBuilder\bin\Debug\InternationalShipBuilder.exe
+E:\MyThesis\MyThesis\InternationalShipBuilder\bin\Debug\InternationalShipBuilder.pdb
+E:\MyThesis\MyThesis\InternationalShipBuilder\bin\Debug\Newtonsoft.Json.dll
+E:\MyThesis\MyThesis\InternationalShipBuilder\bin\Debug\System.Net.Http.Formatting.dll
+E:\MyThesis\MyThesis\InternationalShipBuilder\bin\Debug\Newtonsoft.Json.xml
+E:\MyThesis\MyThesis\InternationalShipBuilder\bin\Debug\System.Net.Http.Formatting.xml
+E:\MyThesis\MyThesis\InternationalShipBuilder\obj\Debug\InternationalShipBuilder.csprojResolveAssemblyReference.cache
+E:\MyThesis\MyThesis\InternationalShipBuilder\obj\Debug\InternationalShipBuilder.exe
+E:\MyThesis\MyThesis\InternationalShipBuilder\obj\Debug\InternationalShipBuilder.pdb

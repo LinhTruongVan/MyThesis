@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiServer", "ApiServer\ApiS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownloadFile", "DownloadFile\DownloadFile.csproj", "{C441F610-4DBC-47C7-B530-BA209D9F2886}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternationalShipBuilder", "InternationalShipBuilder\InternationalShipBuilder.csproj", "{19305146-F8BF-4C88-B1E5-ADF46B9BEE36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C441F610-4DBC-47C7-B530-BA209D9F2886}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C441F610-4DBC-47C7-B530-BA209D9F2886}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C441F610-4DBC-47C7-B530-BA209D9F2886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19305146-F8BF-4C88-B1E5-ADF46B9BEE36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19305146-F8BF-4C88-B1E5-ADF46B9BEE36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19305146-F8BF-4C88-B1E5-ADF46B9BEE36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19305146-F8BF-4C88-B1E5-ADF46B9BEE36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

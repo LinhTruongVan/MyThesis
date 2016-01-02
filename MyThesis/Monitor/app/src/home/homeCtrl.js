@@ -15,6 +15,7 @@
         vm.leafletMap = {};
         vm.intervalForReloadData = {};
         vm.warningMessages = [];
+        vm.malfunctionShipLocations = [];
 
         vm.logout = logout;
 
@@ -71,6 +72,8 @@
                 var summaryData = response.data;
 
                 vm.warningMessages = response.data.WarningMessages;
+                vm.malfunctionShipLocations = response.data.MalfunctionShipLocations;
+
                 vm.overlayLayers = [
                      {
                          groupName: "Thời tiết",

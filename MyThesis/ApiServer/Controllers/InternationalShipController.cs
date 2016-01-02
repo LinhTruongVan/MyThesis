@@ -1,12 +1,10 @@
 ﻿using System.Web.Http;
-using System.Web.Routing;
 using ApiServer.Models.Ship;
-using ApiServer.Services;
 using ServerApi.DAL;
 
 namespace ApiServer.Controllers
 {
-    [RoutePrefix("api/internation-ship-data")]
+    [RoutePrefix("api/international-ship-data")]
     public class InternationalShipController:ApiController
     {
         private readonly ThesisContext _context = new ThesisContext();

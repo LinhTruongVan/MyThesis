@@ -22,8 +22,17 @@
 
 <div class="col-xs-12 col-sm-12 col-md-12 main__container">
     <div class="col-xs-3 col-sm-3 col-md-3 small-col" ng-if="vm.warningMessages.length > 0">
-        <div class="home__warning-title">Cảnh Báo</div>
-        <p ng-repeat="item in vm.warningMessages" ng-bind="item"></p>
+        <div class="home__warning-message-container">
+            <div class="home__warning-title">Cảnh Báo</div>
+            <p ng-repeat="item in vm.warningMessages" ng-bind-html="item"></p>
+            <ul>
+                <li ng-repeat="malfunctionItem in vm.malfunctionShipLocations">
+                    <div>Mã tàu: {{malfunctionItem.ShipId}}</div>
+                    <div>Vĩ độ: {{malfunctionItem.Latitude}}</div>
+                    <div>Kinh độ: {{malfunctionItem.Longitude}}</div>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="" ng-class="{'col-xs-12 col-sm-12 col-md-12': vm.warningMessages.length <= 0, 'col-xs-9 col-sm-9 col-md-9 big-col': vm.warningMessages.length > 0}">
         <div id='legend' style='display:none;'>
