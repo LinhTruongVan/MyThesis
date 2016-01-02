@@ -30,7 +30,7 @@
         <div id='legend' style='display: none;'>
             <strong>Chú thích:</strong>
             <nav class='legend clearfix'>
-                <span style='background: url("../../assets/img/ship-marker/green-2.png") no-repeat center;'></span>
+                <span style='background: url("../../assets/img/ship-marker/moving-2.png") no-repeat center;'></span>
                 <span style='background: url("../../assets/img/ship-marker/international-ship.png") no-repeat center;'></span>
                 <span style='background: url("../../assets/img/warning-location/reef.png") no-repeat center;'></span>
                 <span style='background: url("../../assets/img/warning-location/pirate-ship.png") no-repeat center;'></span>
@@ -45,7 +45,7 @@
         <div id="leaflet-map" class="leaflet-map">
             <div class="dropdown-form">
                 <button class="btn btn-primary" data-toggle="collapse" data-target=".nav-collapse" id="mainToggleButton">
-                    Tùy chỉnh mô phỏng
+                    <span class="glyphicon glyphicon-cog"></span> Tùy chỉnh mô phỏng
                 </button>
                 <ng-progressbar ng-if="vm.progressBarSettings.isDisplay" type="info" max="{{vm.progressBarSettings.totalTimes}}" start="{{vm.progressBarSettings.isRunning}}" class="countdown__bar"></ng-progressbar>
                 <div class="nav-collapse collapse">
