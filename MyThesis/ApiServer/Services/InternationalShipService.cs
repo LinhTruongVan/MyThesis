@@ -25,7 +25,10 @@ namespace ApiServer.Services
                 var latestInternationalShip = (from c in _context.InternationalShips
                                                orderby c.Id descending 
                                                select c).FirstOrDefault();
-                if(latestInternationalShip == null) return new InternationShipData();
+                if(latestInternationalShip == null) return new InternationShipData()
+                {
+                    Data = new List<float[]>()
+                };
 
                 var tempObject = JsonConvert.DeserializeObject<JObject>(latestInternationalShip.Data);
 
@@ -36,7 +39,10 @@ namespace ApiServer.Services
             }
             catch (IOException error)
             {
-                return new InternationShipData();
+                return new InternationShipData()
+                {
+                    Data = new List<float[]>()
+                };
             }
         }
     }

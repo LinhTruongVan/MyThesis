@@ -17,6 +17,10 @@ namespace ApiServer.Controllers
         {
             try
             {
+                if (warningLocation.UserId == null || warningLocation.UserId == 0)
+                {
+                    warningLocation.UserId = 1;
+                }
                 _context.WarningLocations.Add(warningLocation);
                 _context.SaveChanges();
 
@@ -44,6 +48,49 @@ namespace ApiServer.Controllers
             }
         }
 
+        [Route("{warningId}")]
+        [HttpDelete]
+        public IHttpActionResult Delete(int warningId)
+        {
+            try
+            {
+                var warning = _context.WarningLocations.FirstOrDefault(w => w.Id == warningId);
+                if (warning == null) return NotFound();
+
+                _context.WarningLocations.Remove(warning);
+                _context.SaveChanges();
+
+                return Ok(warning);
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
+
+        [Route("{warningId}")]
+        [HttpPut]
+        public IHttpActionResult Update(int warningId, [FromBody] WarningLocation updatedWarning)
+        {
+            try
+            {
+                var warning = _context.WarningLocations.FirstOrDefault(w => w.Id == warningId);
+                if (warning == null) return NotFound();
+
+                warning.Latitude = updatedWarning.Latitude;
+                warning.Longitude = updatedWarning.Longitude;
+                warning.WarningLocationType = updatedWarning.WarningLocationType;
+                warning.Description = updatedWarning.Description;
+
+                _context.SaveChanges();
+
+                return Ok(warning);
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
+            }
+        }
 
     }
 

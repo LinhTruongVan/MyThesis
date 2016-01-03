@@ -207,6 +207,88 @@ namespace ApiServer.Migrations
                 context.SaveChanges();
             }
 
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 7.885147,
+                Longitude = 108.160400,
+                WarningLocationType = WarningLocationType.Reef
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 6.599131,
+                Longitude = 105.963135,
+                WarningLocationType = WarningLocationType.Reef
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 9.795678,
+                Longitude = 108.995361,
+                WarningLocationType = WarningLocationType.Reef
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 15.284185,
+                Longitude = 109.237061,
+                WarningLocationType = WarningLocationType.Reef
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 11.996338,
+                Longitude = 114.071045,
+                WarningLocationType = WarningLocationType.ChinaShip
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 11.350797,
+                Longitude = 113.763428,
+                WarningLocationType = WarningLocationType.ChinaShip
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 13.111580,
+                Longitude = 114.840088,
+                WarningLocationType = WarningLocationType.ChinaShip
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 5.112830,
+                Longitude = 107.874756,
+                WarningLocationType = WarningLocationType.Pirate
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 5.637853,
+                Longitude = 104.666748,
+                WarningLocationType = WarningLocationType.Pirate
+            });
+            context.WarningLocations.Add(new WarningLocation()
+            {
+                UserId = 1,
+                CreatedAt = DateTime.Now,
+                Latitude = 6.249776,
+                Longitude = 103.634033,
+                WarningLocationType = WarningLocationType.Pirate
+            });
+            context.SaveChanges();
+
         }
     }
 }

@@ -30,3 +30,5 @@ E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb2.resource
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.createDb3.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.GenerateLocations.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.internationalShip.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initWarning.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initWarning1.resources

@@ -24,7 +24,34 @@
 
 <div class="col-xs-12 col-sm-12 col-md-12 main__container">
     <div class="main__detail container">
-        
+        <div>
+            <ul class="list-inline tvl-menu">
+                <li ng-click="vm.showAddWarning()" class="tvl-menu__li" ng-class="{'tvl-menu__li--active': vm.pushDownSettings.mode.addWarning}">
+                    <span class="glyphicon glyphicon-plus tvl-menu__li-icon "></span>Thêm
+                </li>
+                <li ng-click="vm.showEditWarning()" class="tvl-menu__li" ng-class="{'tvl-menu__li--active': vm.pushDownSettings.mode.editWarning}">
+                    <span class="glyphicon glyphicon-edit tvl-menu__li-icon "></span>Chỉnh Sửa
+                </li>
+            </ul>
+        </div>
+
+        <push-down ng-if="vm.pushDownSettings.isActive">
+            <add-warning ng-if="vm.pushDownSettings.mode.addWarning" handle-after-save="vm.handleAfterSave(warningFromApi)"></add-warning>
+            <edit-warning ng-if="vm.pushDownSettings.mode.editWarning" handle-after-save="vm.handleAfterEditWarning(warningFromApi)" warnings="vm.warnings"></edit-warning>
+        </push-down>
+
+        <div class="ship-list">
+            <p class="ship-list__heading">Tổng số cảnh báo hiện tại: {{vm.warnings.length}}</p>
+            <div class="col-xs-6 col-sm-6 col-md-6" ng-repeat="warning in vm.warnings">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-info">Mã cảnh báo: {{warning.Id}}</li>
+                    <li class="list-group-item list-group-item-info">Loại cảnh báo: {{warning.displayType}}</li>
+                    <li class="list-group-item list-group-item-info">Vĩ độ: {{warning.Latitude}}</li>
+                    <li class="list-group-item list-group-item-info">Kinh độ: {{warning.Longitude}}</li>
+                    <li class="list-group-item list-group-item-info">Mô tả chi tiết: {{warning.Description}}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
