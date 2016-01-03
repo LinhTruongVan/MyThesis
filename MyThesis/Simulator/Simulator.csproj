@@ -60,6 +60,7 @@
     <Content Include="app\assets\css\home.css" />
     <Content Include="app\assets\css\ship-container.css" />
     <Content Include="app\assets\css\push-down.css" />
+    <Content Include="app\assets\images\logo.png" />
     <Content Include="app\src\addShip\createShipDialogSvc.js" />
     <Content Include="app\src\editSettings\edit-settings.html" />
     <Content Include="app\src\editSettings\edit-settings.js" />

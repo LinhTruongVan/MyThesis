@@ -57,7 +57,7 @@ namespace ApiServer.Controllers
                 foreach (var stormLocation in summaryData.Storms)
                 {
                     if (_summaryDataService.IsInDanger(latestShipLocation.Latitude, latestShipLocation.Longitude,
-                        stormLocation.Latitude, stormLocation.Longitude, 20 + stormLocation.Radius/1000))
+                        stormLocation.Latitude, stormLocation.Longitude, 20 + stormLocation.Radius))
                     {
                         shipIdHasCollisionWithStorm.Add(ship.Id);
                         break;

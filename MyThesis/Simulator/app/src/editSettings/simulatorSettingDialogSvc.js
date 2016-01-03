@@ -5,8 +5,8 @@
 
     function simulatorSettingDialogSvc() {
         var settingTimeout = {
-            updateLocation: 10,
-            sendLocation: 10
+            updateLocation: 900000,
+            sendLocation: 900000
         };
 
         var service = {

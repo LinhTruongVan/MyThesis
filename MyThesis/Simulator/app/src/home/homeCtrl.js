@@ -33,11 +33,11 @@
         function setupDataForShips() {
             spinnerUtilSvc.showSpinner('spinnerSearch', vm.overlay);
             shipDataSvc.getAllShips().then(function (response) {
-                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
-                toastr.success('Tải danh sách tàu thành công!');
-
                 homeSvc.setShips(response.data);
                 vm.ships = homeSvc.getShips();
+
+                spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
+                toastr.success('Tải danh sách tàu thành công!');
             }, function () {
                 spinnerUtilSvc.hideSpinner('spinnerSearch', vm.overlay);
                 toastr.error('Tải danh sách tàu không thành công!');

@@ -11,14 +11,12 @@
     function shipCtrl($scope, $interval, spinnerUtilSvc, simulatorSettingDialogSvc, shipDataSvc,
         latlongUtilSvc, homeSvc, settingConst) {
         var vm = this;
+        vm.overlay = $scope.overlay;
 
         vm.shipInfo = $scope.shipInfo;
         vm.shipIndex = $scope.shipIndex;
         vm.currentMovingAngle = 90;
         vm.settingTimeout = simulatorSettingDialogSvc.getSettingTimeout();
-        vm.isMoving = true;
-
-        vm.overlay = $scope.overlay;
 
         vm.sendLocation = sendLocation;
         vm.autoSendLocation = autoSendLocation;
@@ -30,7 +28,10 @@
 
         function init() {
             setupShip();
-            vm.autoSendLocationStatus = true;
+            //vm.isMoving = true;
+            //vm.autoSendLocationStatus = true;
+            vm.isMoving = false;
+            vm.autoSendLocationStatus = false;
 
             $scope.$watch('vm.settingTimeout.updateLocation', function() {
                 autoUpdateLocation();
