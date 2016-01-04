@@ -73,17 +73,17 @@ namespace ApiServer.Controllers
 
             if (shipIdHasCollisionWithStorm.Count > 0)
             {
-                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(",", shipIdHasCollisionWithStorm) + "</strong>) đang nằm trong khu vực nguy hiểm với bão lớn. Hãy cẩn thận!");
+                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(", ", shipIdHasCollisionWithStorm) + "</strong>) đang nằm trong khu vực nguy hiểm với bão lớn. Hãy cẩn thận!");
             }
 
             if (shipIdHasCollisionWithInternationalShip.Count > 0)
             {
-                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(",", shipIdHasCollisionWithInternationalShip) + "</strong>) đang hoạt động gần tàu quốc tế. Hãy cẩn thận để tránh va chạm!");
+                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(", ", shipIdHasCollisionWithInternationalShip) + "</strong>) đang hoạt động gần tàu quốc tế. Hãy cẩn thận để tránh va chạm!");
             }
 
             if (shipIdInDanger.Count > 0)
             {
-                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(",", shipIdInDanger) + "</strong>) đang gặp sự cố trên biển, cần sự giúp đỡ:");
+                summaryData.WarningMessages.Add("Tàu(<strong>" + string.Join(", ", shipIdInDanger) + "</strong>) đang gặp sự cố trên biển, cần sự giúp đỡ:");
             }
 
             switch (user.UserRole)

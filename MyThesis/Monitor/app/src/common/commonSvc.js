@@ -147,8 +147,13 @@
                 var markers = {};
 
                 var customIcon = L.icon({
-                    iconUrl: '../../assets/img/ship-marker/moving.png',
-                    iconSize: [25, 30]
+                    iconUrl: '../../assets/img/ship-marker/normal-ship.png',
+                    iconSize: [12, 12]
+                });
+                
+                var customIcon2 = L.icon({
+                    iconUrl: '../../assets/img/ship-marker/malfunction-ship.png',
+                    iconSize: [12, 12]
                 });
 
                 ships.forEach(function (ship) {
@@ -162,6 +167,7 @@
                     });
 
                     var movingMarker = L.Marker.movingMarker(shipLocations, runningTimes, { loop: false, autostart: true }).bindPopup(htmlPopup);
+
                     movingMarker.setIcon(customIcon);
                     movingMarker.openPopup();
 
@@ -202,7 +208,7 @@
             function setupInternationShipMarkers() {
                 var customIcon = L.icon({
                     iconUrl: '../../assets/img/ship-marker/international-ship.png',
-                    iconSize: [11, 12]
+                    iconSize: [12, 12]
                 });
 
                 shipLocations.forEach(function (location) {
@@ -233,13 +239,13 @@
 
             function setupShipLocationMarkers() {
                 var customIcon = L.icon({
-                    iconUrl: '../../assets/img/ship-marker/green-2.png',
-                    iconSize: [12, 20]
+                    iconUrl: '../../assets/img/ship-marker/normal-ship.png',
+                    iconSize: [12, 12]
                 });
 
                 var customIcon2 = L.icon({
-                    iconUrl: '../../assets/img/ship-marker/red-2.png',
-                    iconSize: [12, 20]
+                    iconUrl: '../../assets/img/ship-marker/malfunction-ship.png',
+                    iconSize: [12, 12]
                 });
 
                 var shipMarkers = getAllShipLocationMarkers();
