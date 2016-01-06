@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace ApiServer.Services
 {
@@ -48,6 +49,20 @@ namespace ApiServer.Services
                     distRatioCosine - startLatSin * Math.Sin(endLatRads));
 
             return new SimpleLocation(RadiansToDegrees(endLatRads), RadiansToDegrees(endLonRads));
+        }
+
+        public JArray GetRandomInternationalShipLocation()
+        {
+            var location = new JArray();
+            var rnd = new Random();
+            var numberOfLocations = rnd.Next(10, 20);
+
+            for (var i=0; i<numberOfLocations; i++)
+            {
+                location.Add(new JArray(16 - (float)3 * rnd.Next(0, 256) / 128, 110 + (float)3 * rnd.Next(0, 256) / 128));
+            }
+
+            return location;
         }
     }
 }

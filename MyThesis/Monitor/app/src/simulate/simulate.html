@@ -51,11 +51,6 @@
                 <ng-progressbar ng-if="vm.progressBarSettings.isDisplay" type="info" max="{{vm.progressBarSettings.totalTimes}}" start="{{vm.progressBarSettings.isRunning}}" class="countdown__bar"></ng-progressbar>
                 <div class="nav-collapse collapse">
                     <div class="nav-collapse collapse">
-                        <!--<ul class="dropdown-form__list">
-                            <li class="active">
-
-                            </li>
-                        </ul>-->
                         <form class="dropdown-form__content">
                             <div class="form-group">
                                 <label for="timer">Tổng thời gian mô phỏng (đơn vị giây)</label>
@@ -86,6 +81,21 @@
                                                 show-spinners="false"
                                                 readonly-time="false"
                                                 current-text="Ngày hiện tại" close-text="Chọn" clear-text="Xóa"></datetimepicker>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tùy chọn</label> 
+                                <div class="checkbox" style="margin-top: 0;">
+                                    <label>
+                                        <input type="checkbox" ng-model="vm.simulateSettings.displayShip"> Tàu đánh cá của ngư dân
+                                    </label>
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="vm.simulateSettings.displayInternationalShip"> Tàu quốc tế, viễn dương
+                                    </label>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary" ng-click="vm.applySettings()">Áp dụng</button>
                         </form>

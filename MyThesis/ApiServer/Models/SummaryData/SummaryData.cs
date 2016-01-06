@@ -9,7 +9,8 @@ namespace ApiServer.Models.SummaryData
         public List<Ship.Ship> Ships { get; set; }
         public List<User.User> Users { get; set; }
         public List<WarningLocation> WarningLocations { get; set; }
-        public InternationShipData InternationShipData { get; set; }
+        public List<InternationShipData> InternationShipData { get; set; }
+        public InternationShipData LastInternationShipData { get; set; }
         public List<Storm.Storm> Storms { get; set; }
         public List<string> WarningMessages { get; set; }
         public List<ShipLocation> MalfunctionShipLocations { get; set; }

@@ -5,6 +5,8 @@ using ApiServer.Models.Location;
 using ApiServer.Models.Ship;
 using ApiServer.Models.User;
 using ApiServer.Services;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ApiServer.Migrations
 {
@@ -71,7 +73,7 @@ namespace ApiServer.Migrations
 
             var shipSpeeds = new List<int>() { 20, 25, 30, 40, 50 };
             var shipWeights = new List<int>() { 1000, 1200, 1500, 1600, 2000 };
-            var shipSailedTimestamp = new DateTime(2015, 12, 29);
+            var shipSailedTimestamp = new DateTime(2016, 1, 5);
             var shipCaptions = new List<string>()
             {
                 "BÙI THANH NAM", "BÙI THẾ NAM", "BÙI TRUNG NAM", "BÙI TIẾN NAM", "CAO VĂN NAM",
@@ -158,9 +160,9 @@ namespace ApiServer.Migrations
                 var currentShip = myShips[m];
                 var currentLatitude = latitudes[m];
                 var currentLongitude = longitudes[m];
-                var currentSailedTime = new DateTime(2015, 12, 29, 7, 30, 0);
+                var currentSailedTime = new DateTime(2016, 1, 5, 7, 30, 0);
 
-                var currentAngles = new List<int>(){90,80,70,100,110};
+                var currentAngles = new List<int>() { 90, 80, 70, 100, 110 };
 
                 for (var i = 0; i < 25; i++)
                 {
@@ -183,9 +185,9 @@ namespace ApiServer.Migrations
 
                 }
 
-                for (var i = 0; i < 25; i++)
+                for (var i = 0; i < 75; i++)
                 {
-                    var tempAngle = currentAngles[rnd.Next(0,5)];
+                    var tempAngle = currentAngles[rnd.Next(0, 5)];
                     context.ShipLocations.Add(new ShipLocation()
                     {
                         ShipId = currentShip.Id,
@@ -287,6 +289,19 @@ namespace ApiServer.Migrations
                 Longitude = 103.634033,
                 WarningLocationType = WarningLocationType.Pirate
             });
+            context.SaveChanges();
+
+            var currentInternationShipTime = new DateTime(2016, 1, 5, 7, 30, 0);
+            for (var m = 0; m < 100; m++)
+            {
+                var tempInternationShip = new InternationalShip()
+                {
+                    CreatedAt = currentInternationShipTime,
+                    Data = JsonConvert.SerializeObject(new JObject(new JProperty("data", _generateShipLocationService.GetRandomInternationalShipLocation())))
+                };
+                currentInternationShipTime = currentInternationShipTime.AddMinutes(30);
+                context.InternationalShips.Add(tempInternationShip);
+            }
             context.SaveChanges();
 
         }

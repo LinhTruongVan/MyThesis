@@ -155,6 +155,10 @@
     <Compile Include="Migrations\201601030134144_initWarning1.Designer.cs">
       <DependentUpon>201601030134144_initWarning1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601060815182_initInternationshipData.cs" />
+    <Compile Include="Migrations\201601060815182_initInternationshipData.Designer.cs">
+      <DependentUpon>201601060815182_initInternationshipData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Location\Location.cs" />
     <Compile Include="Models\Location\ShipLocation.cs" />
@@ -223,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601030134144_initWarning1.resx">
       <DependentUpon>201601030134144_initWarning1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601060815182_initInternationshipData.resx">
+      <DependentUpon>201601060815182_initInternationshipData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

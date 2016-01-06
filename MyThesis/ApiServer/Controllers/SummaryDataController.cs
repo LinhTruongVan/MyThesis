@@ -28,7 +28,8 @@ namespace ApiServer.Controllers
             var summaryData = new SummaryData()
             {
                 WarningLocations = _context.WarningLocations.ToList(),
-                InternationShipData = _internationalShipService.GetInternationShipData(),
+                InternationShipData = _internationalShipService.GetAll(),
+                LastInternationShipData = _internationalShipService.GetInternationShipData(),
                 Storms = _context.Storms.ToList(),
                 WarningMessages = new List<string>(),
                 MalfunctionShipLocations = new List<ShipLocation>()
@@ -39,12 +40,14 @@ namespace ApiServer.Controllers
             var shipIdHasCollisionWithInternationalShip = new List<int>();
             var shipIdHasCollisionWithStorm = new List<int>();
             var shipIdInDanger = new List<int>();
+            
+
             foreach (var ship in ships)
             {
                 var latestShipLocation = ship.ShipLocations.LastOrDefault();
                 if(latestShipLocation == null) continue;
 
-                foreach (var internationalShipLocation in summaryData.InternationShipData.Data)
+                foreach (var internationalShipLocation in summaryData.LastInternationShipData.Data)
                 {
                     if (_summaryDataService.IsInDanger(latestShipLocation.Latitude, latestShipLocation.Longitude,
                         internationalShipLocation[0], internationalShipLocation[1], 10))

@@ -32,3 +32,4 @@ E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.GenerateLocations.
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.internationalShip.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initWarning.resources
 E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initWarning1.resources
+E:\MyThesis\MyThesis\ApiServer\obj\Debug\ApiServer.Migrations.initInternationshipData.resources

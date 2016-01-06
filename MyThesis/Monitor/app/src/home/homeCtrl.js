@@ -81,7 +81,7 @@
                      },
                       {
                           groupName: "Tàu quốc tế",
-                          layers: commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data)
+                          layers: commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.LastInternationShipData.Data)
                       },
                       {
                           groupName: "Tàu",
@@ -156,7 +156,7 @@
                      },
                       {
                           groupName: "Tàu quốc tế",
-                          layers: commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.InternationShipData.Data)
+                          layers: commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, summaryData.LastInternationShipData.Data)
                       },
                       {
                           groupName: "Tàu",

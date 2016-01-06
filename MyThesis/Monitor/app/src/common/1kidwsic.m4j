@@ -229,6 +229,38 @@
             }
         }
 
+        function getOverlayInternationalShipLocationLayers(leafletMap, shipLocations) {
+            var layerGroup = {
+                'Tàu quốc tế': new L.LayerGroup()
+            }
+
+            setupInternationShipMarkers();
+
+            return layerGroup;
+
+            function setupInternationShipMarkers() {
+                var customIcon = L.icon({
+                    iconUrl: '../../assets/img/ship-marker/international-ship.png',
+                    iconSize: [12, 12]
+                });
+
+                shipLocations.forEach(function (location) {
+                    var htmlPopup = getInternationShipPopup(location);
+                    L.marker(location, { icon: customIcon }).bindPopup(htmlPopup).addTo(layerGroup['Tàu quốc tế']);
+                });
+            }
+
+            function getInternationShipPopup(shipLocation) {
+                var htmlBuilder = '';
+
+                htmlBuilder += '<div><strong>Tàu quốc tế</strong></div>';
+                htmlBuilder += '<div><strong>Vĩ độ: </strong>' + shipLocation[0] + '</div>';
+                htmlBuilder += '<div><strong>Kinh độ: </strong>' + shipLocation[1] + '</div>';
+
+                return htmlBuilder;
+            }
+        }
+
         function getOverlayShipLocationLayersForMonitor(leafletMap, ships) {
             var layerGroup = {
                 'Tất cả': new L.LayerGroup()

@@ -5,9 +5,9 @@
         .module('app')
         .controller('simulateCtrl', simulateCtrl);
 
-    simulateCtrl.$inject = ['userSvc', '$location', 'spinnerUtilSvc', 'commonDataSvc', 'commonSvc', '$timeout', '$interval'];
+    simulateCtrl.$inject = ['userSvc', '$location', 'spinnerUtilSvc', 'commonDataSvc', 'commonSvc', '$timeout'];
 
-    function simulateCtrl(userSvc, $location, spinnerUtilSvc, commonDataSvc, commonSvc, $timeout, $interval) {
+    function simulateCtrl(userSvc, $location, spinnerUtilSvc, commonDataSvc, commonSvc, $timeout) {
         var vm = this;
 
         vm.overlay = angular.element(document.querySelector('#overlay'));
@@ -75,7 +75,7 @@
                     }
                 ];
 
-                //vm.internationalShipLocationLayers = commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, vm.summaryData.LastInternationShipData.Data);
+                vm.internationalShipLocationLayers = commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, vm.summaryData.LastInternationShipData.Data);
                 //vm.shipLocationLayersForSimulate = commonSvc.getOverlayShipLocationLayersForSimulate(vm.leafletMap, vm.summaryData.Ships, vm.selectedSpeedValue);
                 vm.overlayStormLayers = commonSvc.getOverlayStormLayers(vm.leafletMap, vm.summaryData.Storms);
                 vm.overlayWarningLocationLayers = commonSvc.getOverlayWarningLocationLayers(vm.summaryData.WarningLocations);
@@ -123,8 +123,6 @@
         function applySettings() {
             $timeout.cancel(mainTimer.Ship);
             $timeout.cancel(mainTimer.progressBar);
-            $timeout.cancel(mainTimer.internationalShip2);
-            $interval.cancel(mainTimer.internationalShip);
 
             if (!validateSimluateSettings()) return;
             if (!vm.simulateSettings.displayShip && !vm.simulateSettings.displayInternationalShip) {
@@ -136,10 +134,8 @@
                 for (var key in vm.overlayLayers[0].layers) {
                     if (vm.leafletMap.hasLayer(vm.overlayLayers[0].layers[key])) vm.leafletMap.removeLayer(vm.overlayLayers[0].layers[key]);
                 }
-                if (vm.hasMapControl) {
-                    vm.leafletMap.removeControl(vm.styledLayerControl);
-                    vm.hasMapControl = false;
-                }
+                //vm.leafletMap.removeControl(vm.styledLayerControl);
+                console.log(vm.styledLayerControl);
             }
 
             var filterInternationalShips = commonSvc.getInternationalShipAfterFilterOut(vm.summaryData.InternationShipData, vm.simulateSettings);
@@ -152,9 +148,6 @@
 
             simulateShip(finalMinTime);
             simulateInternationalShip(finalMinTime);
-
-            vm.progressBarSettings.totalTimes = vm.simulateSettings.totalTime;
-            vm.progressBarSettings.isDisplay = false;
 
             mainTimer.progressBar = $timeout(function () {
                 vm.progressBarSettings.isDisplay = true;
@@ -171,7 +164,9 @@
 
                 vm.styledLayerControl = L.Control.styledLayerControl(vm.baseMaps, vm.overlayLayers, vm.options);
                 vm.leafletMap.addControl(vm.styledLayerControl);
-                vm.hasMapControl = true;
+
+                vm.progressBarSettings.totalTimes = vm.simulateSettings.totalTime;
+                vm.progressBarSettings.isDisplay = false;
 
                 mainTimer.Ship = $timeout(function () {
                     vm.leafletMap.addLayer(vm.overlayLayers[0].layers['Tất cả']);
@@ -179,26 +174,7 @@
             }
 
             function simulateInternationalShip(timeOfInternationalShip) {
-                if (vm.internationalShipLocationLayers && vm.leafletMap.hasLayer(vm.internationalShipLocationLayers['Tàu quốc tế']))
-                    vm.leafletMap.removeLayer(vm.internationalShipLocationLayers['Tàu quốc tế']);
-                if (!vm.simulateSettings.displayInternationalShip || filterInternationalShips.length <= 0) return;
-
-                var count = 0;
-                mainTimer.internationalShip2 = $timeout(function() {
-                    mainTimer.internationalShip = $interval(function () {
-                        if (count === filterInternationalShips.length) {
-                            $interval.cancel(mainTimer.internationalShip);
-                            return;
-                        }
-                        if (vm.internationalShipLocationLayers && vm.leafletMap.hasLayer(vm.internationalShipLocationLayers['Tàu quốc tế']))
-                            vm.leafletMap.removeLayer(vm.internationalShipLocationLayers['Tàu quốc tế']);
-                        vm.internationalShipLocationLayers = commonSvc.getOverlayInternationalShipLocationLayers(vm.leafletMap, filterInternationalShips[count].Data);
-                        vm.internationalShipLocationLayers['Tàu quốc tế'].addTo(vm.leafletMap);
-                        count++;
-                    }, timeOfInternationalShip * 1000);
-                }, 500);
-               
-
+                if (vm.simulateSettings.displayInternationalShip) return;
             }
 
             function getMinTimeOfShip(currentShips, totalTime) {
